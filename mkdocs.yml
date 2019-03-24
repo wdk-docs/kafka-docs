@@ -1,0 +1,139 @@
+site_name: 卡夫卡文档
+site_description: 卡夫卡文档
+site_author: Nosy
+copyright: '版权 &copy; 2017 - 2018 wohugb.github.io'
+
+repo_name: kafka-docs
+repo_url: https://github.com/wohugb/kafka-docs
+edit_uri: ""
+
+theme:
+  name: material
+
+  include_search_page: false
+  search_index_only: true
+
+  language: zh
+  feature:
+    tabs: true
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  logo:
+    icon: "\uE80C"
+  extra_css: [assets/stylesheets/extra.css]
+extra:
+  search:
+    language: 'jp'
+  social:
+    - type: globe
+      link: http://wohugb.github.io
+    - type: github-alt
+      link: https://github.com/wohugb
+    - type: twitter
+      link: https://twitter.com/wohugb
+    - type: linkedin
+      link: https://linkedin.com/in/wohugb
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: false
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+
+pages:
+  - 概述: index.md
+  - mns:
+    - 概述: mns/index.md
+    - ali-mns: mns/ali-mns.md
+    - api:
+      - Account:  mns/api/Account.md
+      - Region:  mns/api/Region.md
+      - MNS: mns/api/MNS.md
+      - MQ: mns/api/MQ.md
+      - Msg:  mns/api/Msg.md
+      - MQBatch: mns/api/MQBatch.md
+      - Topic: mns/api/Topic.md
+      - Subscription: mns/api/Subscription.md
+  - kafka:
+      - 简介: kafka/index.md
+      - 介绍: kafka/introduction.md
+      - 快速开始: kafka/quickstart.md
+      - 用例: kafka/use-cases.md
+      - 文件: kafka/documentation.md
+      - 性能: kafka/performance.md
+      - 供电: kafka/powered-by.md
+      - 项目信息: kafka/project-info.md
+      - 生态系统: kafka/ecosystem.md
+      - 客户: kafka/clients.md
+      - 事件: kafka/events.md
+      - 联系你: kafka/contact-us.md
+      - 阿帕奇: kafka/apache.md
+      - 下载: kafka/download.md
+  - kafka-node:
+      - 简介: kafka-node/index.md
+      - API: kafka-node/api.md
+      - FAQ: kafka-node/faq.md
+      - 测试: kafka-node/test.md
+  - node-rdkafka:
+      - 简介: node-rdkafka/index.md
+      - 概述: node-rdkafka/overview.md
+      - 使用: node-rdkafka/usage.md
+  - aliyun-kafka:
+      - 产品简介:
+        - 产品概述: aliyun/index.md
+        - 产品架构: aliyun/index.md
+        - 产品优势: aliyun/index.md
+        - 应用场景: aliyun/index.md
+        - 名词解释: aliyun/index.md
+        - 消息产品选型: aliyun/index.md
+      - 商业化信息:
+        - 商业化公告: aliyun/index.md
+        - 产品定价: aliyun/commercialize/pricing.md
+        - 迁移方案: aliyun/index.md
+        - 常见问题: aliyun/index.md
+      - 快速入门 -- 商用:
+        - 概述: aliyun/index.md
+        - 步骤一：购买实例: aliyun/index.md
+        - 步骤二：创建资源: aliyun/index.md
+        - 步骤三：准备配置: aliyun/index.md
+        - 步骤四：发布消息: aliyun/index.md
+        - 步骤五：订阅消息: aliyun/index.md
+      - 快速入门 -- 公测:
+        - 概述: aliyun/index.md
+        - 步骤一：开通服务: aliyun/index.md
+        - 步骤二：创建资源: aliyun/index.md
+        - 步骤三：准备配置: aliyun/index.md
+        - 步骤四：发布消息: aliyun/index.md
+        - 步骤五：订阅消息: aliyun/index.md
+      - 用户指南:
+        - 获取接入点: aliyun/index.md
+        - 查看分区状态: aliyun/index.md
+        - 查询消费堆积: aliyun/index.md
+        - 重置消费位点: aliyun/index.md
+        - 资源报表: aliyun/index.md
+        - RAM 访问控制: aliyun/index.md
+      - 开发指南:
+        - 接入准备: aliyun/index.md
+        - Java SDK 接入说明: aliyun/index.md
+        - Go SDK 接入说明: aliyun/index.md
+      - 最佳实践:
+        - 发布者最佳实践: aliyun/index.md
+        - 订阅者最佳实践: aliyun/index.md
+      - 常见问题:
+        - 常见问题: aliyun/index.md
+      - 相关协议:
+        - 阿里云产品服务协议(通用): aliyun/index.md
+        - 公测试用服务条款: aliyun/index.md
+
+
+
