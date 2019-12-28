@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/mns/api/MQBatch.rst:2
+msgid "MQBatch"
+msgstr "MQBatch"
+
+#: ../../source/mns/api/MQBatch.rst:4
+msgid ""
+"Provide the batch process model introduced in a new edtion of Ali-MNS "
+"service in June, 2015. It derives from MQ, so all methods in MQ are "
+"avaiable in MQBatch too. For example, you can use "
+"``mqBatch.setRecvTolerance(1.2)`` to adjust the timeout behavior of "
+"*mqBatch.recvP()*."
+msgstr "Provide the batch process model introduced in a new edtion of Ali-MNS service in June, 2015. It derives from MQ, so all methods in MQ are avaiable in MQBatch too. For example, you can use ``mqBatch.setRecvTolerance(1.2)`` to adjust the timeout behavior of *mqBatch.recvP()*."
+
+#: ../../source/mns/api/MQBatch.rst:15
+msgid ""
+"mqBatch.sendP(msg:string \\| Array, priority?:number, "
+"delaySeconds?:number)"
+msgstr "mqBatch.sendP(msg:string \\| Array, priority?:number, delaySeconds?:number)"
+
+#: ../../source/mns/api/MQBatch.rst:17
+msgid "Send a message or batch send messages to the queue."
+msgstr "Send a message or batch send messages to the queue."
+
+#: ../../source/mns/api/MQBatch.rst:19
+msgid ""
+"msg: String or an array of Msg. The message(s) up to 16 that sent to "
+"queue."
+msgstr "msg: String or an array of Msg. The message(s) up to 16 that sent to queue."
+
+#: ../../source/mns/api/MQBatch.rst:22
+msgid ""
+"priority: number, optional. Only valid when ``msg`` is a string, "
+"1(lowest)~16(highest), default is 8."
+msgstr "priority: number, optional. Only valid when ``msg`` is a string, 1(lowest)~16(highest), default is 8."
+
+#: ../../source/mns/api/MQBatch.rst:25
+msgid ""
+"delaySeconds: number, optional. Only valid when ``msg`` is a string. How "
+"many seconds will the messages be visible after sent. 0~604800(7days), "
+"default is 0. This argument is prior to the options.DelaySeconds in "
+"attributes of message queue."
+msgstr "delaySeconds: number, optional. Only valid when ``msg`` is a string. How many seconds will the messages be visible after sent. 0~604800(7days), default is 0. This argument is prior to the options.DelaySeconds in attributes of message queue."
+
+#: ../../source/mns/api/MQBatch.rst:30
+msgid ""
+"If ``msg`` is an array of ``Msg``, use the priority & delaySeconds "
+"properties of ``Msg``, and ignore the 2nd and 3rd arguments."
+msgstr "If ``msg`` is an array of ``Msg``, use the priority & delaySeconds properties of ``Msg``, and ignore the 2nd and 3rd arguments."
+
+#: ../../source/mns/api/MQBatch.rst:44
+msgid "mqBatch.recvP(waitSeconds?:number, numOfMessages?:number)"
+msgstr "mqBatch.recvP(waitSeconds?:number, numOfMessages?:number)"
+
+#: ../../source/mns/api/MQBatch.rst:46
+msgid ""
+"Receive a message or batch receive messages from queue. This will change "
+"the messages to invisible for a while."
+msgstr "Receive a message or batch receive messages from queue. This will change the messages to invisible for a while."
+
+#: ../../source/mns/api/MQBatch.rst:49
+msgid ""
+"waitSeconds: number. optional. The max seconds to wait if queue is empty,"
+" after that an error *MessageNotExist* will be returned."
+msgstr "waitSeconds: number. optional. The max seconds to wait if queue is empty, after that an error *MessageNotExist* will be returned."
+
+#: ../../source/mns/api/MQBatch.rst:52 ../../source/mns/api/MQBatch.rst:97
+msgid ""
+"numOfMessages: number. optional. The max number of message can be "
+"received in a batch, can be 1~16, default is 16."
+msgstr "numOfMessages: number. optional. The max number of message can be received in a batch, can be 1~16, default is 16."
+
+#: ../../source/mns/api/MQBatch.rst:60
+msgid "mqBatch.peekP(numOfMessages?:number)"
+msgstr "mqBatch.peekP(numOfMessages?:number)"
+
+#: ../../source/mns/api/MQBatch.rst:62
+msgid "Peek message(s). This will not change the message to invisible."
+msgstr "Peek message(s). This will not change the message to invisible."
+
+#: ../../source/mns/api/MQBatch.rst:64
+msgid ""
+"numOfMessages: number. optional. The max number of message can be peeked "
+"in a batch, can be 1~16, default is 16."
+msgstr "numOfMessages: number. optional. The max number of message can be peeked in a batch, can be 1~16, default is 16."
+
+#: ../../source/mns/api/MQBatch.rst:72
+msgid "mqBatch.deleteP(receiptHandle:string \\| Array)"
+msgstr "mqBatch.deleteP(receiptHandle:string \\| Array)"
+
+#: ../../source/mns/api/MQBatch.rst:74
+msgid ""
+"Delete a message or messages from queue. Messages will be invisible for a"
+" short time after received. Messages must be deleted after processed, "
+"otherwise it can be received again."
+msgstr "Delete a message or messages from queue. Messages will be invisible for a short time after received. Messages must be deleted after processed, otherwise it can be received again."
+
+#: ../../source/mns/api/MQBatch.rst:78
+msgid ""
+"receiptHandle: String or an array of string. Return by mq.recvP "
+"mq.notifyRecv or mqBatch.recvP mqBatch.notifyRecv."
+msgstr "receiptHandle: String or an array of string. Return by mq.recvP mq.notifyRecv or mqBatch.recvP mqBatch.notifyRecv."
+
+#: ../../source/mns/api/MQBatch.rst:93
+msgid ""
+"mqBatch.notifyRecv(cb:(ex:Error, msg:any)=>Boolean, waitSeconds?:number, "
+"numOfMessages?:number)"
+msgstr "mqBatch.notifyRecv(cb:(ex:Error, msg:any)=>Boolean, waitSeconds?:number, numOfMessages?:number)"
+
+#: ../../source/mns/api/MQBatch.rst:95
+msgid "Register a callback function to receive messages in batch mode."
+msgstr "Register a callback function to receive messages in batch mode."
+
+#: ../../source/mns/api/MQBatch.rst:100
+msgid "All other arguments are same as *mq.notifyRecv*."
+msgstr "All other arguments are same as *mq.notifyRecv*."
+

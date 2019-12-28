@@ -1,0 +1,890 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>用法 &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="消息队列 Kafka" href="../aliyun/index.html" />
+    <link rel="prev" title="概观" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kafka/index.html">kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">概观</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">用法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">组态</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librdkafka">Librdkafka方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">发送消息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-kafkaconsumer">Kafka.KafkaConsumer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">再平衡</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">提交</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">消息结构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">流API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">标准API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">从主体中读取代理的当前偏移量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">元数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mns/index.html">mns api</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a> &raquo;</li>
+        
+      <li>用法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/node-rdkafka/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>用法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>You can install the <code class="docutils literal notranslate"><span class="pre">node-rdkafka</span></code> module like any other module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">node</span><span class="o">-</span><span class="n">rdkafka</span>
+</pre></div>
+</div>
+<p>To use the module, you must <code class="docutils literal notranslate"><span class="pre">require</span></code> it.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">Kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-rdkafka&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>组态<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>You can pass many configuration options to <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code>. A full list
+can be found in <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code>’s
+<a class="reference external" href="https://github.com/edenhill/librdkafka/blob/0.11.1.x/CONFIGURATION.md">Configuration.md</a></p>
+<p>Configuration keys that have the suffix <code class="docutils literal notranslate"><span class="pre">_cb</span></code> are designated as
+callbacks. Some of these keys are informational and you can choose to
+opt-in (for example, <code class="docutils literal notranslate"><span class="pre">dr_cb</span></code>). Others are callbacks designed to return
+a value, such as <code class="docutils literal notranslate"><span class="pre">partitioner_cb</span></code>.</p>
+<p>Not all of these options are supported. The library will throw an error
+if the value you send in is invalid.</p>
+<p>The library currently supports the following callbacks: *
+<code class="docutils literal notranslate"><span class="pre">partitioner_cb</span></code> * <code class="docutils literal notranslate"><span class="pre">dr_cb</span></code> or <code class="docutils literal notranslate"><span class="pre">dr_msg_cb</span></code> * <code class="docutils literal notranslate"><span class="pre">event_cb</span></code></p>
+<div class="section" id="librdkafka">
+<h3>Librdkafka方法<a class="headerlink" href="#librdkafka" title="永久链接至标题">¶</a></h3>
+<p>This library includes two utility functions for detecting the status of
+your installation. Please try to include these when making issue reports
+where applicable.</p>
+<p>You can get the features supported by your compile of <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> by
+reading the variable “features” on the root of the <code class="docutils literal notranslate"><span class="pre">node-rdkafka</span></code>
+object.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-rdkafka&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Kafka</span><span class="p">.</span><span class="nx">features</span><span class="p">);</span>
+
+<span class="c1">// #=&gt; [ &#39;gzip&#39;, &#39;snappy&#39;, &#39;ssl&#39;, &#39;sasl&#39;, &#39;regex&#39;, &#39;lz4&#39; ]</span>
+</pre></div>
+</div>
+<p>You can also get the version of <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-rdkafka&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Kafka</span><span class="p">.</span><span class="nx">librdkafkaVersion</span><span class="p">);</span>
+
+<span class="c1">// #=&gt; 0.11.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>发送消息<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">Producer</span></code> sends messages to Kafka. The <code class="docutils literal notranslate"><span class="pre">Producer</span></code> constructor
+takes a configuration object, as shown in the following example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">Producer</span><span class="p">({</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;kafka-host1:9092,kafka-host2:9092&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">Producer</span></code> requires only <code class="docutils literal notranslate"><span class="pre">metadata.broker.list</span></code> (the Kafka
+brokers) to be created. The values in this list are separated by commas.
+For other configuration options, see the
+<a class="reference external" href="https://github.com/edenhill/librdkafka/blob/0.11.1.x/CONFIGURATION.md">Configuration.md</a>
+file described previously.</p>
+<p>The following example illustrates a list with several <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code>
+options set.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">Producer</span><span class="p">({</span>
+  <span class="s1">&#39;client.id&#39;</span><span class="o">:</span> <span class="s1">&#39;kafka&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;localhost:9092&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;compression.codec&#39;</span><span class="o">:</span> <span class="s1">&#39;gzip&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;retry.backoff.ms&#39;</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="s1">&#39;message.send.max.retries&#39;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s1">&#39;socket.keepalive.enable&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s1">&#39;queue.buffering.max.messages&#39;</span><span class="o">:</span> <span class="mi">100000</span><span class="p">,</span>
+  <span class="s1">&#39;queue.buffering.max.ms&#39;</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="s1">&#39;batch.num.messages&#39;</span><span class="o">:</span> <span class="mi">1000000</span><span class="p">,</span>
+  <span class="s1">&#39;dr_cb&#39;</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>You can easily use the <code class="docutils literal notranslate"><span class="pre">Producer</span></code> as a writable stream immediately
+after creation (as shown in the following example):</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Our producer with its Kafka brokers</span>
+<span class="c1">// This call returns a new writable stream to our topic &#39;topic-name&#39;</span>
+<span class="kd">var</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">Producer</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">({</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;kafka-host1:9092,kafka-host2:9092&#39;</span>
+<span class="p">},</span> <span class="p">{},</span> <span class="p">{</span>
+  <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topic-name&#39;</span>
+<span class="p">});</span>
+
+<span class="c1">// Writes a message to the stream</span>
+<span class="kd">var</span> <span class="nx">queuedSuccess</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="s1">&#39;Awesome message&#39;</span><span class="p">));</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">queuedSuccess</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;We queued our message!&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Note that this only tells us if the stream&#39;s queue is full,</span>
+  <span class="c1">// it does NOT tell us if the message got to Kafka!  See below...</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Too many messages in our queue already&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">stream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Here&#39;s where we&#39;ll know if something went wrong sending to Kafka</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error in our kafka stream&#39;</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>If you do not want your code to crash when an error happens, ensure you
+have an <code class="docutils literal notranslate"><span class="pre">error</span></code> listener on the stream. Most errors are not
+necessarily fatal, but the ones that are will immediately destroy the
+stream. If you use <code class="docutils literal notranslate"><span class="pre">autoClose</span></code>, the stream will close itself at the
+first sign of a problem.</p>
+<p>The Standard API is more performant, particularly when handling high
+volumes of messages. However, it requires more manual setup to use. The
+following example illustrates its use:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">Producer</span><span class="p">({</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;localhost:9092&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;dr_cb&#39;</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+
+<span class="c1">// Connect to the broker manually</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+
+<span class="c1">// Wait for the ready event before proceeding</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">producer</span><span class="p">.</span><span class="nx">produce</span><span class="p">(</span>
+      <span class="c1">// Topic to send the message to</span>
+      <span class="s1">&#39;topic&#39;</span><span class="p">,</span>
+      <span class="c1">// optionally we can manually specify a partition for the message</span>
+      <span class="c1">// this defaults to -1 - which will use librdkafka&#39;s default partitioner (consistent random for keyed messages, random for unkeyed messages)</span>
+      <span class="kc">null</span><span class="p">,</span>
+      <span class="c1">// Message to send. Must be a buffer</span>
+      <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="s1">&#39;Awesome message&#39;</span><span class="p">),</span>
+      <span class="c1">// for keyed messages, we also specify the key - note that this field is optional</span>
+      <span class="s1">&#39;Stormwind&#39;</span><span class="p">,</span>
+      <span class="c1">// you can send a timestamp here. If your broker version supports it,</span>
+      <span class="c1">// it will get added. Otherwise, we default to 0</span>
+      <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span>
+      <span class="c1">// you can send an opaque token here, which gets passed along</span>
+      <span class="c1">// to your delivery reports</span>
+    <span class="p">);</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;A problem occurred when sending our message&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Any errors we encounter, including connection errors</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;event.error&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error from producer&#39;</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>To see the configuration options available to you, see the
+<a class="reference external" href="#configuration">Configuration</a> section.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">producer.connect()</span></code></p></td>
+<td><p>Connects to the broker. The
+<code class="docutils literal notranslate"><span class="pre">connect()</span></code> method emits the
+<code class="docutils literal notranslate"><span class="pre">ready</span></code> event when it connects
+successfully. If it does not, the error
+will be passed through the callback.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">producer.disconnect()</span></code></p></td>
+<td><p>Disconnects from the broker. The
+<code class="docutils literal notranslate"><span class="pre">disconnect()</span></code> method emits the
+<code class="docutils literal notranslate"><span class="pre">disconnected</span></code> event when it has
+disconnected. If it does not, the error
+will be passed through the callback.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">producer.poll()</span></code></p></td>
+<td><p>Polls the producer for delivery reports
+or other events to be transmitted via
+the emitter. In order to get the events
+in <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code>’s queue to emit,
+you must call this regularly.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">producer.setPollInterval</span>
+<span class="pre">(interval)</span></code></p></td>
+<td><p>Polls the producer on this interval,
+handling disconnections and
+reconnection. Set it to 0 to turn it
+off.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">producer.produce(topic,</span>
+<span class="pre">partition,</span> <span class="pre">msg,</span> <span class="pre">key,</span> <span class="pre">times</span>
+<span class="pre">tamp,</span> <span class="pre">opaque)</span></code></p></td>
+<td><p>Sends a message. The <code class="docutils literal notranslate"><span class="pre">produce()</span></code>
+method throws when produce would return
+an error. Ordinarily, this is just if
+the queue is full.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">producer.flush(timeout,</span>
+<span class="pre">callback)</span></code></p></td>
+<td><p>Flush the librdkafka internal queue,
+sending all messages. Default timeout
+is 500ms</p></td>
+</tr>
+</tbody>
+</table>
+<p>Some configuration properties that end in <code class="docutils literal notranslate"><span class="pre">_cb</span></code> indicate that an event
+should be generated for that option. You can either:</p>
+<ul class="simple">
+<li><p>provide a value of <code class="docutils literal notranslate"><span class="pre">true</span></code> and react to the event</p></li>
+<li><p>provide a callback function directly</p></li>
+</ul>
+<p>The following example illustrates an event:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">Producer</span><span class="p">({</span>
+  <span class="s1">&#39;client.id&#39;</span><span class="o">:</span> <span class="s1">&#39;my-client&#39;</span><span class="p">,</span> <span class="c1">// Specifies an identifier to use to help trace activity in Kafka</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;localhost:9092&#39;</span><span class="p">,</span> <span class="c1">// Connect to a Kafka instance on localhost</span>
+  <span class="s1">&#39;dr_cb&#39;</span><span class="o">:</span> <span class="kc">true</span> <span class="c1">// Specifies that we want a delivery-report event to be generated</span>
+<span class="p">});</span>
+
+<span class="c1">// Poll for events every 100 ms</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">setPollInterval</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">producer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;delivery-report&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">report</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Report of delivery statistics here:</span>
+  <span class="c1">//</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">report</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The following table describes types of events.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Event</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">disconnected</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">disconnected</span></code> event is emitted
+when the broker has disconnected. This
+event is emitted only when
+<code class="docutils literal notranslate"><span class="pre">.disconnect</span></code> is called. The wrapper
+will always try to reconnect otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ready</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">ready</span></code> event is emitted when the
+<code class="docutils literal notranslate"><span class="pre">Producer</span></code> is ready to send messages.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event</span></code> event is emitted when
+<code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> reports an event (if you
+opted in via the <code class="docutils literal notranslate"><span class="pre">event_cb</span></code> option).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event.log</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event.log</span></code> event is emitted when
+logging events come in (if you opted
+into logging via the <code class="docutils literal notranslate"><span class="pre">event_cb</span></code>
+option). You will need to set a value
+for <code class="docutils literal notranslate"><span class="pre">debug</span></code> if you want to send
+information.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event.stats</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event.stats</span></code> event is emitted
+when <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> reports stats (if
+you opted in by setting the
+<code class="docutils literal notranslate"><span class="pre">statistics.interval.ms</span></code> to a
+non-zero value).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event.error</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event.error</span></code> event is emitted
+when <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> reports an error</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event.throttle</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event.throttle</span></code> event emitted
+when <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> reports throttling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delivery-report</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">delivery-report</span></code> event is
+emitted when a delivery report has been
+found via polling. To use this event,
+you must set <code class="docutils literal notranslate"><span class="pre">request.required.acks</span></code>
+to <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">-1</span></code> in topic
+configuration and <code class="docutils literal notranslate"><span class="pre">dr_cb</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">dr_msg_cb</span></code> if you want the report to
+contain the message payload) to
+<code class="docutils literal notranslate"><span class="pre">true</span></code> in the <code class="docutils literal notranslate"><span class="pre">Producer</span></code>
+constructor options.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="kafka-kafkaconsumer">
+<h2>Kafka.KafkaConsumer<a class="headerlink" href="#kafka-kafkaconsumer" title="永久链接至标题">¶</a></h2>
+<p>To read messages from Kafka, you use a <code class="docutils literal notranslate"><span class="pre">KafkaConsumer</span></code>. You
+instantiate a <code class="docutils literal notranslate"><span class="pre">KafkaConsumer</span></code> object as follows:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">KafkaConsumer</span><span class="p">({</span>
+  <span class="s1">&#39;group.id&#39;</span><span class="o">:</span> <span class="s1">&#39;kafka&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;localhost:9092&#39;</span><span class="p">,</span>
+<span class="p">},</span> <span class="p">{});</span>
+</pre></div>
+</div>
+<p>The first parameter is the global config, while the second parameter is
+the topic config that gets applied to all subscribed topics. To view a
+list of all supported configuration properties, see the
+<a class="reference external" href="https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md">Configuration.md</a>
+file described previously. Look for the <code class="docutils literal notranslate"><span class="pre">C</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> keys.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">group.id</span></code> and <code class="docutils literal notranslate"><span class="pre">metadata.broker.list</span></code> properties are required
+for a consumer.</p>
+<div class="section" id="id4">
+<h3>再平衡<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>Rebalancing is managed internally by <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> by default. If you
+would like to override this functionality, you may provide your own
+logic as a rebalance callback.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">KafkaConsumer</span><span class="p">({</span>
+  <span class="s1">&#39;group.id&#39;</span><span class="o">:</span> <span class="s1">&#39;kafka&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;localhost:9092&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;rebalance_cb&#39;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">assignment</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">code</span> <span class="o">===</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">CODES</span><span class="p">.</span><span class="nx">ERRORS</span><span class="p">.</span><span class="nx">ERR__ASSIGN_PARTITIONS</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Note: this can throw when you are disconnected. Take care and wrap it in</span>
+      <span class="c1">// a try catch if that matters to you</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">assignment</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">CODES</span><span class="p">.</span><span class="nx">ERRORS</span><span class="p">.</span><span class="nx">ERR__REVOKE_PARTITIONS</span><span class="p">){</span>
+      <span class="c1">// Same as above</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">unassign</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// We had a real error</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">this</span></code> is bound to the <code class="docutils literal notranslate"><span class="pre">KafkaConsumer</span></code> you have created. By
+specifying a <code class="docutils literal notranslate"><span class="pre">rebalance_cb</span></code> you can also listen to the <code class="docutils literal notranslate"><span class="pre">rebalance</span></code>
+event as an emitted event. This event is not emitted when using the
+internal <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> rebalancer.</p>
+</div>
+<div class="section" id="id5">
+<h3>提交<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>When you commit in <code class="docutils literal notranslate"><span class="pre">node-rdkafka</span></code>, the standard way is to queue the
+commit request up with the next <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> request to the broker.
+When doing this, there isn’t a way to know the result of the commit.
+Luckily there is another callback you can listen to to get this
+information</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kafka</span><span class="p">.</span><span class="nx">KafkaConsumer</span><span class="p">({</span>
+  <span class="s1">&#39;group.id&#39;</span><span class="o">:</span> <span class="s1">&#39;kafka&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;metadata.broker.list&#39;</span><span class="o">:</span> <span class="s1">&#39;localhost:9092&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;offset_commit_cb&#39;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">topicPartitions</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// There was an error committing</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Commit went through. Let&#39;s log the topic partitions</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">topicPartitions</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">this</span></code> is bound to the <code class="docutils literal notranslate"><span class="pre">KafkaConsumer</span></code> you have created. By
+specifying an <code class="docutils literal notranslate"><span class="pre">offset_commit_cb</span></code> you can also listen to the
+<code class="docutils literal notranslate"><span class="pre">offset.commit</span></code> event as an emitted event. It also has an error
+parameter and a list of topic partitions. This is not emitted unless
+opted in.</p>
+</div>
+<div class="section" id="id6">
+<h3>消息结构<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>Messages that are returned by the <code class="docutils literal notranslate"><span class="pre">KafkaConsumer</span></code> have the following
+structure.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">value</span><span class="o">:</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">),</span> <span class="c1">// message contents as a Buffer</span>
+  <span class="nx">size</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">// size of the message, in bytes</span>
+  <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;librdtesting-01&#39;</span><span class="p">,</span> <span class="c1">// topic the message comes from</span>
+  <span class="nx">offset</span><span class="o">:</span> <span class="mi">1337</span><span class="p">,</span> <span class="c1">// offset the message was read from</span>
+  <span class="nx">partition</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// partition the message was on</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;someKey&#39;</span><span class="p">,</span> <span class="c1">// key of the message if present</span>
+  <span class="nx">timestamp</span><span class="o">:</span> <span class="mi">1510325354780</span> <span class="c1">// timestamp of message creation</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api">
+<span id="api-1"></span><h3>流API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h3>
+<p>The stream API is the easiest way to consume messages. The following
+example illustrates the use of the stream API:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Read from the librdtesting-01 topic... note that this creates a new stream on each call!</span>
+<span class="kd">var</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">KafkaConsumer</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">globalConfig</span><span class="p">,</span> <span class="nx">topicConfig</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">topics</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;librdtesting-01&#39;</span><span class="p">]</span>
+<span class="p">});</span>
+
+<span class="nx">stream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got message&#39;</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>You can also get the <code class="docutils literal notranslate"><span class="pre">consumer</span></code> from the streamConsumer, for using
+consumer methods. The following example illustrates that:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">stream</span><span class="p">.</span><span class="nx">consumer</span><span class="p">.</span><span class="nx">commit</span><span class="p">();</span> <span class="c1">// Commits all locally stored offsets</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<span id="id8"></span><h3>标准API<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>You can also use the Standard API and manage callbacks and events
+yourself. You can choose different modes for consuming messages:</p>
+<ul class="simple">
+<li><p><em>Flowing mode</em>. This mode flows all of the messages it can read by
+maintaining an infinite loop in the event loop. It only stops when it
+detects the consumer has issued the <code class="docutils literal notranslate"><span class="pre">unsubscribe</span></code> or <code class="docutils literal notranslate"><span class="pre">disconnect</span></code>
+method.</p></li>
+<li><p><em>Non-flowing mode</em>. This mode reads a single message from Kafka at a
+time manually.</p></li>
+</ul>
+<p>The following example illustrates flowing mode:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Flowing mode</span>
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+
+<span class="nx">consumer</span>
+  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">consumer</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">([</span><span class="s1">&#39;librdtesting-01&#39;</span><span class="p">]);</span>
+
+    <span class="c1">// Consume from the librdtesting-01 topic. This is what determines</span>
+    <span class="c1">// the mode we are running in. By not specifying a callback (or specifying</span>
+    <span class="c1">// only a callback) we get messages as soon as they are available.</span>
+    <span class="nx">consumer</span><span class="p">.</span><span class="nx">consume</span><span class="p">();</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Output the actual message contents</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+  <span class="p">});</span>
+</pre></div>
+</div>
+<p>The following example illustrates non-flowing mode:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Non-flowing mode</span>
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+
+<span class="nx">consumer</span>
+  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Subscribe to the librdtesting-01 topic</span>
+    <span class="c1">// This makes subsequent consumes read from that topic.</span>
+    <span class="nx">consumer</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">([</span><span class="s1">&#39;librdtesting-01&#39;</span><span class="p">]);</span>
+
+    <span class="c1">// Read one message every 1000 milliseconds</span>
+    <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">consumer</span><span class="p">.</span><span class="nx">consume</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Message found!  Contents below.&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+  <span class="p">});</span>
+</pre></div>
+</div>
+<p>The following table lists important methods for this API.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.connect()</span></code></p></td>
+<td><p>Connects to the broker. The
+<code class="docutils literal notranslate"><span class="pre">connect()</span></code> emits the event <code class="docutils literal notranslate"><span class="pre">ready</span></code>
+when it has successfully connected. If
+it does not, the error will be passed
+through the callback.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.disconnect()</span></code></p></td>
+<td><p>Disconnects from the broker. The
+<code class="docutils literal notranslate"><span class="pre">disconnect()</span></code> method emits
+<code class="docutils literal notranslate"><span class="pre">disconnected</span></code> when it has
+disconnected. If it does not, the error
+will be passed through the callback.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.subscribe(topic</span>
+<span class="pre">s)</span></code></p></td>
+<td><p>Subscribes to an array of topics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.unsubscribe()</span></code></p></td>
+<td><p>Unsubscribes from the currently
+subscribed topics. You cannot subscribe
+to different topics without calling the
+<code class="docutils literal notranslate"><span class="pre">unsubscribe()</span></code> method first.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.consume(cb)</span></code></p></td>
+<td><p>Gets messages from the existing
+subscription as quickly as possible.
+This method keeps a background thread
+running to do the work. If <code class="docutils literal notranslate"><span class="pre">cb</span></code> is
+specified, invokes
+<code class="docutils literal notranslate"><span class="pre">cb(err,</span> <span class="pre">message)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.consume(number,cb)</span></code></p></td>
+<td><p>Gets <code class="docutils literal notranslate"><span class="pre">number</span></code> of messages from the
+existing subscription. If <code class="docutils literal notranslate"><span class="pre">cb</span></code> is
+specified, invokes <code class="docutils literal notranslate"><span class="pre">cb(err,</span> <span class="pre">message)</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.commit()</span></code></p></td>
+<td><p>Commits all locally stored offsets</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.commit(topicPartition)</span></code></p></td>
+<td><p>Commits offsets specified by the topic
+partition</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">consumer.commitMessage(message)</span></code></p></td>
+<td><p>Commits the offsets specified by the
+message</p></td>
+</tr>
+</tbody>
+</table>
+<p>The following table lists events for this API.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Event</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data</span></code></p></td>
+<td><p>When using the Standard API consumed
+messages are emitted in this event.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">disconnected</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">disconnected</span></code> event is emitted
+when the broker disconnects. This event
+is only emitted when <code class="docutils literal notranslate"><span class="pre">.disconnect</span></code> is
+called. The wrapper will always try to
+reconnect otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ready</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">ready</span></code> event is emitted when the
+<code class="docutils literal notranslate"><span class="pre">Consumer</span></code> is ready to read messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event</span></code> event is emitted when
+<code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> reports an event (if you
+opted in via the <code class="docutils literal notranslate"><span class="pre">event_cb</span></code> option).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event.log</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event.log</span></code> event is emitted when
+logging events occur (if you opted in
+for logging via the <code class="docutils literal notranslate"><span class="pre">event_cb</span></code>
+option). You will need to set a value
+for <code class="docutils literal notranslate"><span class="pre">debug</span></code> if you want information
+to send.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event.stats</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event.stats</span></code> event is emitted
+when <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> reports stats (if
+you opted in by setting the
+<code class="docutils literal notranslate"><span class="pre">statistics.interval.ms</span></code> to a
+non-zero value).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event.throttle</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">event.throttle</span></code> event is emitted
+when <code class="docutils literal notranslate"><span class="pre">librdkafka</span></code> reports throttling.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>从主体中读取代理的当前偏移量<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>Some times you find yourself in the situation where you need to know the
+latest (and earliest) offset for one of your topics. Connected producers
+and consumers both allow you to query for these through
+<code class="docutils literal notranslate"><span class="pre">queryWaterMarkOffsets</span></code> like follows:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">timeout</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="nx">partition</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">queryWatermarkOffsets</span><span class="p">(</span><span class="s1">&#39;my-topic&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">offsets</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">high</span> <span class="o">=</span> <span class="nx">offsets</span><span class="p">.</span><span class="nx">highOffset</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">low</span> <span class="o">=</span> <span class="nx">offsets</span><span class="p">.</span><span class="nx">lowOffset</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">producer</span><span class="p">.</span><span class="nx">queryWatermarkOffsets</span><span class="p">(</span><span class="s1">&#39;my-topic&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">offsets</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">high</span> <span class="o">=</span> <span class="nx">offsets</span><span class="p">.</span><span class="nx">highOffset</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">low</span> <span class="o">=</span> <span class="nx">offsets</span><span class="p">.</span><span class="nx">lowOffset</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">An</span> <span class="nx">error</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">returned</span> <span class="k">if</span> <span class="nx">the</span> <span class="nx">client</span> <span class="nx">was</span> <span class="nx">not</span> <span class="nx">connected</span> <span class="nx">or</span> <span class="nx">the</span> <span class="nx">request</span> <span class="nx">timed</span> <span class="nx">out</span> <span class="nx">within</span> <span class="nx">the</span> <span class="nx">specified</span> <span class="nx">interval</span><span class="p">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>元数据<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>Both <code class="docutils literal notranslate"><span class="pre">Kafka.Producer</span></code> and <code class="docutils literal notranslate"><span class="pre">Kafka.KafkaConsumer</span></code> include a
+<code class="docutils literal notranslate"><span class="pre">getMetadata</span></code> method to retrieve metadata from Kafka.</p>
+<p>Getting metadata on any connection returns the following data structure:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">orig_broker_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nx">orig_broker_name</span><span class="o">:</span> <span class="s2">&quot;broker_name&quot;</span><span class="p">,</span>
+  <span class="nx">brokers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+      <span class="nx">port</span><span class="o">:</span> <span class="mi">40</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nx">topics</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;awesome-topic&#39;</span><span class="p">,</span>
+      <span class="nx">partitions</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nx">leader</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+          <span class="nx">replicas</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+          <span class="nx">isrs</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following example illustrates how to use the <code class="docutils literal notranslate"><span class="pre">getMetadata</span></code> method.</p>
+<p>When fetching metadata for a specific topic, if a topic reference does
+not exist, one is created using the default config. Please see the
+documentation on <code class="docutils literal notranslate"><span class="pre">Client.getMetadata</span></code> if you want to set configuration
+parameters, e.g. <code class="docutils literal notranslate"><span class="pre">acks</span></code>, on a topic to produce messages to.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">opts</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;librdtesting-01&#39;</span><span class="p">,</span>
+  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">10000</span>
+<span class="p">};</span>
+
+<span class="nx">producer</span><span class="p">.</span><span class="nx">getMetadata</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">metadata</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error getting metadata&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got metadata&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">metadata</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../aliyun/index.html" class="btn btn-neutral float-right" title="消息队列 Kafka" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="概观" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

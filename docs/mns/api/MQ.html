@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MQ &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="MQBatch" href="MQBatch.html" />
+    <link rel="prev" title="MNS" href="MNS.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../kafka/index.html">kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">mns api</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aliyun-mns.html">消息服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ali-mns.html">ali-mns (ali-mqs)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">mns api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Account.html">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MNS.html">MNS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MQ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mq-name-string-account-account-region-string-region">MQ(name:string, account:Account, region?:string|Region)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-getname">mq.getName()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-getaccount">mq.getAccount()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-getregion">mq.getRegion()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-sendp-msg-string-priority-number-delayseconds-number">mq.sendP(msg:string, priority?:number, delaySeconds?:number)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-getrecvtolerance-mq-setrecvtolerance-value-number">mq.getRecvTolerance() &amp; mq.setRecvTolerance(value:number)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-recvp-waitseconds-number">mq.recvP(waitSeconds?:number)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-peekp">mq.peekP()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-deletep-receipthandle-string">mq.deleteP(receiptHandle:string)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-reservep-receipthandle-string-reserveseconds-number">mq.reserveP(receiptHandle:string, reserveSeconds:number)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-notifyrecv-cb-ex-error-msg-any-boolean-waitseconds-number">mq.notifyRecv(cb:(ex:Error, msg:any)=&gt;Boolean, waitSeconds?:number)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-notifystopp">mq.notifyStopP()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-getattrsp">mq.getAttrsP()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mq-setattrsp-options-any">mq.setAttrsP(options:any)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MQBatch.html">MQBatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Msg.html">Msg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Region.html">Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Subscription.html">Subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Topic.html">MNSTopic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">mns api</a> &raquo;</li>
+        
+          <li><a href="index.html">mns api</a> &raquo;</li>
+        
+      <li>MQ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/mns/api/MQ.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mq">
+<h1>MQ<a class="headerlink" href="#mq" title="永久链接至标题">¶</a></h1>
+<div class="section" id="mq-name-string-account-account-region-string-region">
+<h2>MQ(name:string, account:Account, region?:string|Region)<a class="headerlink" href="#mq-name-string-account-account-region-string-region" title="永久链接至标题">¶</a></h2>
+<p>The <em>MQ</em> operate the message in a queue.</p>
+<p>name: String. The name of mq.</p>
+<p>account: An account object.</p>
+<p>region: String|Region, optional. If it is string, it can be “hangzhou”,
+“beijing” or any Chinese datacenter city name. If it is Region, it
+allows you to specify data center other than in China. Default is
+“hangzhou”. It can also be internal or vpc address “hangzhou-internal”,
+“beijing-internal” or “qingdao-internal-vpc”.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AliMNS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;ali-mns&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">account</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Account</span><span class="p">(</span><span class="s2">&quot;&lt;your-account-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-secret&gt;&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">mq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">MQ</span><span class="p">(</span><span class="nx">account</span><span class="p">,</span> <span class="s2">&quot;hangzhou&quot;</span><span class="p">);</span>
+<span class="c1">// or</span>
+<span class="kd">var</span> <span class="nx">regionJapan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="nx">AliMNS</span><span class="p">.</span><span class="nx">City</span><span class="p">.</span><span class="nx">Japan</span><span class="p">,</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">Public</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">mqJapan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">MQ</span><span class="p">(</span><span class="nx">account</span><span class="p">,</span> <span class="nx">regionJapan</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mq-getname">
+<h2>mq.getName()<a class="headerlink" href="#mq-getname" title="永久链接至标题">¶</a></h2>
+<p>Gets the name of mq.</p>
+</div>
+<div class="section" id="mq-getaccount">
+<h2>mq.getAccount()<a class="headerlink" href="#mq-getaccount" title="永久链接至标题">¶</a></h2>
+<p>Gets the account of mq.</p>
+</div>
+<div class="section" id="mq-getregion">
+<h2>mq.getRegion()<a class="headerlink" href="#mq-getregion" title="永久链接至标题">¶</a></h2>
+<p>Gets the region of mq.</p>
+</div>
+<div class="section" id="mq-sendp-msg-string-priority-number-delayseconds-number">
+<h2>mq.sendP(msg:string, priority?:number, delaySeconds?:number)<a class="headerlink" href="#mq-sendp-msg-string-priority-number-delayseconds-number" title="永久链接至标题">¶</a></h2>
+<p>Send a message to the queue.</p>
+<p>message: String. The content that sent to queue.</p>
+<p>priority: number, optional. 1(lowest)~16(highest), default is 8.</p>
+<p>delaySeconds: number, optional. How many seconds will the messages be
+visible after sent. 0~604800(7days), default is 0. This argument is
+prior to the options.DelaySeconds in attributes of message queue.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">sendP</span><span class="p">(</span><span class="s2">&quot;Hello Ali-MNS&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mq-getrecvtolerance-mq-setrecvtolerance-value-number">
+<h2>mq.getRecvTolerance() &amp; mq.setRecvTolerance(value:number)<a class="headerlink" href="#mq-getrecvtolerance-mq-setrecvtolerance-value-number" title="永久链接至标题">¶</a></h2>
+<p>Gets or sets the tolerance seconds for mq.recvP method.</p>
+<p>value: number. Default is 5, in seconds. How long will mq.recvP wait
+before timeout. Due to network lag, the return of mq.recvP method may be
+later than expected.</p>
+</div>
+<div class="section" id="mq-recvp-waitseconds-number">
+<h2>mq.recvP(waitSeconds?:number)<a class="headerlink" href="#mq-recvp-waitseconds-number" title="永久链接至标题">¶</a></h2>
+<p>Receive a message from queue. This will change the message to invisible
+for a while.</p>
+<p>waitSeconds: number. optional. The max seconds to wait if queue is
+empty, after that an error <em>MessageNotExist</em> will be returned.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">recvP</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This method will wait <code class="docutils literal notranslate"><span class="pre">waitSeconds</span> <span class="pre">+</span> <span class="pre">getRecvTolerance()</span></code> totally if
+queue is empty.</p>
+</div>
+<div class="section" id="mq-peekp">
+<h2>mq.peekP()<a class="headerlink" href="#mq-peekp" title="永久链接至标题">¶</a></h2>
+<p>Peek a message. This will not change the message to invisible.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">peekP</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mq-deletep-receipthandle-string">
+<h2>mq.deleteP(receiptHandle:string)<a class="headerlink" href="#mq-deletep-receipthandle-string" title="永久链接至标题">¶</a></h2>
+<p>Delete a message from queue. A message will be invisible for a short
+time after received. A message must be deleted after processed,
+otherwise it can be received again.</p>
+<p>receiptHandle: String. Return by mq.recvP or mq.notifyRecv.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">recvP</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">mq</span><span class="p">.</span><span class="nx">deleteP</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">Message</span><span class="p">.</span><span class="nx">ReceiptHandle</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mq-reservep-receipthandle-string-reserveseconds-number">
+<h2>mq.reserveP(receiptHandle:string, reserveSeconds:number)<a class="headerlink" href="#mq-reservep-receipthandle-string-reserveseconds-number" title="永久链接至标题">¶</a></h2>
+<p>Reserve a received message.</p>
+<p>receiptHandle: String. Return by mq.recvP or mq.notifyRecv.</p>
+<p>reserveSeconds: number. How long will the message be reserved, in
+seconds. 1~43200(12hours).</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">recvP</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">mq</span><span class="p">.</span><span class="nx">reserveP</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">Message</span><span class="p">.</span><span class="nx">ReceiptHandle</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">dataReserved</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">mq</span><span class="p">.</span><span class="nx">deleteP</span><span class="p">(</span><span class="nx">dataReserved</span><span class="p">.</span><span class="nx">ChangeVisibility</span><span class="p">.</span><span class="nx">ReceiptHandle</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>If you need more time to process the message after received, you can
+reserve it for a longer time. The message will continue to keep
+invisible for reserveSeconds from now. Set a shorter time is also
+possible. If succeed, a new receiptHandle will be returned to replace
+the old one, further mq.deleteP or mq.reserveP should use the newer. And
+the newer receiptHandle will expired after reserveSeconds past.</p>
+</div>
+<div class="section" id="mq-notifyrecv-cb-ex-error-msg-any-boolean-waitseconds-number">
+<h2>mq.notifyRecv(cb:(ex:Error, msg:any)=&gt;Boolean, waitSeconds?:number)<a class="headerlink" href="#mq-notifyrecv-cb-ex-error-msg-any-boolean-waitseconds-number" title="永久链接至标题">¶</a></h2>
+<p>Register a callback function to receive messages.</p>
+<p>cb: The callback function will be called once for each received message.
+And if the callback function return <em>true</em>, the message received will be
+delete automatically, while you should delete the message manually, if
+return <em>false</em>.</p>
+<p>waitSeconds: number, optional. 1~30. The max seconds to wait in a
+polling loop, default is 5. At the begin of a polling loop, it will
+check if mq.notifyStopP has been called, So the bigger number will cause
+a slowly mq.notifyStopP. Set waitSeconds to 0 ,will actually use the
+default value 5 seconds instead.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">notifyRecv</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">message</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span> <span class="o">&amp;&amp;</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span> <span class="o">===</span> <span class="s2">&quot;NetworkBroken&quot;</span><span class="p">){</span>
+        <span class="c1">// Best to restart the process when this occurs</span>
+        <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// this will cause message to be deleted automatically</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Both callback functions will work if you call notifyRecv twice for 2
+different callback functions. But each received message only will
+trigger one of them only.</p>
+</div>
+<div class="section" id="mq-notifystopp">
+<h2>mq.notifyStopP()<a class="headerlink" href="#mq-notifystopp" title="永久链接至标题">¶</a></h2>
+<p>Stop mq.notifyRecv working. The promise object returned will not be
+resolved until the receiving loop stopped actually. The max time wait
+for notifyRecv() stop is determined by waitSeconds passed to
+mq.notifyRecv.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">notifyStopP</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mq-getattrsp">
+<h2>mq.getAttrsP()<a class="headerlink" href="#mq-getattrsp" title="永久链接至标题">¶</a></h2>
+<p>Get the attributes of the mq.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mq</span><span class="o">.</span><span class="n">getAttrsP</span><span class="p">()</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="n">console</span><span class="o">.</span><span class="n">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mq-setattrsp-options-any">
+<h2>mq.setAttrsP(options:any)<a class="headerlink" href="#mq-setattrsp-options-any" title="永久链接至标题">¶</a></h2>
+<p>Modify the attributes of mq.</p>
+<p>options: the queue attributes. See the <a class="reference external" href="#options">options</a> of
+mns.createP.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mq</span><span class="p">.</span><span class="nx">setAttrsP</span><span class="p">({</span>
+    <span class="nx">DelaySeconds</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">MaximumMessageSize</span><span class="o">:</span> <span class="mi">65536</span><span class="p">,</span>
+    <span class="nx">MessageRetentionPeriod</span><span class="o">:</span> <span class="mi">345600</span><span class="p">,</span>
+    <span class="nx">VisibilityTimeout</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="nx">PollingWaitSeconds</span><span class="o">:</span> <span class="mi">0</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MQBatch.html" class="btn btn-neutral float-right" title="MQBatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MNS.html" class="btn btn-neutral float-left" title="MNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

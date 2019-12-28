@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>用例 &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="documentation.html" />
+    <link rel="prev" title="快速开始" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">kafka</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="home.html">kafka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">快速开始</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">用例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">消息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">网站活动跟踪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">度量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">日志聚合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">流处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">活动采购</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">提交日志</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache.html">Apache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mns/index.html">mns api</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">kafka</a> &raquo;</li>
+        
+      <li>用例</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/kafka/use-cases.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>用例<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>以下是ApacheKafka®的一些常用用例的描述。
+有关这些领域的概述，请参阅此博客文章。</p>
+<div class="section" id="id2">
+<h2>消息<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>Kafka可以替代更传统的消息代理。
+消息代理的使用有多种原因（将处理与数据生成器分离，缓冲未处理的消息等）。
+与大多数消息传递系统相比，Kafka具有更好的吞吐量，内置分区，复制和容错功能，这使其成为大规模消息处理应用程序的理想解决方案。</p>
+<p>根据我们的经验，消息传递的使用通常相对较低，但可能需要较低的端到端延迟，并且通常取决于Kafka提供的强大的耐用性保证。</p>
+<p>在这个领域，Kafka可与传统的消息传递系统（如ActiveMQ或RabbitMQ）相媲美。</p>
+</div>
+<div class="section" id="id3">
+<h2>网站活动跟踪<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>Kafka的原始用例是能够将用户活动跟踪管道重建为一组实时发布 - 订阅源。
+这意味着站点活动（页面查看，搜索或用户可能采取的其他操作）将发布到中心主题，每个活动类型包含一个主题。
+这些源可用于订购一系列用例，包括实时处理，实时监控以及加载到Hadoop或离线数据仓库系统以进行脱机处理和报告。</p>
+<p>活动跟踪通常非常高，因为为每个用户页面视图生成了许多活动消息。</p>
+</div>
+<div class="section" id="id4">
+<h2>度量<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>Kafka通常用于运营监控数据。
+这涉及从分布式应用程序聚合统计信息以生成操作数据的集中式提要。</p>
+</div>
+<div class="section" id="id5">
+<h2>日志聚合<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>许多人使用Kafka作为日志聚合解决方案的替代品。
+日志聚合通常从服务器收集物理日志文件，并将它们放在中央位置（可能是文件服务器或HDFS）进行处理。
+Kafka抽象出文件的细节，并将日志或事件数据作为消息流更清晰地抽象出来。
+这允许更低延迟的处理并更容易支持多个数据源和分布式数据消耗。
+与Scribe或Flume等以日志为中心的系统相比，Kafka提供了同样出色的性能，由于复制而具有更强的耐用性保证，以及更低的端到端延迟。</p>
+</div>
+<div class="section" id="id6">
+<h2>流处理<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>许多Kafka用户在处理由多个阶段组成的管道时处理数据，其中原始输入数据从Kafka主题中消费，然后聚合，丰富或以其他方式转换为新主题以供进一步消费或后续处理。
+例如，用于推荐新闻文章的处理管道可以从RSS订阅源抓取文章内容并将其发布到“文章”主题;进一步处理可能会对此内容进行规范化或重复数据删除，并将已清理的文章内容发布到新主题;最终处理阶段可能会尝试向用户推荐此内容。
+此类处理管道基于各个主题创建实时数据流的图形。 从0.10.0.0开始，Apache
+Kafka中提供了一个名为Kafka
+Streams的轻量级但功能强大的流处理库，用于执行上述数据处理。 除了Kafka
+Streams之外，其他开源流处理工具包括Apache Storm和Apache Samza。</p>
+</div>
+<div class="section" id="id7">
+<h2>活动采购<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>事件源是一种应用程序设计风格，其中状态更改记录为按时间排序的记录序列。
+Kafka对非常大的存储日志数据的支持使其成为以这种风格构建的应用程序的出色后端。</p>
+</div>
+<div class="section" id="id8">
+<h2>提交日志<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>Kafka可以作为分布式系统的一种外部提交日志。
+该日志有助于在节点之间复制数据，并充当故障节点恢复其数据的重新同步机制。
+Kafka中的日志压缩功能有助于支持此用法。 在这种用法中，Kafka类似于Apache
+BookKeeper项目。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="快速开始" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

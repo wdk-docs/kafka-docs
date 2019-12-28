@@ -1,0 +1,761 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/mns/ali-mns.rst:2
+msgid "ali-mns (ali-mqs)"
+msgstr "ali-mns (ali-mqs)"
+
+#: ../../source/mns/ali-mns.rst:4
+msgid "|npm version| |npm version|"
+msgstr "|npm version| |npm version|"
+
+#: ../../source/mns/ali-mns.rst:6
+msgid "The nodejs sdk for aliyun mns service"
+msgstr "The nodejs sdk for aliyun mns service"
+
+#: ../../source/mns/ali-mns.rst:8
+msgid "`阿里云消息服务-简体中文-帮助手册 <http://armclr.incars.com.cn/Links/AliMNS?lang=zh-Hans>`__"
+msgstr "`阿里云消息服务-简体中文-帮助手册 <http://armclr.incars.com.cn/Links/AliMNS?lang=zh-Hans>`__"
+
+#: ../../source/mns/ali-mns.rst:10
+msgid "Ali MNS service is a MQ(message queue) service provided by AliYun. The world largest online sales website www.taobao.com is heavily relying on it."
+msgstr "Ali MNS service is a MQ(message queue) service provided by AliYun. The world largest online sales website www.taobao.com is heavily relying on it."
+
+#: ../../source/mns/ali-mns.rst:14
+msgid "You can visit http://www.aliyun.com/product/mns for more details."
+msgstr "You can visit http://www.aliyun.com/product/mns for more details."
+
+#: ../../source/mns/ali-mns.rst:16
+msgid "The original Ali-MQS service has been upgraded and changed it’s name to Ali-MNS since June, 2015. Go to `Migrate <#migrate>`__ part for the old version informations."
+msgstr "The original Ali-MQS service has been upgraded and changed it’s name to Ali-MNS since June, 2015. Go to `Migrate <#migrate>`__ part for the old version informations."
+
+#: ../../source/mns/ali-mns.rst:21
+msgid "快速开始"
+msgstr "快速开始"
+
+#: ../../source/mns/ali-mns.rst:23
+msgid "Use ‘npm install ali-mns’ to install the package."
+msgstr "Use ‘npm install ali-mns’ to install the package."
+
+#: ../../source/mns/ali-mns.rst:33
+msgid "More sample codes can be found in `GitHub <https://github.com/InCar/ali-mns/tree/master/test>`__."
+msgstr "More sample codes can be found in `GitHub <https://github.com/InCar/ali-mns/tree/master/test>`__."
+
+#: ../../source/mns/ali-mns.rst:37
+msgid "许"
+msgstr "许"
+
+#: ../../source/mns/ali-mns.rst:39
+msgid "The ali-mns use the `promise <https://www.npmjs.org/package/promise>`__ pattern. Any functions suffix with ‘P’ indicate a promise object will be returned from it."
+msgstr "The ali-mns use the `promise <https://www.npmjs.org/package/promise>`__ pattern. Any functions suffix with ‘P’ indicate a promise object will be returned from it."
+
+#: ../../source/mns/ali-mns.rst:44
+msgid "Typescript"
+msgstr "Typescript"
+
+#: ../../source/mns/ali-mns.rst:46
+msgid "If you only want to use it, forget this."
+msgstr "If you only want to use it, forget this."
+
+#: ../../source/mns/ali-mns.rst:48
+msgid "Most source files are written in typescript instead of javascript. Visit http://www.typescriptlang.org/ for more information about typescript."
+msgstr "Most source files are written in typescript instead of javascript. Visit http://www.typescriptlang.org/ for more information about typescript."
+
+#: ../../source/mns/ali-mns.rst:51
+msgid "If you interest in source file, visit GitHub https://github.com/InCar/ali-mns"
+msgstr "If you interest in source file, visit GitHub https://github.com/InCar/ali-mns"
+
+#: ../../source/mns/ali-mns.rst:54
+msgid "Please use ‘gulp’ to compile ts files into a single index.js file after downloading source files."
+msgstr "Please use ‘gulp’ to compile ts files into a single index.js file after downloading source files."
+
+#: ../../source/mns/ali-mns.rst:58
+msgid "API参考"
+msgstr "API参考"
+
+#: ../../source/mns/ali-mns.rst:61
+msgid "类"
+msgstr "类"
+
+#: ../../source/mns/ali-mns.rst:61
+msgid "方法"
+msgstr "方法"
+
+#: ../../source/mns/ali-mns.rst:61
+msgid "描述"
+msgstr "描述"
+
+#: ../../source/mns/ali-mns.rst:63
+msgid "Account"
+msgstr "Account"
+
+#: ../../source/mns/ali-mns.rst:63
+msgid "`Account <#accountaccountidstring-keyidstring-keysecretstring>`__"
+msgstr "`Account <#accountaccountidstring-keyidstring-keysecretstring>`__"
+
+#: ../../source/mns/ali-mns.rst:63
+msgid "*Account* 类存储您的ali帐户信息。"
+msgstr "*Account* 类存储您的ali帐户信息。"
+
+#: ../../source/mns/ali-mns.rst:64
+#: ../../source/mns/ali-mns.rst:65
+#: ../../source/mns/ali-mns.rst:66
+#: ../../source/mns/ali-mns.rst:67
+#: ../../source/mns/ali-mns.rst:68
+#: ../../source/mns/ali-mns.rst:70
+#: ../../source/mns/ali-mns.rst:72
+#: ../../source/mns/ali-mns.rst:74
+#: ../../source/mns/ali-mns.rst:75
+#: ../../source/mns/ali-mns.rst:76
+#: ../../source/mns/ali-mns.rst:78
+#: ../../source/mns/ali-mns.rst:79
+#: ../../source/mns/ali-mns.rst:80
+#: ../../source/mns/ali-mns.rst:81
+#: ../../source/mns/ali-mns.rst:82
+#: ../../source/mns/ali-mns.rst:83
+#: ../../source/mns/ali-mns.rst:84
+#: ../../source/mns/ali-mns.rst:85
+#: ../../source/mns/ali-mns.rst:86
+#: ../../source/mns/ali-mns.rst:87
+#: ../../source/mns/ali-mns.rst:88
+#: ../../source/mns/ali-mns.rst:89
+#: ../../source/mns/ali-mns.rst:90
+#: ../../source/mns/ali-mns.rst:91
+#: ../../source/mns/ali-mns.rst:93
+#: ../../source/mns/ali-mns.rst:94
+#: ../../source/mns/ali-mns.rst:95
+#: ../../source/mns/ali-mns.rst:96
+#: ../../source/mns/ali-mns.rst:97
+#: ../../source/mns/ali-mns.rst:99
+#: ../../source/mns/ali-mns.rst:100
+#: ../../source/mns/ali-mns.rst:101
+#: ../../source/mns/ali-mns.rst:103
+#: ../../source/mns/ali-mns.rst:104
+#: ../../source/mns/ali-mns.rst:105
+#: ../../source/mns/ali-mns.rst:106
+#: ../../source/mns/ali-mns.rst:107
+#: ../../source/mns/ali-mns.rst:108
+#: ../../source/mns/ali-mns.rst:109
+#: ../../source/mns/ali-mns.rst:110
+#: ../../source/mns/ali-mns.rst:111
+#: ../../source/mns/ali-mns.rst:112
+#: ../../source/mns/ali-mns.rst:113
+#: ../../source/mns/ali-mns.rst:114
+#: ../../source/mns/ali-mns.rst:115
+#: ../../source/mns/ali-mns.rst:117
+#: ../../source/mns/ali-mns.rst:118
+#: ../../source/mns/ali-mns.rst:119
+#: ../../source/mns/ali-mns.rst:120
+#: ../../source/mns/ali-mns.rst:121
+#: ../../source/mns/ali-mns.rst:122
+msgid "\\"
+msgstr "\\"
+
+#: ../../source/mns/ali-mns.rst:64
+msgid "`getAccountId <#accountgetaccountid>`__"
+msgstr "`getAccountId <#accountgetaccountid>`__"
+
+#: ../../source/mns/ali-mns.rst:64
+msgid "返回ali帐户ID"
+msgstr "返回ali帐户ID"
+
+#: ../../source/mns/ali-mns.rst:65
+msgid "`getOwnerId <#accountgetownerid>`__"
+msgstr "`getOwnerId <#accountgetownerid>`__"
+
+#: ../../source/mns/ali-mns.rst:65
+msgid "与account.getAccountId() 相同。,对于兼容的v1。"
+msgstr "与account.getAccountId() 相同。,对于兼容的v1。"
+
+#: ../../source/mns/ali-mns.rst:66
+msgid "`getKeyId <#accountgetkeyid>`__"
+msgstr "`getKeyId <#accountgetkeyid>`__"
+
+#: ../../source/mns/ali-mns.rst:66
+msgid "返回ali密钥ID"
+msgstr "返回ali密钥ID"
+
+#: ../../source/mns/ali-mns.rst:67
+msgid "`getGA <#accountgetga--accountsetgabgaboolean>`__"
+msgstr "`getGA <#accountgetga--accountsetgabgaboolean>`__"
+
+#: ../../source/mns/ali-mns.rst:67
+msgid "获取Google Analytics分析集的状态。"
+msgstr "获取Google Analytics分析集的状态。"
+
+#: ../../source/mns/ali-mns.rst:68
+msgid "`setGA <#accountgetga--accountsetgabgaboolean>`__"
+msgstr "`setGA <#accountgetga--accountsetgabgaboolean>`__"
+
+#: ../../source/mns/ali-mns.rst:68
+msgid "设置Google Analytics分析集的状态。"
+msgstr "设置Google Analytics分析集的状态。"
+
+#: ../../source/mns/ali-mns.rst:69
+msgid "Https"
+msgstr "Https"
+
+#: ../../source/mns/ali-mns.rst:69
+msgid "`getHttps <#accountgethttps--accountsethttpsbhttpsboolean>`__"
+msgstr "`getHttps <#accountgethttps--accountsethttpsbhttpsboolean>`__"
+
+#: ../../source/mns/ali-mns.rst:69
+msgid "获取使用http或https协议。"
+msgstr "获取使用http或https协议。"
+
+#: ../../source/mns/ali-mns.rst:70
+msgid "`setHttps <#accountgethttps--accountsethttpsbhttpsboolean>`__"
+msgstr "`setHttps <#accountgethttps--accountsethttpsbhttpsboolean>`__"
+
+#: ../../source/mns/ali-mns.rst:70
+msgid "使用http或https协议进行设置。"
+msgstr "使用http或https协议进行设置。"
+
+#: ../../source/mns/ali-mns.rst:71
+msgid "Region"
+msgstr "Region"
+
+#: ../../source/mns/ali-mns.rst:71
+msgid "`Region <#regioncitystringcity-networkstringnetworktype-zonestringzone>`__"
+msgstr "`Region <#regioncitystringcity-networkstringnetworktype-zonestringzone>`__"
+
+#: ../../source/mns/ali-mns.rst:71
+msgid "*Region* 类可帮助您指定数据中心的区域。"
+msgstr "*Region* 类可帮助您指定数据中心的区域。"
+
+#: ../../source/mns/ali-mns.rst:72
+msgid "`toString <#regiontostring>`__"
+msgstr "`toString <#regiontostring>`__"
+
+#: ../../source/mns/ali-mns.rst:72
+msgid "Convert region object to string value."
+msgstr "Convert region object to string value."
+
+#: ../../source/mns/ali-mns.rst:73
+msgid "MNS"
+msgstr "MNS"
+
+#: ../../source/mns/ali-mns.rst:73
+msgid "`MNS <#mnsaccountaccount-regionstringregion>`__ `MQS <#mqsaccountaccount-regionstringregion>`__ `MNSTopic <#mnstopicaccountaccount-regionstringregion>`__"
+msgstr "`MNS <#mnsaccountaccount-regionstringregion>`__ `MQS <#mqsaccountaccount-regionstringregion>`__ `MNSTopic <#mnstopicaccountaccount-regionstringregion>`__"
+
+#: ../../source/mns/ali-mns.rst:73
+msgid "操作mns队列。 ,\\* MQS \\*用于兼容的v1.x."
+msgstr "操作mns队列。 ,\\* MQS \\*用于兼容的v1.x."
+
+#: ../../source/mns/ali-mns.rst:74
+msgid "`listP <#mnslistpprefixstring-pagesizenumber-pagemarkerstring>`__"
+msgstr "`listP <#mnslistpprefixstring-pagesizenumber-pagemarkerstring>`__"
+
+#: ../../source/mns/ali-mns.rst:74
+msgid "列出数据中心中的所有队列。"
+msgstr "列出数据中心中的所有队列。"
+
+#: ../../source/mns/ali-mns.rst:75
+msgid "`createP <#mnscreatepnamestring-optionsany>`__"
+msgstr "`createP <#mnscreatepnamestring-optionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:75
+msgid "创建一个mq。"
+msgstr "创建一个mq。"
+
+#: ../../source/mns/ali-mns.rst:76
+msgid "`deleteP <#mnsdeletepnamestring>`__"
+msgstr "`deleteP <#mnsdeletepnamestring>`__"
+
+#: ../../source/mns/ali-mns.rst:76
+msgid "删除mq。"
+msgstr "删除mq。"
+
+#: ../../source/mns/ali-mns.rst:77
+msgid "MQ"
+msgstr "MQ"
+
+#: ../../source/mns/ali-mns.rst:77
+msgid "`MQ <#mqnamestring-accountaccount-regionstringregion>`__ `MQBatch <#mqbatch>`__"
+msgstr "`MQ <#mqnamestring-accountaccount-regionstringregion>`__ `MQBatch <#mqbatch>`__"
+
+#: ../../source/mns/ali-mns.rst:77
+msgid "*MQ* 在队列中操作消息。"
+msgstr "*MQ* 在队列中操作消息。"
+
+#: ../../source/mns/ali-mns.rst:78
+msgid "`getName <#mqgetname>`__"
+msgstr "`getName <#mqgetname>`__"
+
+#: ../../source/mns/ali-mns.rst:78
+msgid "获取mq的名称。"
+msgstr "获取mq的名称。"
+
+#: ../../source/mns/ali-mns.rst:79
+msgid "`getAccount <#mqgetaccount>`__"
+msgstr "`getAccount <#mqgetaccount>`__"
+
+#: ../../source/mns/ali-mns.rst:79
+msgid "获取mq的帐户。"
+msgstr "获取mq的帐户。"
+
+#: ../../source/mns/ali-mns.rst:80
+msgid "`getRegion <#mqgetregion>`__"
+msgstr "`getRegion <#mqgetregion>`__"
+
+#: ../../source/mns/ali-mns.rst:80
+msgid "获取mq的区域。"
+msgstr "获取mq的区域。"
+
+#: ../../source/mns/ali-mns.rst:81
+msgid "`sendP <#mqsendpmsgstring-prioritynumber-delaysecondsnumber>`__"
+msgstr "`sendP <#mqsendpmsgstring-prioritynumber-delaysecondsnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:81
+msgid "将消息发送到队列。"
+msgstr "将消息发送到队列。"
+
+#: ../../source/mns/ali-mns.rst:82
+msgid "`getRecvTolerance <#mqgetrecvtolerance--mqsetrecvtolerancevaluenumber>`__"
+msgstr "`getRecvTolerance <#mqgetrecvtolerance--mqsetrecvtolerancevaluenumber>`__"
+
+#: ../../source/mns/ali-mns.rst:82
+msgid "获取mq.recvP方法的容差秒数。"
+msgstr "获取mq.recvP方法的容差秒数。"
+
+#: ../../source/mns/ali-mns.rst:83
+msgid "`setRecvTolerance <#mqgetrecvtolerance--mqsetrecvtolerancevaluenumber>`__"
+msgstr "`setRecvTolerance <#mqgetrecvtolerance--mqsetrecvtolerancevaluenumber>`__"
+
+#: ../../source/mns/ali-mns.rst:83
+msgid "设置mq.recvP方法的容差秒数。"
+msgstr "设置mq.recvP方法的容差秒数。"
+
+#: ../../source/mns/ali-mns.rst:84
+msgid "`recvP <#mqrecvpwaitsecondsnumber>`__"
+msgstr "`recvP <#mqrecvpwaitsecondsnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:84
+msgid "从队列接收消息。"
+msgstr "从队列接收消息。"
+
+#: ../../source/mns/ali-mns.rst:85
+msgid "`peekP <#mqpeekp>`__"
+msgstr "`peekP <#mqpeekp>`__"
+
+#: ../../source/mns/ali-mns.rst:85
+msgid "偷看一条消息。"
+msgstr "偷看一条消息。"
+
+#: ../../source/mns/ali-mns.rst:86
+msgid "`deleteP <#mqdeletepreceipthandlestring>`__"
+msgstr "`deleteP <#mqdeletepreceipthandlestring>`__"
+
+#: ../../source/mns/ali-mns.rst:86
+msgid "从队列中删除消息。"
+msgstr "从队列中删除消息。"
+
+#: ../../source/mns/ali-mns.rst:87
+msgid "`reserveP <#mqreservepreceipthandlestring-reservesecondsnumber>`__"
+msgstr "`reserveP <#mqreservepreceipthandlestring-reservesecondsnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:87
+msgid "保留收到的消息。"
+msgstr "保留收到的消息。"
+
+#: ../../source/mns/ali-mns.rst:88
+msgid "`notifyRecv <#mqnotifyrecvcbexerror-msganyboolean-waitsecondsnumber>`__"
+msgstr "`notifyRecv <#mqnotifyrecvcbexerror-msganyboolean-waitsecondsnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:88
+msgid "注册回调函数以接收消息。"
+msgstr "注册回调函数以接收消息。"
+
+#: ../../source/mns/ali-mns.rst:89
+msgid "`notifyStopP <#mqnotifystopp>`__"
+msgstr "`notifyStopP <#mqnotifystopp>`__"
+
+#: ../../source/mns/ali-mns.rst:89
+msgid "停止mq.notifyRecv工作。"
+msgstr "停止mq.notifyRecv工作。"
+
+#: ../../source/mns/ali-mns.rst:90
+msgid "`getAttrsP <#mqgetattrsp>`__"
+msgstr "`getAttrsP <#mqgetattrsp>`__"
+
+#: ../../source/mns/ali-mns.rst:90
+msgid "获取mq的属性。"
+msgstr "获取mq的属性。"
+
+#: ../../source/mns/ali-mns.rst:91
+msgid "`setAttrsP <#mqsetattrspoptionsany>`__"
+msgstr "`setAttrsP <#mqsetattrspoptionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:91
+msgid "修改mq的属性。"
+msgstr "修改mq的属性。"
+
+#: ../../source/mns/ali-mns.rst:92
+msgid "MQBatch"
+msgstr "MQBatch"
+
+#: ../../source/mns/ali-mns.rst:92
+msgid "`MQBatch <#mqbatch>`__"
+msgstr "`MQBatch <#mqbatch>`__"
+
+#: ../../source/mns/ali-mns.rst:92
+msgid "提供2015年6月在Ali-MNS服务新版中引入的批处理模型。"
+msgstr "提供2015年6月在Ali-MNS服务新版中引入的批处理模型。"
+
+#: ../../source/mns/ali-mns.rst:93
+msgid "`sendP <#mqbatchsendpmsgstring--array-prioritynumber-delaysecondsnumber>`__"
+msgstr "`sendP <#mqbatchsendpmsgstring--array-prioritynumber-delaysecondsnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:93
+#: ../../source/mns/ali-mns.rst:94
+msgid "发送消息或批量发送消息到队列。"
+msgstr "发送消息或批量发送消息到队列。"
+
+#: ../../source/mns/ali-mns.rst:94
+msgid "`recvP <#mqbatchrecvpwaitsecondsnumber-numofmessagesnumber>`__"
+msgstr "`recvP <#mqbatchrecvpwaitsecondsnumber-numofmessagesnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:95
+msgid "`peekP <#mqbatchpeekpnumofmessagesnumber>`__"
+msgstr "`peekP <#mqbatchpeekpnumofmessagesnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:95
+msgid "偷看消息。"
+msgstr "偷看消息。"
+
+#: ../../source/mns/ali-mns.rst:96
+msgid "`deleteP <#mqbatchdeletepreceipthandlestring--array>`__"
+msgstr "`deleteP <#mqbatchdeletepreceipthandlestring--array>`__"
+
+#: ../../source/mns/ali-mns.rst:96
+msgid "从队列中删除一条或多条消息。"
+msgstr "从队列中删除一条或多条消息。"
+
+#: ../../source/mns/ali-mns.rst:97
+msgid "`notifyRecv <#mqbatchnotifyrecvcbexerror-msganyboolean-waitsecondsnumber-numofmessagesnumber>`__"
+msgstr "`notifyRecv <#mqbatchnotifyrecvcbexerror-msganyboolean-waitsecondsnumber-numofmessagesnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:97
+msgid "注册回调函数以批量接收消息"
+msgstr "注册回调函数以批量接收消息"
+
+#: ../../source/mns/ali-mns.rst:98
+msgid "Msg"
+msgstr "Msg"
+
+#: ../../source/mns/ali-mns.rst:98
+msgid "`Msg <#msgmsg-string-prioritynumber-delaysecondsnumber>`__"
+msgstr "`Msg <#msgmsg-string-prioritynumber-delaysecondsnumber>`__"
+
+#: ../../source/mns/ali-mns.rst:98
+msgid "MQBatch中使用的简单消息定义。"
+msgstr "MQBatch中使用的简单消息定义。"
+
+#: ../../source/mns/ali-mns.rst:99
+msgid "`getMsg <#msggetmsg>`__"
+msgstr "`getMsg <#msggetmsg>`__"
+
+#: ../../source/mns/ali-mns.rst:99
+msgid "返回消息内容。"
+msgstr "返回消息内容。"
+
+#: ../../source/mns/ali-mns.rst:100
+msgid "`getPriority <#msggetpriority>`__"
+msgstr "`getPriority <#msggetpriority>`__"
+
+#: ../../source/mns/ali-mns.rst:100
+msgid "返回消息的优先级。"
+msgstr "返回消息的优先级。"
+
+#: ../../source/mns/ali-mns.rst:101
+msgid "`getDelaySeconds <#msggetdelayseconds>`__"
+msgstr "`getDelaySeconds <#msggetdelayseconds>`__"
+
+#: ../../source/mns/ali-mns.rst:101
+msgid "返回消息的延迟秒数。"
+msgstr "返回消息的延迟秒数。"
+
+#: ../../source/mns/ali-mns.rst:102
+msgid "MNSTopic"
+msgstr "MNSTopic"
+
+#: ../../source/mns/ali-mns.rst:102
+msgid "`MNSTopic <#mnstopicaccountaccount-regionstringregion>`__"
+msgstr "`MNSTopic <#mnstopicaccountaccount-regionstringregion>`__"
+
+#: ../../source/mns/ali-mns.rst:102
+msgid "MNSTopic类扩展了类MNS，用于在主题模型中提供特征。"
+msgstr "MNSTopic类扩展了类MNS，用于在主题模型中提供特征。"
+
+#: ../../source/mns/ali-mns.rst:103
+msgid "`listTopicP <#mnslisttopicpprefixstring-pagesizenumber-pagemarkerstring>`__"
+msgstr "`listTopicP <#mnslisttopicpprefixstring-pagesizenumber-pagemarkerstring>`__"
+
+#: ../../source/mns/ali-mns.rst:103
+msgid "列出所有主题"
+msgstr "列出所有主题"
+
+#: ../../source/mns/ali-mns.rst:104
+msgid "`createTopicP <#mnscreatetopicpnamestring-optionsany>`__"
+msgstr "`createTopicP <#mnscreatetopicpnamestring-optionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:104
+msgid "创建一个主题。"
+msgstr "创建一个主题。"
+
+#: ../../source/mns/ali-mns.rst:105
+msgid "`deleteTopicP <#mnsdeletetopicpnamestring>`__"
+msgstr "`deleteTopicP <#mnsdeletetopicpnamestring>`__"
+
+#: ../../source/mns/ali-mns.rst:105
+msgid "删除主题"
+msgstr "删除主题"
+
+#: ../../source/mns/ali-mns.rst:106
+msgid "`Topic <#topicnamestring-accountaccount-regionstringregion>`__"
+msgstr "`Topic <#topicnamestring-accountaccount-regionstringregion>`__"
+
+#: ../../source/mns/ali-mns.rst:106
+msgid "操作主题"
+msgstr "操作主题"
+
+#: ../../source/mns/ali-mns.rst:107
+msgid "`getName <#topicgetname>`__"
+msgstr "`getName <#topicgetname>`__"
+
+#: ../../source/mns/ali-mns.rst:107
+msgid "获取主题名称。"
+msgstr "获取主题名称。"
+
+#: ../../source/mns/ali-mns.rst:108
+msgid "`getAccount <#topicgetaccount>`__"
+msgstr "`getAccount <#topicgetaccount>`__"
+
+#: ../../source/mns/ali-mns.rst:108
+msgid "获取主题帐户。"
+msgstr "获取主题帐户。"
+
+#: ../../source/mns/ali-mns.rst:109
+msgid "`getRegion <#topicgetregion>`__"
+msgstr "`getRegion <#topicgetregion>`__"
+
+#: ../../source/mns/ali-mns.rst:109
+msgid "获取主题区域。"
+msgstr "获取主题区域。"
+
+#: ../../source/mns/ali-mns.rst:110
+msgid "`getAttrsP <#topicgetattrsp--topicsetattrspoptionsany>`__"
+msgstr "`getAttrsP <#topicgetattrsp--topicsetattrspoptionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:110
+msgid "获取主题的属性。"
+msgstr "获取主题的属性。"
+
+#: ../../source/mns/ali-mns.rst:111
+msgid "`setAttrsP <#topicgetattrsp--topicsetattrspoptionsany>`__"
+msgstr "`setAttrsP <#topicgetattrsp--topicsetattrspoptionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:111
+msgid "设置主题的属性。"
+msgstr "设置主题的属性。"
+
+#: ../../source/mns/ali-mns.rst:112
+msgid "`listP <#topiclistpprefixstring-pagesizenumber-pagemarkerstring>`__"
+msgstr "`listP <#topiclistpprefixstring-pagesizenumber-pagemarkerstring>`__"
+
+#: ../../source/mns/ali-mns.rst:112
+msgid "列出所有订阅。"
+msgstr "列出所有订阅。"
+
+#: ../../source/mns/ali-mns.rst:113
+msgid "`subscribeP <#topicsubscribepnamestring-endpointstring-notifystrategystring-notifycontentformatstring-filtertagstring>`__"
+msgstr "`subscribeP <#topicsubscribepnamestring-endpointstring-notifystrategystring-notifycontentformatstring-filtertagstring>`__"
+
+#: ../../source/mns/ali-mns.rst:113
+msgid "订阅主题。"
+msgstr "订阅主题。"
+
+#: ../../source/mns/ali-mns.rst:114
+msgid "`unsubscribeP <#topicunsubscribepnamestring>`__"
+msgstr "`unsubscribeP <#topicunsubscribepnamestring>`__"
+
+#: ../../source/mns/ali-mns.rst:114
+msgid "取消订阅主题。"
+msgstr "取消订阅主题。"
+
+#: ../../source/mns/ali-mns.rst:115
+msgid "`publishP <#topicpublishpmsgstring-b64boolean-tagstring-attrsany-optionsany>`__"
+msgstr "`publishP <#topicpublishpmsgstring-b64boolean-tagstring-attrsany-optionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:115
+msgid "将消息发布到主题。"
+msgstr "将消息发布到主题。"
+
+#: ../../source/mns/ali-mns.rst:116
+msgid "Subscription"
+msgstr "Subscription"
+
+#: ../../source/mns/ali-mns.rst:116
+msgid "`Subscription <#subscriptionnamestring-topictopic>`__"
+msgstr "`Subscription <#subscriptionnamestring-topictopic>`__"
+
+#: ../../source/mns/ali-mns.rst:116
+msgid "运营订阅。"
+msgstr "运营订阅。"
+
+#: ../../source/mns/ali-mns.rst:117
+msgid "`getName <#subscriptiongetname>`__"
+msgstr "`getName <#subscriptiongetname>`__"
+
+#: ../../source/mns/ali-mns.rst:117
+msgid "获取订阅名称。"
+msgstr "获取订阅名称。"
+
+#: ../../source/mns/ali-mns.rst:118
+msgid "`getTopic <#subscriptiongettopic>`__"
+msgstr "`getTopic <#subscriptiongettopic>`__"
+
+#: ../../source/mns/ali-mns.rst:118
+msgid "获取订阅主题。"
+msgstr "获取订阅主题。"
+
+#: ../../source/mns/ali-mns.rst:119
+msgid "`getAttrsP <#subscriptiongetattrsp--subscriptionsetattrspoptionsany>`__"
+msgstr "`getAttrsP <#subscriptiongetattrsp--subscriptionsetattrspoptionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:119
+msgid "获取订阅的属性。"
+msgstr "获取订阅的属性。"
+
+#: ../../source/mns/ali-mns.rst:120
+msgid "`setAttrsP <#subscriptiongetattrsp--subscriptionsetattrspoptionsany>`__"
+msgstr "`setAttrsP <#subscriptiongetattrsp--subscriptionsetattrspoptionsany>`__"
+
+#: ../../source/mns/ali-mns.rst:120
+msgid "设置订阅的属性。"
+msgstr "设置订阅的属性。"
+
+#: ../../source/mns/ali-mns.rst:121
+msgid "`NotifyStrategy <#subscriptionnotifystrategy>`__"
+msgstr "`NotifyStrategy <#subscriptionnotifystrategy>`__"
+
+#: ../../source/mns/ali-mns.rst:121
+msgid "NotifyStrategy常量。"
+msgstr "NotifyStrategy常量。"
+
+#: ../../source/mns/ali-mns.rst:122
+msgid "`NotifyContentFormat <#subscriptionnotifycontentformat>`__"
+msgstr "`NotifyContentFormat <#subscriptionnotifycontentformat>`__"
+
+#: ../../source/mns/ali-mns.rst:122
+msgid "NotifyContentFormat常量"
+msgstr "NotifyContentFormat常量"
+
+#: ../../source/mns/ali-mns.rst:126
+msgid "调试跟踪"
+msgstr "调试跟踪"
+
+#: ../../source/mns/ali-mns.rst:128
+msgid "将环境变量\\ **DEBUG**\\ 设置为\\ ``ali-mns``\\ 以启用调试跟踪输出。"
+msgstr "将环境变量\\ **DEBUG**\\ 设置为\\ ``ali-mns``\\ 以启用调试跟踪输出。"
+
+#: ../../source/mns/ali-mns.rst:139
+msgid "迁移"
+msgstr "迁移"
+
+#: ../../source/mns/ali-mns.rst:143
+msgid "ali-mns与ali-mqs完全兼容，只需将ali-mqs包替换为ali-mns即可。"
+msgstr "ali-mns与ali-mqs完全兼容，只需将ali-mqs包替换为ali-mns即可。"
+
+#: ../../source/mns/ali-mns.rst:152
+msgid "可选的。,将\\ **ownerId**\\ 更改为\\ **accountId**"
+msgstr "可选的。,将\\ **ownerId**\\ 更改为\\ **accountId**"
+
+#: ../../source/mns/ali-mns.rst:154
+msgid "Ali-Yun升级他们的帐户系统，并建议使用较新的帐户ID而不是所有者ID。 但是老主人身份现在仍然可用。"
+msgstr "Ali-Yun升级他们的帐户系统，并建议使用较新的帐户ID而不是所有者ID。 但是老主人身份现在仍然可用。"
+
+#: ../../source/mns/ali-mns.rst:163
+msgid "**ownerId** 与数字和字母混合在一起"
+msgstr "**ownerId** 与数字和字母混合在一起"
+
+#: ../../source/mns/ali-mns.rst:165
+msgid "**accountId** 是一个16位数字， 点击\\ `此链接 <https://account.console.aliyun.com/#/secure>`__\\ 查找您的accountId。"
+msgstr "**accountId** 是一个16位数字， 点击\\ `此链接 <https://account.console.aliyun.com/#/secure>`__\\ 查找您的accountId。"
+
+#: ../../source/mns/ali-mns.rst:168
+msgid "In GitHub, `An branch v1.x <https://github.com/InCar/ali-mns/tree/v1.x>`__ keeps tracking for the old mqs services. And use \\`npm install ali-mqs’ to install the `ali-mqs <https://www.npmjs.com/package/ali-mqs>`__ package for v1.x."
+msgstr "In GitHub, `An branch v1.x <https://github.com/InCar/ali-mns/tree/v1.x>`__ keeps tracking for the old mqs services. And use \\`npm install ali-mqs’ to install the `ali-mqs <https://www.npmjs.com/package/ali-mqs>`__ package for v1.x."
+
+#: ../../source/mns/ali-mns.rst:174
+msgid "性能 - 串行与批量"
+msgstr "性能 - 串行与批量"
+
+#: ../../source/mns/ali-mns.rst:176
+msgid "创建20个队列，然后随机发送2000条消息。"
+msgstr "创建20个队列，然后随机发送2000条消息。"
+
+#: ../../source/mns/ali-mns.rst:178
+msgid "它在串行模式下比在批处理模式下慢约\\ **10倍**\\ 。"
+msgstr "它在串行模式下比在批处理模式下慢约\\ **10倍**\\ 。"
+
+#: ../../source/mns/ali-mns.rst:180
+msgid "**1st - 串行模式(batch_size=1)**"
+msgstr "**1st - 串行模式(batch_size=1)**"
+
+#: ../../source/mns/ali-mns.rst:191
+msgid "**2nd - 批量调制(Batch_size=16)**"
+msgstr "**2nd - 批量调制(Batch_size=16)**"
+
+#: ../../source/mns/ali-mns.rst:202
+msgid "The testing code is in `$/test/performance.js <https://github.com/InCar/ali-mns/blob/master/test/performance.js>`__ and a test log sample is in `$/test/performance.log <https://github.com/InCar/ali-mns/blob/master/test/performance.log>`__"
+msgstr "The testing code is in `$/test/performance.js <https://github.com/InCar/ali-mns/blob/master/test/performance.js>`__ and a test log sample is in `$/test/performance.log <https://github.com/InCar/ali-mns/blob/master/test/performance.log>`__"
+
+#: ../../source/mns/ali-mns.rst:207
+msgid "Use ``npm run test`` to execute the test."
+msgstr "Use ``npm run test`` to execute the test."
+
+#: ../../source/mns/ali-mns.rst:209
+msgid "Set environment variable **DEBUG** to **ali-mns.test** to turn on output trace(will slow down the test)."
+msgstr "Set environment variable **DEBUG** to **ali-mns.test** to turn on output trace(will slow down the test)."
+
+#: ../../source/mns/ali-mns.rst:213
+msgid "隐私政策"
+msgstr "隐私政策"
+
+#: ../../source/mns/ali-mns.rst:215
+msgid "我们收集有关如何使用\\ ``ali-mns``\\ 包以获得更好服务的信息。"
+msgstr "我们收集有关如何使用\\ ``ali-mns``\\ 包以获得更好服务的信息。"
+
+#: ../../source/mns/ali-mns.rst:217
+msgid "By default a tracing information is sent to google analytics when sending a request to ali-mns service, The tracing information contains only the url. Your data, key will not be sent. Your account id is sent by hash to md5 value, so it can not be used tracking back to you. You can check `code <https://github.com/InCar/ali-mns/blob/master/ts/GA.ts#L28>`__ about data collection."
+msgstr "By default a tracing information is sent to google analytics when sending a request to ali-mns service, The tracing information contains only the url. Your data, key will not be sent. Your account id is sent by hash to md5 value, so it can not be used tracking back to you. You can check `code <https://github.com/InCar/ali-mns/blob/master/ts/GA.ts#L28>`__ about data collection."
+
+#: ../../source/mns/ali-mns.rst:225
+msgid "您可以随时禁用数据收集。"
+msgstr "您可以随时禁用数据收集。"
+
+#: ../../source/mns/ali-mns.rst:239
+msgid "证书"
+msgstr "证书"
+
+#: ../../source/mns/ali-mns.rst:241
+msgid "MIT"
+msgstr "MIT"
+

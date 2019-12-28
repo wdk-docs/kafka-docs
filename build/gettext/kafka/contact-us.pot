@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/kafka/contact-us.rst:1
+msgid "Contact Mailing Lists"
+msgstr "Contact Mailing Lists"
+
+#: ../../source/kafka/contact-us.rst:3
+msgid "We have a few mailing lists hosted by Apache:"
+msgstr "We have a few mailing lists hosted by Apache:"
+
+#: ../../source/kafka/contact-us.rst:12
+msgid "A searchable archive of the mailing lists is available at search-hadoop.com."
+msgstr "A searchable archive of the mailing lists is available at search-hadoop.com."
+
+#: ../../source/kafka/contact-us.rst:15
+msgid "To unsubscribe from any of these you just change the word “subscribe” to “unsubscribe” in the email adresses above."
+msgstr "To unsubscribe from any of these you just change the word “subscribe” to “unsubscribe” in the email adresses above."
+
+#: ../../source/kafka/contact-us.rst:18
+msgid "Prior to the move to Apache we had a Google group we used for discussion. Archives can be found here. After that we were in Apache Incubator which has its own archives for user, dev, and commit lists. IRC"
+msgstr "Prior to the move to Apache we had a Google group we used for discussion. Archives can be found here. After that we were in Apache Incubator which has its own archives for user, dev, and commit lists. IRC"
+
+#: ../../source/kafka/contact-us.rst:23
+msgid "We have an IRC channel where there is often a few people hanging around if you want an interactive discussion. You can find us on chat.freenode.net in #apache-kafka room (previously #kafka). The irc log can be found here."
+msgstr "We have an IRC channel where there is often a few people hanging around if you want an interactive discussion. You can find us on chat.freenode.net in #apache-kafka room (previously #kafka). The irc log can be found here."
+

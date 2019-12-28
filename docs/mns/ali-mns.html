@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ali-mns (ali-mqs) &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="mns api" href="api/index.html" />
+    <link rel="prev" title="消息服务" href="aliyun-mns.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kafka/index.html">kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">mns api</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aliyun-mns.html">消息服务</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ali-mns (ali-mqs)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">快速开始</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">许</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#typescript">Typescript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API参考</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">调试跟踪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">迁移</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">性能 - 串行与批量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">隐私政策</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">证书</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html">mns api</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">mns api</a> &raquo;</li>
+        
+      <li>ali-mns (ali-mqs)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/mns/ali-mns.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ali-mns-ali-mqs">
+<h1>ali-mns (ali-mqs)<a class="headerlink" href="#ali-mns-ali-mqs" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="http://badge.fury.io/js/ali-mqs"><img alt="npm version" src="https://badge.fury.io/js/ali-mqs.svg" /></a> <a class="reference external" href="http://badge.fury.io/js/ali-mqs"><img alt="npm version" src="https://badge.fury.io/js/ali-mqs.svg" /></a></p>
+<p>The nodejs sdk for aliyun mns service</p>
+<p><a class="reference external" href="http://armclr.incars.com.cn/Links/AliMNS?lang=zh-Hans">阿里云消息服务-简体中文-帮助手册</a></p>
+<p>Ali MNS service is a MQ(message queue) service provided by AliYun. The
+world largest online sales website www.taobao.com is heavily relying on
+it.</p>
+<p>You can visit <a class="reference external" href="http://www.aliyun.com/product/mns">http://www.aliyun.com/product/mns</a> for more details.</p>
+<p>The original Ali-MQS service has been upgraded and changed it’s name to
+Ali-MNS since June, 2015. Go to <a class="reference external" href="#migrate">Migrate</a> part for the old
+version informations.</p>
+<div class="section" id="id1">
+<h2>快速开始<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>Use ‘npm install ali-mns’ to install the package.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AliMNS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;ali-mns&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">account</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Account</span><span class="p">(</span><span class="s2">&quot;&lt;your-account-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-secret&gt;&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">mq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">MQ</span><span class="p">(</span><span class="s2">&quot;&lt;your-mq-name&gt;&quot;</span><span class="p">,</span> <span class="nx">account</span><span class="p">,</span> <span class="s2">&quot;hangzhou&quot;</span><span class="p">);</span>
+<span class="c1">// send message</span>
+<span class="nx">mq</span><span class="p">.</span><span class="nx">sendP</span><span class="p">(</span><span class="s2">&quot;Hello ali-mns&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>More sample codes can be found in
+<a class="reference external" href="https://github.com/InCar/ali-mns/tree/master/test">GitHub</a>.</p>
+</div>
+<div class="section" id="id2">
+<h2>许<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>The ali-mns use the <a class="reference external" href="https://www.npmjs.org/package/promise">promise</a>
+pattern. Any functions suffix with ‘P’ indicate a promise object will be
+returned from it.</p>
+</div>
+<div class="section" id="typescript">
+<h2>Typescript<a class="headerlink" href="#typescript" title="永久链接至标题">¶</a></h2>
+<p>If you only want to use it, forget this.</p>
+<p>Most source files are written in typescript instead of javascript. Visit
+<a class="reference external" href="http://www.typescriptlang.org/">http://www.typescriptlang.org/</a> for more information about typescript.</p>
+<p>If you interest in source file, visit GitHub
+<a class="reference external" href="https://github.com/InCar/ali-mns">https://github.com/InCar/ali-mns</a></p>
+<p>Please use ‘gulp’ to compile ts files into a single index.js file after
+downloading source files.</p>
+</div>
+<div class="section" id="api">
+<h2>API参考<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 71%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>类</p></th>
+<th class="head"><p>方法</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Account</p></td>
+<td><p><a class="reference external" href="#accountaccountidstring-keyidstring-keysecretstring">Account</a></p></td>
+<td><p><em>Account</em> 类存储您的ali帐户信息。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#accountgetaccountid">getAccountId</a></p></td>
+<td><p>返回ali帐户ID</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#accountgetownerid">getOwnerId</a></p></td>
+<td><p>与account.getAccountId() 相同。,对于兼容的v1。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#accountgetkeyid">getKeyId</a></p></td>
+<td><p>返回ali密钥ID</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#accountgetga--accountsetgabgaboolean">getGA</a></p></td>
+<td><p>获取Google Analytics分析集的状态。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#accountgetga--accountsetgabgaboolean">setGA</a></p></td>
+<td><p>设置Google Analytics分析集的状态。</p></td>
+</tr>
+<tr class="row-even"><td><p>Https</p></td>
+<td><p><a class="reference external" href="#accountgethttps--accountsethttpsbhttpsboolean">getHttps</a></p></td>
+<td><p>获取使用http或https协议。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#accountgethttps--accountsethttpsbhttpsboolean">setHttps</a></p></td>
+<td><p>使用http或https协议进行设置。</p></td>
+</tr>
+<tr class="row-even"><td><p>Region</p></td>
+<td><p><a class="reference external" href="#regioncitystringcity-networkstringnetworktype-zonestringzone">Region</a></p></td>
+<td><p><em>Region</em> 类可帮助您指定数据中心的区域。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#regiontostring">toString</a></p></td>
+<td><p>Convert region object to string value.</p></td>
+</tr>
+<tr class="row-even"><td><p>MNS</p></td>
+<td><p><a class="reference external" href="#mnsaccountaccount-regionstringregion">MNS</a> <a class="reference external" href="#mqsaccountaccount-regionstringregion">MQS</a> <a class="reference external" href="#mnstopicaccountaccount-regionstringregion">MNSTopic</a></p></td>
+<td><p>操作mns队列。 ,* MQS *用于兼容的v1.x.</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mnslistpprefixstring-pagesizenumber-pagemarkerstring">listP</a></p></td>
+<td><p>列出数据中心中的所有队列。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mnscreatepnamestring-optionsany">createP</a></p></td>
+<td><p>创建一个mq。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mnsdeletepnamestring">deleteP</a></p></td>
+<td><p>删除mq。</p></td>
+</tr>
+<tr class="row-even"><td><p>MQ</p></td>
+<td><p><a class="reference external" href="#mqnamestring-accountaccount-regionstringregion">MQ</a> <a class="reference external" href="#mqbatch">MQBatch</a></p></td>
+<td><p><em>MQ</em> 在队列中操作消息。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqgetname">getName</a></p></td>
+<td><p>获取mq的名称。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqgetaccount">getAccount</a></p></td>
+<td><p>获取mq的帐户。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqgetregion">getRegion</a></p></td>
+<td><p>获取mq的区域。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqsendpmsgstring-prioritynumber-delaysecondsnumber">sendP</a></p></td>
+<td><p>将消息发送到队列。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqgetrecvtolerance--mqsetrecvtolerancevaluenumber">getRecvTolerance</a></p></td>
+<td><p>获取mq.recvP方法的容差秒数。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqgetrecvtolerance--mqsetrecvtolerancevaluenumber">setRecvTolerance</a></p></td>
+<td><p>设置mq.recvP方法的容差秒数。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqrecvpwaitsecondsnumber">recvP</a></p></td>
+<td><p>从队列接收消息。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqpeekp">peekP</a></p></td>
+<td><p>偷看一条消息。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqdeletepreceipthandlestring">deleteP</a></p></td>
+<td><p>从队列中删除消息。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqreservepreceipthandlestring-reservesecondsnumber">reserveP</a></p></td>
+<td><p>保留收到的消息。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqnotifyrecvcbexerror-msganyboolean-waitsecondsnumber">notifyRecv</a></p></td>
+<td><p>注册回调函数以接收消息。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqnotifystopp">notifyStopP</a></p></td>
+<td><p>停止mq.notifyRecv工作。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqgetattrsp">getAttrsP</a></p></td>
+<td><p>获取mq的属性。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqsetattrspoptionsany">setAttrsP</a></p></td>
+<td><p>修改mq的属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>MQBatch</p></td>
+<td><p><a class="reference external" href="#mqbatch">MQBatch</a></p></td>
+<td><p>提供2015年6月在Ali-MNS服务新版中引入的批处理模型。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqbatchsendpmsgstring--array-prioritynumber-delaysecondsnumber">sendP</a></p></td>
+<td><p>发送消息或批量发送消息到队列。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqbatchrecvpwaitsecondsnumber-numofmessagesnumber">recvP</a></p></td>
+<td><p>发送消息或批量发送消息到队列。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqbatchpeekpnumofmessagesnumber">peekP</a></p></td>
+<td><p>偷看消息。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mqbatchdeletepreceipthandlestring--array">deleteP</a></p></td>
+<td><p>从队列中删除一条或多条消息。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mqbatchnotifyrecvcbexerror-msganyboolean-waitsecondsnumber-numofmessagesnumber">notifyRecv</a></p></td>
+<td><p>注册回调函数以批量接收消息</p></td>
+</tr>
+<tr class="row-odd"><td><p>Msg</p></td>
+<td><p><a class="reference external" href="#msgmsg-string-prioritynumber-delaysecondsnumber">Msg</a></p></td>
+<td><p>MQBatch中使用的简单消息定义。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#msggetmsg">getMsg</a></p></td>
+<td><p>返回消息内容。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#msggetpriority">getPriority</a></p></td>
+<td><p>返回消息的优先级。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#msggetdelayseconds">getDelaySeconds</a></p></td>
+<td><p>返回消息的延迟秒数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>MNSTopic</p></td>
+<td><p><a class="reference external" href="#mnstopicaccountaccount-regionstringregion">MNSTopic</a></p></td>
+<td><p>MNSTopic类扩展了类MNS，用于在主题模型中提供特征。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mnslisttopicpprefixstring-pagesizenumber-pagemarkerstring">listTopicP</a></p></td>
+<td><p>列出所有主题</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#mnscreatetopicpnamestring-optionsany">createTopicP</a></p></td>
+<td><p>创建一个主题。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#mnsdeletetopicpnamestring">deleteTopicP</a></p></td>
+<td><p>删除主题</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#topicnamestring-accountaccount-regionstringregion">Topic</a></p></td>
+<td><p>操作主题</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#topicgetname">getName</a></p></td>
+<td><p>获取主题名称。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#topicgetaccount">getAccount</a></p></td>
+<td><p>获取主题帐户。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#topicgetregion">getRegion</a></p></td>
+<td><p>获取主题区域。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#topicgetattrsp--topicsetattrspoptionsany">getAttrsP</a></p></td>
+<td><p>获取主题的属性。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#topicgetattrsp--topicsetattrspoptionsany">setAttrsP</a></p></td>
+<td><p>设置主题的属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#topiclistpprefixstring-pagesizenumber-pagemarkerstring">listP</a></p></td>
+<td><p>列出所有订阅。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#topicsubscribepnamestring-endpointstring-notifystrategystring-notifycontentformatstring-filtertagstring">subscribeP</a></p></td>
+<td><p>订阅主题。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#topicunsubscribepnamestring">unsubscribeP</a></p></td>
+<td><p>取消订阅主题。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#topicpublishpmsgstring-b64boolean-tagstring-attrsany-optionsany">publishP</a></p></td>
+<td><p>将消息发布到主题。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Subscription</p></td>
+<td><p><a class="reference external" href="#subscriptionnamestring-topictopic">Subscription</a></p></td>
+<td><p>运营订阅。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#subscriptiongetname">getName</a></p></td>
+<td><p>获取订阅名称。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#subscriptiongettopic">getTopic</a></p></td>
+<td><p>获取订阅主题。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#subscriptiongetattrsp--subscriptionsetattrspoptionsany">getAttrsP</a></p></td>
+<td><p>获取订阅的属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#subscriptiongetattrsp--subscriptionsetattrspoptionsany">setAttrsP</a></p></td>
+<td><p>设置订阅的属性。</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><a class="reference external" href="#subscriptionnotifystrategy">NotifyStrategy</a></p></td>
+<td><p>NotifyStrategy常量。</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><a class="reference external" href="#subscriptionnotifycontentformat">NotifyContentFormat</a></p></td>
+<td><p>NotifyContentFormat常量</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>调试跟踪<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>将环境变量<strong>DEBUG</strong>设置为<code class="docutils literal notranslate"><span class="pre">ali-mns</span></code>以启用调试跟踪输出。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">## linux bash</span>
+<span class="nb">export</span> <span class="nv">DEBUG</span><span class="o">=</span>ali-mns
+
+<span class="c1">## windows</span>
+<span class="nb">set</span> <span class="nv">DEBUG</span><span class="o">=</span>ali-mns
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>迁移<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>ali-mns与ali-mqs完全兼容，只需将ali-mqs包替换为ali-mns即可。</p></li>
+</ol>
+</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// var AliMQS = require(&#39;ali-mqs&#39;);</span>
+<span class="kd">var</span> <span class="nx">AliMQS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ali-mns&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><ol class="arabic simple" start="2">
+<li><p>可选的。,将<strong>ownerId</strong>更改为<strong>accountId</strong></p></li>
+</ol>
+</li>
+</ul>
+<p>Ali-Yun升级他们的帐户系统，并建议使用较新的帐户ID而不是所有者ID。
+但是老主人身份现在仍然可用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AliMQS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;ali-mns&quot;</span><span class="p">);</span>
+<span class="c1">// var account = new AliMNS.Account(&quot;hl35yqoedp&quot;, &quot;&lt;your-key-id&gt;&quot;, &quot;&lt;your-key-secret&gt;&quot;);</span>
+<span class="kd">var</span> <span class="nx">account</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Account</span><span class="p">(</span><span class="s2">&quot;1786090012649663&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-secret&gt;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>ownerId</strong> 与数字和字母混合在一起</p>
+<p><strong>accountId</strong> 是一个16位数字，
+点击<a class="reference external" href="https://account.console.aliyun.com/#/secure">此链接</a>查找您的accountId。</p>
+<p>In GitHub, <a class="reference external" href="https://github.com/InCar/ali-mns/tree/v1.x">An branch
+v1.x</a> keeps tracking for
+the old mqs services. And use `npm install ali-mqs’ to install the
+<a class="reference external" href="https://www.npmjs.com/package/ali-mqs">ali-mqs</a> package for v1.x.</p>
+</div>
+<div class="section" id="id5">
+<h2>性能 - 串行与批量<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>创建20个队列，然后随机发送2000条消息。</p>
+<p>它在串行模式下比在批处理模式下慢约<strong>10倍</strong>。</p>
+<p><strong>1st - 串行模式(batch_size=1)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// 20 queues 2000 messages batch_size=1
+  AliMNS-performance
+    concurrent-queues
+      √ #BatchSend (3547ms)
+      √ #recvP (21605ms)
+      √ #stopRecv (6075ms)
+</pre></div>
+</div>
+<p><strong>2nd - 批量调制(Batch_size=16)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// 20 queues 2000 messages batch_size=16
+  AliMNS-performance
+    concurrent-queues
+      √ #BatchSend (3472ms)
+      √ #recvP (2125ms)
+      √ #stopRecv (6044ms)
+</pre></div>
+</div>
+<p>The testing code is in
+<a class="reference external" href="https://github.com/InCar/ali-mns/blob/master/test/performance.js">$/test/performance.js</a>
+and a test log sample is in
+<a class="reference external" href="https://github.com/InCar/ali-mns/blob/master/test/performance.log">$/test/performance.log</a></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">test</span></code> to execute the test.</p>
+<p>Set environment variable <strong>DEBUG</strong> to <strong>ali-mns.test</strong> to turn on output
+trace(will slow down the test).</p>
+</div>
+<div class="section" id="id6">
+<h2>隐私政策<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>我们收集有关如何使用<code class="docutils literal notranslate"><span class="pre">ali-mns</span></code>包以获得更好服务的信息。</p>
+<p>By default a tracing information is sent to google analytics when
+sending a request to ali-mns service, The tracing information contains
+only the url. Your data, key will not be sent. Your account id is sent
+by hash to md5 value, so it can not be used tracking back to you. You
+can check
+<a class="reference external" href="https://github.com/InCar/ali-mns/blob/master/ts/GA.ts#L28">code</a>
+about data collection.</p>
+<p>您可以随时禁用数据收集。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AliMNS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;ali-mns&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">account</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Account</span><span class="p">(</span><span class="s2">&quot;&lt;your-account-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-secret&gt;&quot;</span><span class="p">);</span>
+
+<span class="c1">// Disable google analytics data collection</span>
+<span class="nx">account</span><span class="p">.</span><span class="nx">setGA</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">mq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">MQ</span><span class="p">(</span><span class="s2">&quot;&lt;your-mq-name&gt;&quot;</span><span class="p">,</span> <span class="nx">account</span><span class="p">,</span> <span class="s2">&quot;hangzhou&quot;</span><span class="p">);</span>
+<span class="nx">mq</span><span class="p">.</span><span class="nx">sendP</span><span class="p">(</span><span class="s2">&quot;Hello ali-mns&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>证书<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>MIT</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api/index.html" class="btn btn-neutral float-right" title="mns api" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aliyun-mns.html" class="btn btn-neutral float-left" title="消息服务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

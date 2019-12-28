@@ -1,0 +1,1529 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Troubleshooting / FAQ" href="faq.html" />
+    <link rel="prev" title="Kafka-node" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kafka/index.html">kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Kafka-node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html#table-of-contents">Table of Contents</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kafkaclient">KafkaClient</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notable-differences">Notable differences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#client">Client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#client-connectionstring-clientid-zkoptions-noackbatchoptions-ssloptions">Client(connectionString, clientId, [zkOptions], [noAckBatchOptions], [sslOptions])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#close-cb">close(cb)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#producer">Producer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#producer-client-options-custompartitioner">Producer(client, options, [customPartitioner])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#send-payloads-cb">send(payloads, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#createtopics-topics-cb">createTopics(topics, cb)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#highlevelproducer">HighLevelProducer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#highlevelproducer-client-options-custompartitioner">HighLevelProducer(client, options, [customPartitioner])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events-1">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sendpayloads-cb-1">send(payloads, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#createtopics-topics-async-cb">createTopics(topics, async, cb)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#producerstream">ProducerStream</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#producerstream-options">ProducerStream (options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streams-example">Streams Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#consumer">Consumer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#consumer-client-payloads-options">Consumer(client, payloads, options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-message-onmessage">on(‘message’, onMessage);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-error-function-err">on(‘error’, function (err) {})</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-offsetoutofrange-function-err">on(‘offsetOutOfRange’, function (err) {})</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#addtopics-topics-cb-fromoffset">addTopics(topics, cb, fromOffset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removetopics-topics-cb">removeTopics(topics, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commit-cb">commit(cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setoffset-topic-partition-offset">setOffset(topic, partition, offset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pause">pause()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resume">resume()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pausetopics-topics">pauseTopics(topics)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resumetopics-topics">resumeTopics(topics)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#close-force-cb">close(force, cb)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#consumerstream">ConsumerStream</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compared-to-consumer">Compared to Consumer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#consumerstream-client-payloads-options">ConsumerStream(client, payloads, options)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#highlevelconsumer">HighLevelConsumer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#highlevelconsumer-client-payloads-options">HighLevelConsumer(client, payloads, options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onmessage-onmessage-1">on(‘message’, onMessage);</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onerror-function-err-1">on(‘error’, function (err) {})</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#onoffsetoutofrange-function-err-1">on(‘offsetOutOfRange’, function (err) {})</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#addtopics-topics-cb">addTopics(topics, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removetopicstopics-cb-1">removeTopics(topics, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commitcb-1">commit(cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setoffsettopic-partition-offset-1">setOffset(topic, partition, offset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pause-1">pause()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resume-1">resume()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#closeforce-cb-1">close(force, cb)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#consumergroup">ConsumerGroup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coming-from-the-highlevelconsumer">Coming from the highLevelConsumer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#consumergroup-options-topics">ConsumerGroup(options, topics)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-partition-assignment-protocol">Custom Partition Assignment Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#auto-migration-from-the-v0-8-based-highlevelconsumer">Auto migration from the v0.8 based highLevelConsumer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#consumergroupstream">ConsumerGroupStream</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#auto-commit">Auto Commit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#consumergroupstream-consumergroupoptions-topics">ConsumerGroupStream (consumerGroupOptions, topics)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commit-message-force-callback">commit(message, force, callback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#close-callback">close(callback)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#offset">Offset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#offset-client">Offset(client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events-2">events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fetch-payloads-cb">fetch(payloads, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commit-groupid-payloads-cb">commit(groupId, payloads, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fetchcommits-groupid-payloads-cb">fetchCommits(groupid, payloads, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fetchlatestoffsets-topics-cb">fetchLatestOffsets(topics, cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fetchearliestoffsets-topics-cb">fetchEarliestOffsets(topics, cb)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#admin">Admin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#admin-kafkaclient">Admin(kafkaClient)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listgroups-cb">listGroups(cb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#describegroups-consumergroups-cb">describeGroups(consumerGroups, cb)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html">Running Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mns/index.html">mns api</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Kafka-node</a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/kafka-node/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
+<div class="section" id="kafkaclient">
+<h2>KafkaClient<a class="headerlink" href="#kafkaclient" title="永久链接至标题">¶</a></h2>
+<p>New KafkaClient connects directly to Kafka brokers instead of connecting
+to zookeeper for broker discovery.</p>
+<div class="section" id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>Kafka <strong>ONLY</strong> no zookeeper</p></li>
+<li><p>Added request timeout</p></li>
+<li><p>Added connection timeout and retry</p></li>
+</ul>
+</div>
+<div class="section" id="notable-differences">
+<h3>Notable differences<a class="headerlink" href="#notable-differences" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>Constructor accepts an single options object (see below)</p></li>
+<li><p>Unlike the original <code class="docutils literal notranslate"><span class="pre">Client</span></code> <code class="docutils literal notranslate"><span class="pre">KafkaClient</span></code> will not emit socket
+errors it will do its best to recover and only emit errors when it
+has exhausted its recovery attempts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code> event is only emitted after successful connection to a
+broker and metadata request to that broker</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Client</span></code> uses zookeeper to discover the SSL kafka host/port since
+we connect directly to the broker this host/port for SSL need to be
+correct</p></li>
+</ul>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kafkaHost</span></code> : A string of kafka broker/host combination delimited
+by comma for example:
+<code class="docutils literal notranslate"><span class="pre">kafka-1.us-east-1.myapp.com:9093,kafka-2.us-east-1.myapp.com:9093,kafka-3.us-east-1.myapp.com:9093</span></code>
+default: <code class="docutils literal notranslate"><span class="pre">localhost:9092</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connectTimeout</span></code> : in ms it takes to wait for a successful
+connection before moving to the next host default: <code class="docutils literal notranslate"><span class="pre">10000</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requestTimeout</span></code> : in ms for a kafka request to timeout default:
+<code class="docutils literal notranslate"><span class="pre">30000</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autoConnect</span></code> : automatically connect when KafkaClient is
+instantiated otherwise you need to manually call <code class="docutils literal notranslate"><span class="pre">connect</span></code> default:
+<code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connectRetryOptions</span></code> : object hash that applies to the initial
+connection. see <a class="reference external" href="https://www.npmjs.com/package/retry">retry</a>
+module for these options.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idleConnection</span></code> : allows the broker to disconnect an idle
+connection from a client (otherwise the clients continues to
+reconnect after being disconnected). The value is elapsed time in ms
+without any data written to the TCP socket. default: 5 minutes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxAsyncRequests</span></code> : maximum async operations at a time toward the
+kafka cluster. default: 10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sslOptions</span></code>: <strong>Object</strong>, options to be passed to the tls broker
+sockets, ex. { rejectUnauthorized: false } (Kafka +0.9)</p></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">KafkaClient</span><span class="p">({</span><span class="nx">kafkaHost</span><span class="o">:</span> <span class="s1">&#39;10.3.100.196:9092&#39;</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="永久链接至标题">¶</a></h2>
+<div class="section" id="client-connectionstring-clientid-zkoptions-noackbatchoptions-ssloptions">
+<h3>Client(connectionString, clientId, [zkOptions], [noAckBatchOptions], [sslOptions])<a class="headerlink" href="#client-connectionstring-clientid-zkoptions-noackbatchoptions-ssloptions" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">connectionString</span></code>: Zookeeper connection string, default
+<code class="docutils literal notranslate"><span class="pre">localhost:2181/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clientId</span></code>: This is a user-supplied identifier for the client
+application, default <code class="docutils literal notranslate"><span class="pre">kafka-node-client</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zkOptions</span></code>: <strong>Object</strong>, Zookeeper options, see
+<a class="reference external" href="https://github.com/alexguan/node-zookeeper-client#client-createclientconnectionstring-options">node-zookeeper-client</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">noAckBatchOptions</span></code>: <strong>Object</strong>, when requireAcks is disabled on
+Producer side we can define the batch properties, ‘noAckBatchSize’ in
+bytes and ‘noAckBatchAge’ in milliseconds. The default value is
+<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">noAckBatchSize:</span> <span class="pre">null,</span> <span class="pre">noAckBatchAge:</span> <span class="pre">null</span> <span class="pre">}</span></code> and it acts as if
+there was no batch</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sslOptions</span></code>: <strong>Object</strong>, options to be passed to the tls broker
+sockets, ex. { rejectUnauthorized: false } (Kafka +0.9)</p></li>
+</ul>
+</div>
+<div class="section" id="close-cb">
+<h3>close(cb)<a class="headerlink" href="#close-cb" title="永久链接至标题">¶</a></h3>
+<p>Closes the connection to Zookeeper and the brokers so that the node
+process can exit gracefully.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="producer">
+<h2>Producer<a class="headerlink" href="#producer" title="永久链接至标题">¶</a></h2>
+<div class="section" id="producer-client-options-custompartitioner">
+<h3>Producer(client, <a class="reference external" href="#options-1">options</a>, [customPartitioner])<a class="headerlink" href="#producer-client-options-custompartitioner" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">client</span></code>: client which keeps a connection with the Kafka server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: options for producer,</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1">// Configuration for when to consider a message as acknowledged, default 1</span>
+    <span class="nx">requireAcks</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1">// The amount of time in milliseconds to wait for all acks before considered, default 100ms</span>
+    <span class="nx">ackTimeoutMs</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="c1">// Partitioner type (default = 0, random = 1, cyclic = 2, keyed = 3, custom = 4), default 0</span>
+    <span class="nx">partitionerType</span><span class="o">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">Producer</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Producer</span><span class="p">,</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Producer</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="events">
+<h3>Events<a class="headerlink" href="#events" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code>: this event is emitted when producer is ready to send
+messages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code>: this is the error event propagates from internal client,
+producer should always listen it.</p></li>
+</ul>
+</div>
+<div class="section" id="send-payloads-cb">
+<h3>send(payloads, cb)<a class="headerlink" href="#send-payloads-cb" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payloads</span></code>: <strong>Array</strong>,array of <code class="docutils literal notranslate"><span class="pre">ProduceRequest</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ProduceRequest</span></code> is a JSON object like:</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topicName&#39;</span><span class="p">,</span>
+   <span class="nx">messages</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;message body&#39;</span><span class="p">],</span> <span class="c1">// multi messages should be a array, single message can be just a string or a KeyedMessage instance</span>
+   <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;theKey&#39;</span><span class="p">,</span> <span class="c1">// string or buffer, only needed when using keyed partitioner</span>
+   <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// default 0</span>
+   <span class="nx">attributes</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">// default: 0</span>
+   <span class="nx">timestamp</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="c1">// &lt;-- defaults to Date.now() (only available with kafka v0.10 and KafkaClient only)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">attributes</span></code> controls compression of the message set. It supports the
+following values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: No compression</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: Compress using GZip</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>: Compress using snappy</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">Producer</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Producer</span><span class="p">,</span>
+    <span class="nx">KeyedMessage</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">KeyedMessage</span><span class="p">,</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Producer</span><span class="p">(</span><span class="nx">client</span><span class="p">),</span>
+    <span class="nx">km</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KeyedMessage</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">),</span>
+    <span class="nx">payloads</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topic1&#39;</span><span class="p">,</span> <span class="nx">messages</span><span class="o">:</span> <span class="s1">&#39;hi&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topic2&#39;</span><span class="p">,</span> <span class="nx">messages</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="nx">km</span><span class="p">]</span> <span class="p">}</span>
+    <span class="p">];</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">producer</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">payloads</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">producer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{})</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>⚠️<strong>WARNING</strong>: Batch multiple messages of the same topic/partition
+together as an array on the <code class="docutils literal notranslate"><span class="pre">messages</span></code> attribute otherwise you may
+lose messages!</p>
+</div></blockquote>
+</div>
+<div class="section" id="createtopics-topics-cb">
+<h3>createTopics(topics, cb)<a class="headerlink" href="#createtopics-topics-cb" title="永久链接至标题">¶</a></h3>
+<p>This method is used to create topics on the Kafka server. It requires
+Kafka 0.10+.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code>: <strong>Array</strong>, array of topics</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">KafkaClient</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">topicsToCreate</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topic1&#39;</span><span class="p">,</span>
+  <span class="nx">partitions</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nx">replicationFactor</span><span class="o">:</span> <span class="mi">2</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topic2&#39;</span><span class="p">,</span>
+  <span class="nx">partitions</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">replicationFactor</span><span class="o">:</span> <span class="mi">3</span>
+<span class="p">}];</span>
+
+<span class="nx">client</span><span class="p">.</span><span class="nx">createTopics</span><span class="p">(</span><span class="nx">topics</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// result is an array of any errors if a given topic could not be created</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="highlevelproducer">
+<h2>HighLevelProducer<a class="headerlink" href="#highlevelproducer" title="永久链接至标题">¶</a></h2>
+<div class="section" id="highlevelproducer-client-options-custompartitioner">
+<h3>HighLevelProducer(client, <a class="reference external" href="#options-1">options</a>, [customPartitioner])<a class="headerlink" href="#highlevelproducer-client-options-custompartitioner" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">client</span></code>: client which keeps a connection with the Kafka server.
+Round-robins produce requests to the available topic partitions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: options for producer,</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1">// Configuration for when to consider a message as acknowledged, default 1</span>
+    <span class="nx">requireAcks</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1">// The amount of time in milliseconds to wait for all acks before considered, default 100ms</span>
+    <span class="nx">ackTimeoutMs</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="c1">// Partitioner type (default = 0, random = 1, cyclic = 2, keyed = 3, custom = 4), default 2</span>
+    <span class="nx">partitionerType</span><span class="o">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">HighLevelProducer</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">HighLevelProducer</span><span class="p">,</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HighLevelProducer</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="events-1">
+<span id="id1"></span><h3>Events<a class="headerlink" href="#events-1" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code>: this event is emitted when producer is ready to send
+messages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code>: this is the error event propagates from internal client,
+producer should always listen it.</p></li>
+</ul>
+</div>
+<div class="section" id="sendpayloads-cb-1">
+<span id="id2"></span><h3>send(payloads, cb)<a class="headerlink" href="#sendpayloads-cb-1" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payloads</span></code>: <strong>Array</strong>,array of <code class="docutils literal notranslate"><span class="pre">ProduceRequest</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ProduceRequest</span></code> is a JSON object like:</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topicName&#39;</span><span class="p">,</span>
+   <span class="nx">messages</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;message body&#39;</span><span class="p">],</span> <span class="c1">// multi messages should be a array, single message can be just a string,</span>
+   <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;theKey&#39;</span><span class="p">,</span> <span class="c1">// string or buffer, only needed when using keyed partitioner</span>
+   <span class="nx">attributes</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="nx">timestamp</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="c1">// &lt;-- defaults to Date.now() (only available with kafka v0.10 and KafkaClient only)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">HighLevelProducer</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">HighLevelProducer</span><span class="p">,</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HighLevelProducer</span><span class="p">(</span><span class="nx">client</span><span class="p">),</span>
+    <span class="nx">payloads</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topic1&#39;</span><span class="p">,</span> <span class="nx">messages</span><span class="o">:</span> <span class="s1">&#39;hi&#39;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topic2&#39;</span><span class="p">,</span> <span class="nx">messages</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">]</span> <span class="p">}</span>
+    <span class="p">];</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">producer</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">payloads</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>⚠️<strong>WARNING</strong>: Batch multiple messages of the same topic/partition
+together as an array on the <code class="docutils literal notranslate"><span class="pre">messages</span></code> attribute otherwise you may
+lose messages!</p>
+</div></blockquote>
+</div>
+<div class="section" id="createtopics-topics-async-cb">
+<h3>createTopics(topics, async, cb)<a class="headerlink" href="#createtopics-topics-async-cb" title="永久链接至标题">¶</a></h3>
+<p>This method is used to create topics on the Kafka server. It only work
+when <code class="docutils literal notranslate"><span class="pre">auto.create.topics.enable</span></code>, on the Kafka server, is set to true.
+Our client simply sends a metadata request to the server which will auto
+create topics. When <code class="docutils literal notranslate"><span class="pre">async</span></code> is set to false, this method does not
+return until all topics are created, otherwise it returns immediately.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code>: <strong>Array</strong>,array of topics</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">async</span></code>: <strong>Boolean</strong>,async or sync</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>,the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">HighLevelProducer</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">HighLevelProducer</span><span class="p">,</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HighLevelProducer</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
+<span class="c1">// Create topics sync</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">createTopics</span><span class="p">([</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="s1">&#39;t1&#39;</span><span class="p">],</span> <span class="kc">false</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// Create topics async</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">createTopics</span><span class="p">([</span><span class="s1">&#39;t&#39;</span><span class="p">],</span> <span class="kc">true</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{});</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">createTopics</span><span class="p">([</span><span class="s1">&#39;t&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{});</span><span class="c1">// Simply omit 2nd arg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="producerstream">
+<h2>ProducerStream<a class="headerlink" href="#producerstream" title="永久链接至标题">¶</a></h2>
+<div class="section" id="producerstream-options">
+<h3>ProducerStream (options)<a class="headerlink" href="#producerstream-options" title="永久链接至标题">¶</a></h3>
+<p><strong>Requires</strong>: Kafka v0.9+</p>
+<div class="section" id="options-1">
+<span id="id3"></span><h4>Options<a class="headerlink" href="#options-1" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">highWaterMark</span></code> size of write buffer (Default: 100)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kafkaClient</span></code> options see <a class="reference external" href="#kafkaclient">KafkaClient</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">producer</span></code> options for Producer see
+<a class="reference external" href="#highlevelproducer">HighLevelProducer</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="streams-example">
+<h3>Streams Example<a class="headerlink" href="#streams-example" title="永久链接至标题">¶</a></h3>
+<p>In this example we demonstrate how to stream a source of data (from
+<code class="docutils literal notranslate"><span class="pre">stdin</span></code>) to kafka (<code class="docutils literal notranslate"><span class="pre">ExampleTopic</span></code> topic) for processing. Then in a
+separate instance (or worker process) we consume from that kafka topic
+and use a <code class="docutils literal notranslate"><span class="pre">Transform</span></code> stream to update the data and stream the result
+to a different topic using a <code class="docutils literal notranslate"><span class="pre">ProducerStream</span></code>.</p>
+<blockquote>
+<div><p>Stream text from <code class="docutils literal notranslate"><span class="pre">stdin</span></code> and write that into a Kafka Topic</p>
+</div></blockquote>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Transform</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;stream&#39;</span><span class="p">).</span><span class="nx">Transform</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">ProducerStream</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./lib/producerStream&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;lodash&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">producer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProducerStream</span><span class="p">();</span>
+
+<span class="kr">const</span> <span class="nx">stdinTransform</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Transform</span><span class="p">({</span>
+  <span class="nx">objectMode</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">decodeStrings</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">transform</span> <span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">encoding</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">text</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">trim</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`pushing message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb"> to ExampleTopic`</span><span class="p">);</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;ExampleTopic&#39;</span><span class="p">,</span>
+      <span class="nx">messages</span><span class="o">:</span> <span class="nx">text</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">stdinTransform</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">producer</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Use <code class="docutils literal notranslate"><span class="pre">ConsumerGroupStream</span></code> to read from this topic and transform the
+data and feed the result of into the <code class="docutils literal notranslate"><span class="pre">RebalanceTopic</span></code> Topic.</p>
+</div></blockquote>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">ProducerStream</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./lib/producerStream&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">ConsumerGroupStream</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./lib/consumerGroupStream&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">resultProducer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProducerStream</span><span class="p">();</span>
+
+<span class="kr">const</span> <span class="nx">consumerOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">kafkaHost</span><span class="o">:</span> <span class="s1">&#39;127.0.0.1:9092&#39;</span><span class="p">,</span>
+  <span class="nx">groupId</span><span class="o">:</span> <span class="s1">&#39;ExampleTestGroup&#39;</span><span class="p">,</span>
+  <span class="nx">sessionTimeout</span><span class="o">:</span> <span class="mi">15000</span><span class="p">,</span>
+  <span class="nx">protocol</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;roundrobin&#39;</span><span class="p">],</span>
+  <span class="nx">asyncPush</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;consumer1&#39;</span><span class="p">,</span>
+  <span class="nx">fromOffset</span><span class="o">:</span> <span class="s1">&#39;latest&#39;</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">consumerGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConsumerGroupStream</span><span class="p">(</span><span class="nx">consumerOptions</span><span class="p">,</span> <span class="s1">&#39;ExampleTopic&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">messageTransform</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Transform</span><span class="p">({</span>
+  <span class="nx">objectMode</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">decodeStrings</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">transform</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">encoding</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Received message </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb"> transforming input`</span><span class="p">);</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;RebalanceTopic&#39;</span><span class="p">,</span>
+      <span class="nx">messages</span><span class="o">:</span> <span class="sb">`You have been (</span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">) made an example of`</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">consumerGroup</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">messageTransform</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">resultProducer</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="consumer">
+<h2>Consumer<a class="headerlink" href="#consumer" title="永久链接至标题">¶</a></h2>
+<div class="section" id="consumer-client-payloads-options">
+<h3>Consumer(client, payloads, options)<a class="headerlink" href="#consumer-client-payloads-options" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">client</span></code>: client which keeps a connection with the Kafka server.
+<strong>Note</strong>: it’s recommend that create new client for different
+consumers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payloads</span></code>: <strong>Array</strong>,array of <code class="docutils literal notranslate"><span class="pre">FetchRequest</span></code>, <code class="docutils literal notranslate"><span class="pre">FetchRequest</span></code>
+is a JSON object like:</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topicName&#39;</span><span class="p">,</span>
+   <span class="nx">offset</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//default 0</span>
+   <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span> <span class="c1">// default 0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: options for consumer,</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">groupId</span><span class="o">:</span> <span class="s1">&#39;kafka-node-group&#39;</span><span class="p">,</span><span class="c1">//consumer group id, default `kafka-node-group`</span>
+    <span class="c1">// Auto commit config</span>
+    <span class="nx">autoCommit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">autoCommitIntervalMs</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
+    <span class="c1">// The max wait time is the maximum amount of time in milliseconds to block waiting if insufficient data is available at the time the request is issued, default 100ms</span>
+    <span class="nx">fetchMaxWaitMs</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="c1">// This is the minimum number of bytes of messages that must be available to give a response, default 1 byte</span>
+    <span class="nx">fetchMinBytes</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1">// The maximum bytes to include in the message set for this partition. This helps bound the size of the response.</span>
+    <span class="nx">fetchMaxBytes</span><span class="o">:</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>
+    <span class="c1">// If set true, consumer will fetch message from the given offset in the payloads</span>
+    <span class="nx">fromOffset</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="c1">// If set to &#39;buffer&#39;, values will be returned as raw buffer objects.</span>
+    <span class="nx">encoding</span><span class="o">:</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+    <span class="nx">keyEncoding</span><span class="o">:</span> <span class="s1">&#39;utf8&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">Consumer</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Consumer</span><span class="p">,</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Consumer</span><span class="p">(</span>
+        <span class="nx">client</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="p">{</span>
+            <span class="nx">autoCommit</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-message-onmessage">
+<h3>on(‘message’, onMessage);<a class="headerlink" href="#on-message-onmessage" title="永久链接至标题">¶</a></h3>
+<p>By default, we will consume messages from the last committed offset of
+the current group</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">onMessage</span></code>: <strong>Function</strong>, callback when new message comes</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-error-function-err">
+<h3>on(‘error’, function (err) {})<a class="headerlink" href="#on-error-function-err" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="on-offsetoutofrange-function-err">
+<h3>on(‘offsetOutOfRange’, function (err) {})<a class="headerlink" href="#on-offsetoutofrange-function-err" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="addtopics-topics-cb-fromoffset">
+<h3>addTopics(topics, cb, fromOffset)<a class="headerlink" href="#addtopics-topics-cb-fromoffset" title="永久链接至标题">¶</a></h3>
+<p>Add topics to current consumer, if any topic to be added not exists,
+return error * <code class="docutils literal notranslate"><span class="pre">topics</span></code>: <strong>Array</strong>, array of topics to add * <code class="docutils literal notranslate"><span class="pre">cb</span></code>:
+<strong>Function</strong>,the callback * <code class="docutils literal notranslate"><span class="pre">fromOffset</span></code>: <strong>Boolean</strong>, if true, the
+consumer will fetch message from the specified offset, otherwise it will
+fetch message from the last commited offset of the topic.</p>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">addTopics</span><span class="p">([</span><span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="s1">&#39;t2&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">added</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">});</span>
+
+<span class="nx">or</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">addTopics</span><span class="p">([{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="nx">offset</span><span class="o">:</span> <span class="mi">10</span> <span class="p">}],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">added</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removetopics-topics-cb">
+<h3>removeTopics(topics, cb)<a class="headerlink" href="#removetopics-topics-cb" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code>: <strong>Array</strong>, array of topics to remove</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">removeTopics</span><span class="p">([</span><span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="s1">&#39;t2&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">removed</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="commit-cb">
+<h3>commit(cb)<a class="headerlink" href="#commit-cb" title="永久链接至标题">¶</a></h3>
+<p>Commit offset of the current topics manually, this method should be
+called when a consumer leaves</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setoffset-topic-partition-offset">
+<h3>setOffset(topic, partition, offset)<a class="headerlink" href="#setoffset-topic-partition-offset" title="永久链接至标题">¶</a></h3>
+<p>Set offset of the given topic</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topic</span></code>: <strong>String</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partition</span></code>: <strong>Number</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>: <strong>Number</strong></p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">setOffset</span><span class="p">(</span><span class="s1">&#39;topic&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pause">
+<h3>pause()<a class="headerlink" href="#pause" title="永久链接至标题">¶</a></h3>
+<p>Pause the consumer. <strong>Calling ``pause`` does not automatically stop
+messages from being emitted.</strong> This is because pause just stops the
+kafka consumer fetch loop. Each iteration of the fetch loop can obtain a
+batch of messages (limited by <code class="docutils literal notranslate"><span class="pre">fetchMaxBytes</span></code>).</p>
+</div>
+<div class="section" id="resume">
+<h3>resume()<a class="headerlink" href="#resume" title="永久链接至标题">¶</a></h3>
+<p>Resume the consumer. Resumes the fetch loop.</p>
+</div>
+<div class="section" id="pausetopics-topics">
+<h3>pauseTopics(topics)<a class="headerlink" href="#pausetopics-topics" title="永久链接至标题">¶</a></h3>
+<p>Pause specify topics</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">consumer</span><span class="o">.</span><span class="n">pauseTopics</span><span class="p">([</span>
+    <span class="s1">&#39;topic1&#39;</span><span class="p">,</span>
+    <span class="p">{</span> <span class="n">topic</span><span class="p">:</span> <span class="s1">&#39;topic2&#39;</span><span class="p">,</span> <span class="n">partition</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resumetopics-topics">
+<h3>resumeTopics(topics)<a class="headerlink" href="#resumetopics-topics" title="永久链接至标题">¶</a></h3>
+<p>Resume specify topics</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">consumer</span><span class="o">.</span><span class="n">resumeTopics</span><span class="p">([</span>
+    <span class="s1">&#39;topic1&#39;</span><span class="p">,</span>
+    <span class="p">{</span> <span class="n">topic</span><span class="p">:</span> <span class="s1">&#39;topic2&#39;</span><span class="p">,</span> <span class="n">partition</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="close-force-cb">
+<h3>close(force, cb)<a class="headerlink" href="#close-force-cb" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">force</span></code>: <strong>Boolean</strong>, if set to true, it forces the consumer to
+commit the current offset before closing, default <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+</ul>
+<p>Example</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">cb</span><span class="p">);</span>
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">cb</span><span class="p">);</span> <span class="c1">//force is disabled</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="consumerstream">
+<h2>ConsumerStream<a class="headerlink" href="#consumerstream" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Consumer</span></code> implemented using node’s <code class="docutils literal notranslate"><span class="pre">Readable</span></code> stream interface.
+Read more about streams
+<a class="reference external" href="https://nodejs.org/dist/v8.1.3/docs/api/stream.html#stream_readable_streams">here</a>.</p>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>streams are consumed in chunks and in <code class="docutils literal notranslate"><span class="pre">kafka-node</span></code> each chunk is a
+kafka message</p></li>
+<li><p>a stream contains an internal buffer of messages fetched from kafka.
+By default the buffer size is <code class="docutils literal notranslate"><span class="pre">100</span></code> messages and can be changed
+through the <code class="docutils literal notranslate"><span class="pre">highWaterMark</span></code> option</p></li>
+</ul>
+</div>
+<div class="section" id="compared-to-consumer">
+<h3>Compared to Consumer<a class="headerlink" href="#compared-to-consumer" title="永久链接至标题">¶</a></h3>
+<p>Similar API as <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> with some exceptions. Methods like <code class="docutils literal notranslate"><span class="pre">pause</span></code>
+and <code class="docutils literal notranslate"><span class="pre">resume</span></code> in <code class="docutils literal notranslate"><span class="pre">ConsumerStream</span></code> respects the toggling of flow mode
+in a Stream. In <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> calling <code class="docutils literal notranslate"><span class="pre">pause()</span></code> just paused the fetch
+cycle and will continue to emit <code class="docutils literal notranslate"><span class="pre">message</span></code> events. Pausing in a
+<code class="docutils literal notranslate"><span class="pre">ConsumerStream</span></code> should immediately stop emitting <code class="docutils literal notranslate"><span class="pre">data</span></code> events.</p>
+</div>
+<div class="section" id="consumerstream-client-payloads-options">
+<h3>ConsumerStream(client, payloads, options)<a class="headerlink" href="#consumerstream-client-payloads-options" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="highlevelconsumer">
+<h2>HighLevelConsumer<a class="headerlink" href="#highlevelconsumer" title="永久链接至标题">¶</a></h2>
+<p>⚠️ <strong>This consumer has been deprecated and is likely to be removed in
+the future. Please use the ConsumerGroup instead.</strong></p>
+<div class="section" id="highlevelconsumer-client-payloads-options">
+<h3>HighLevelConsumer(client, payloads, options)<a class="headerlink" href="#highlevelconsumer-client-payloads-options" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">client</span></code>: client which keeps a connection with the Kafka server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payloads</span></code>: <strong>Array</strong>,array of <code class="docutils literal notranslate"><span class="pre">FetchRequest</span></code>, <code class="docutils literal notranslate"><span class="pre">FetchRequest</span></code>
+is a JSON object like:</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topicName&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: options for consumer,</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1">// Consumer group id, default `kafka-node-group`</span>
+    <span class="nx">groupId</span><span class="o">:</span> <span class="s1">&#39;kafka-node-group&#39;</span><span class="p">,</span>
+    <span class="c1">// Optional consumer id, defaults to groupId + uuid</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;my-consumer-id&#39;</span><span class="p">,</span>
+    <span class="c1">// Auto commit config</span>
+    <span class="nx">autoCommit</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">autoCommitIntervalMs</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
+    <span class="c1">// The max wait time is the maximum amount of time in milliseconds to block waiting if insufficient data is available at the time the request is issued, default 100ms</span>
+    <span class="nx">fetchMaxWaitMs</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="c1">// This is the minimum number of bytes of messages that must be available to give a response, default 1 byte</span>
+    <span class="nx">fetchMinBytes</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1">// The maximum bytes to include in the message set for this partition. This helps bound the size of the response.</span>
+    <span class="nx">fetchMaxBytes</span><span class="o">:</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>
+    <span class="c1">// If set true, consumer will fetch message from the given offset in the payloads</span>
+    <span class="nx">fromOffset</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="c1">// If set to &#39;buffer&#39;, values will be returned as raw buffer objects.</span>
+    <span class="nx">encoding</span><span class="o">:</span> <span class="s1">&#39;utf8&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">HighLevelConsumer</span> <span class="o">=</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">HighLevelConsumer</span><span class="p">,</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HighLevelConsumer</span><span class="p">(</span>
+        <span class="nx">client</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t1&#39;</span> <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="p">{</span>
+            <span class="nx">groupId</span><span class="o">:</span> <span class="s1">&#39;my-group&#39;</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="onmessage-onmessage-1">
+<span id="id4"></span><h3>on(‘message’, onMessage);<a class="headerlink" href="#onmessage-onmessage-1" title="永久链接至标题">¶</a></h3>
+<p>By default, we will consume messages from the last committed offset of
+the current group</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">onMessage</span></code>: <strong>Function</strong>, callback when new message comes</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="onerror-function-err-1">
+<span id="id5"></span><h3>on(‘error’, function (err) {})<a class="headerlink" href="#onerror-function-err-1" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="onoffsetoutofrange-function-err-1">
+<span id="id6"></span><h3>on(‘offsetOutOfRange’, function (err) {})<a class="headerlink" href="#onoffsetoutofrange-function-err-1" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="addtopics-topics-cb">
+<h3>addTopics(topics, cb)<a class="headerlink" href="#addtopics-topics-cb" title="永久链接至标题">¶</a></h3>
+<p>Add topics to current consumer, if any topic to be added not exists,
+return error * <code class="docutils literal notranslate"><span class="pre">topics</span></code>: <strong>Array</strong>, array of topics to add * <code class="docutils literal notranslate"><span class="pre">cb</span></code>:
+<strong>Function</strong>,the callback</p>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">addTopics</span><span class="p">([</span><span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="s1">&#39;t2&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">added</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">});</span>
+
+<span class="nx">or</span>
+
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">addTopics</span><span class="p">([{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="nx">offset</span><span class="o">:</span> <span class="mi">10</span> <span class="p">}],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">added</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removetopicstopics-cb-1">
+<span id="id7"></span><h3>removeTopics(topics, cb)<a class="headerlink" href="#removetopicstopics-cb-1" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code>: <strong>Array</strong>, array of topics to remove</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">removeTopics</span><span class="p">([</span><span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="s1">&#39;t2&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">removed</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="commitcb-1">
+<span id="id8"></span><h3>commit(cb)<a class="headerlink" href="#commitcb-1" title="永久链接至标题">¶</a></h3>
+<p>Commit offset of the current topics manually, this method should be
+called when a consumer leaves</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setoffsettopic-partition-offset-1">
+<span id="id9"></span><h3>setOffset(topic, partition, offset)<a class="headerlink" href="#setoffsettopic-partition-offset-1" title="永久链接至标题">¶</a></h3>
+<p>Set offset of the given topic</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topic</span></code>: <strong>String</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partition</span></code>: <strong>Number</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>: <strong>Number</strong></p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">setOffset</span><span class="p">(</span><span class="s1">&#39;topic&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pause-1">
+<span id="id10"></span><h3>pause()<a class="headerlink" href="#pause-1" title="永久链接至标题">¶</a></h3>
+<p>Pause the consumer. <strong>Calling ``pause`` does not automatically stop
+messages from being emitted.</strong> This is because pause just stops the
+kafka consumer fetch loop. Each iteration of the fetch loop can obtain a
+batch of messages (limited by <code class="docutils literal notranslate"><span class="pre">fetchMaxBytes</span></code>).</p>
+</div>
+<div class="section" id="resume-1">
+<span id="id11"></span><h3>resume()<a class="headerlink" href="#resume-1" title="永久链接至标题">¶</a></h3>
+<p>Resume the consumer. Resumes the fetch loop.</p>
+</div>
+<div class="section" id="closeforce-cb-1">
+<span id="id12"></span><h3>close(force, cb)<a class="headerlink" href="#closeforce-cb-1" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">force</span></code>: <strong>Boolean</strong>, if set to true, it forces the consumer to
+commit the current offset before closing, default <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">cb</span><span class="p">);</span>
+<span class="nx">consumer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="nx">cb</span><span class="p">);</span> <span class="c1">//force is disabled</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="consumergroup">
+<h2>ConsumerGroup<a class="headerlink" href="#consumergroup" title="永久链接至标题">¶</a></h2>
+<p>The new consumer group uses Kafka broker coordinators instead of
+Zookeeper to manage consumer groups. This is supported in <strong>Kafka
+version 0.9</strong> and above only.</p>
+<div class="section" id="coming-from-the-highlevelconsumer">
+<h3>Coming from the highLevelConsumer<a class="headerlink" href="#coming-from-the-highlevelconsumer" title="永久链接至标题">¶</a></h3>
+<p>API is very similar to <code class="docutils literal notranslate"><span class="pre">HighLevelConsumer</span></code> since it extends directly
+from HLC so many of the same options will apply with some exceptions
+noted below:</p>
+<ul class="simple">
+<li><p>In an effort to make the API simpler you no longer need to create a
+<code class="docutils literal notranslate"><span class="pre">client</span></code> this is done inside the <code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code></p></li>
+<li><p>consumer ID do not need to be defined. There’s a new ID to represent
+consumers called <em>member ID</em> and this is assigned to consumer after
+joining the group</p></li>
+<li><p>Offsets, group members, and ownership details are not stored in
+Zookeeper</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code> does not emit a <code class="docutils literal notranslate"><span class="pre">registered</span></code> event</p></li>
+</ul>
+</div>
+<div class="section" id="consumergroup-options-topics">
+<h3>ConsumerGroup(options, topics)<a class="headerlink" href="#consumergroup-options-topics" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;zookeeper:2181&#39;</span><span class="p">,</span>  <span class="c1">// zookeeper host omit if connecting directly to broker (see kafkaHost below)</span>
+  <span class="nx">kafkaHost</span><span class="o">:</span> <span class="s1">&#39;broker:9092&#39;</span><span class="p">,</span> <span class="c1">// connect directly to kafka broker (instantiates a KafkaClient)</span>
+  <span class="nx">zk</span> <span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>   <span class="c1">// put client zk settings if you need them (see Client)</span>
+  <span class="nx">batch</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="c1">// put client batch settings if you need them (see Client)</span>
+  <span class="nx">ssl</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// optional (defaults to false) or tls options hash</span>
+  <span class="nx">groupId</span><span class="o">:</span> <span class="s1">&#39;ExampleTestGroup&#39;</span><span class="p">,</span>
+  <span class="nx">sessionTimeout</span><span class="o">:</span> <span class="mi">15000</span><span class="p">,</span>
+  <span class="c1">// An array of partition assignment protocols ordered by preference.</span>
+  <span class="c1">// &#39;roundrobin&#39; or &#39;range&#39; string for built ins (see below to pass in custom assignment protocol)</span>
+  <span class="nx">protocol</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;roundrobin&#39;</span><span class="p">],</span>
+
+  <span class="c1">// Offsets to use for new groups other options could be &#39;earliest&#39; or &#39;none&#39; (none will emit an error if no offsets were saved)</span>
+  <span class="c1">// equivalent to Java client&#39;s auto.offset.reset</span>
+  <span class="nx">fromOffset</span><span class="o">:</span> <span class="s1">&#39;latest&#39;</span><span class="p">,</span> <span class="c1">// default</span>
+  <span class="nx">commitOffsetsOnFirstJoin</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// on the very first time this consumer group subscribes to a topic, record the offset returned in fromOffset (latest/earliest)</span>
+  <span class="c1">// how to recover from OutOfRangeOffset error (where save offset is past server retention) accepts same value as fromOffset</span>
+  <span class="nx">outOfRangeOffset</span><span class="o">:</span> <span class="s1">&#39;earliest&#39;</span><span class="p">,</span> <span class="c1">// default</span>
+  <span class="nx">migrateHLC</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>    <span class="c1">// for details please see Migration section below</span>
+  <span class="nx">migrateRolling</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="c1">// Callback to allow consumers with autoCommit false a chance to commit before a rebalance finishes</span>
+  <span class="c1">// isAlreadyMember will be false on the first connection, and true on rebalances triggered after that</span>
+  <span class="nx">onRebalance</span><span class="o">:</span> <span class="p">(</span><span class="nx">isAlreadyMember</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">callback</span><span class="p">();</span> <span class="p">}</span> <span class="c1">// or null</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">consumerGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConsumerGroup</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;RebalanceTopic&#39;</span><span class="p">,</span> <span class="s1">&#39;RebalanceTest&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Or for a single topic pass in a string</span>
+
+<span class="kd">var</span> <span class="nx">consumerGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConsumerGroup</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="s1">&#39;RebalanceTopic&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-partition-assignment-protocol">
+<h3>Custom Partition Assignment Protocol<a class="headerlink" href="#custom-partition-assignment-protocol" title="永久链接至标题">¶</a></h3>
+<p>You can pass a custom assignment strategy to the <code class="docutils literal notranslate"><span class="pre">protocol</span></code> array with
+the interface:</p>
+<div class="section" id="string-name">
+<h4>string :: name<a class="headerlink" href="#string-name" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="integer-version">
+<h4>integer :: version<a class="headerlink" href="#integer-version" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="object-userdata">
+<h4>object :: userData<a class="headerlink" href="#object-userdata" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="function-assign-topicpartition-groupmembers-callback">
+<h4>function :: assign (topicPartition, groupMembers, callback)<a class="headerlink" href="#function-assign-topicpartition-groupmembers-callback" title="永久链接至标题">¶</a></h4>
+<p><strong>topicPartition</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;RebalanceTopic&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;RebalanceTest&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>groupMembers</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;RebalanceTopic&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RebalanceTest&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer1-8db1b117-61c6-4f91-867d-20ccd1ad8b3d&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;RebalanceTopic&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RebalanceTest&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer3-bf2d11f4-1c73-4a39-b498-cfe76eb65bea&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;RebalanceTopic&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RebalanceTest&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer2-9781058e-fad4-40e8-a69c-69afbae05184&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>callback(error, result)</strong></p>
+<p><strong>result</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;memberId&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer3-bf2d11f4-1c73-4a39-b498-cfe76eb65bea&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topicPartitions&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;RebalanceTopic&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;2&quot;</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;RebalanceTest&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;2&quot;</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;memberId&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer2-9781058e-fad4-40e8-a69c-69afbae05184&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topicPartitions&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;RebalanceTopic&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;1&quot;</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;RebalanceTest&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;1&quot;</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;memberId&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer1-8db1b117-61c6-4f91-867d-20ccd1ad8b3d&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;topicPartitions&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;RebalanceTopic&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;0&quot;</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;RebalanceTest&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;0&quot;</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="auto-migration-from-the-v0-8-based-highlevelconsumer">
+<h3>Auto migration from the v0.8 based highLevelConsumer<a class="headerlink" href="#auto-migration-from-the-v0-8-based-highlevelconsumer" title="永久链接至标题">¶</a></h3>
+<p>We have two options for automatic migration from existing
+<code class="docutils literal notranslate"><span class="pre">highLevelConsumer</span></code> group. This is useful to preserve the previous
+committed offsets for your group.</p>
+<p>We support two use cases:</p>
+<ol class="arabic simple">
+<li><p>You have downtime and your old HLC consumers are no longer available</p></li>
+<li><p>Where the old HLC group is still up and working and you are doing a
+rolling deploy with zero downtime</p></li>
+</ol>
+<p>For case 1 use below setting:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">migrateHLC</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// default is false</span>
+    <span class="nx">migrateRolling</span><span class="o">:</span> <span class="kc">false</span> <span class="c1">// default is true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For case 2 setting <code class="docutils literal notranslate"><span class="pre">migrateRolling</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> will allow the
+ConsumerGroup to start monitoring <code class="docutils literal notranslate"><span class="pre">zk</span></code> nodes for when topic ownership
+are relinquished by the old HLC consumer. Once this is done the
+ConsumerGroup will connect and the previous HLC offsets from zookeeper
+will be migrated automatically to the new Kafka broker based
+coordinator.</p>
+<ul class="simple">
+<li><p>Group name should be consistent with old highLevelConsumer</p></li>
+<li><p>Should never overwrite existing offsets</p></li>
+<li><p>Only offsets for Topics that were once in the highLevelConsumer will
+be migrated over offsets for new topics will follow the
+<code class="docutils literal notranslate"><span class="pre">fromOffset</span></code> setting</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="consumergroupstream">
+<h2>ConsumerGroupStream<a class="headerlink" href="#consumergroupstream" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code> wrapped with a <code class="docutils literal notranslate"><span class="pre">Readable</span></code> stream interface. Read
+more about consuming <code class="docutils literal notranslate"><span class="pre">Readable</span></code> streams
+<a class="reference external" href="https://nodejs.org/dist/v8.1.3/docs/api/stream.html#stream_readable_streams">here</a>.</p>
+<p>Same notes in the Notes section of <a class="reference external" href="#consumerstream">ConsumerStream</a>
+applies to this stream.</p>
+<div class="section" id="auto-commit">
+<h3>Auto Commit<a class="headerlink" href="#auto-commit" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ConsumerGroupStream</span></code> manages auto commits differently than
+<code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code>. Whereas the <code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code> would automatically
+commit offsets of fetched messages the <code class="docutils literal notranslate"><span class="pre">ConsumerGroupStream</span></code> will only
+commit offsets of consumed messages from the stream buffer. This will be
+better for most users since it more accurately represents what was
+actually “Consumed”. The interval at which auto commit fires off is
+still controlled by the <code class="docutils literal notranslate"><span class="pre">autoCommitIntervalMs</span></code> option and this feature
+can be disabled by setting <code class="docutils literal notranslate"><span class="pre">autoCommit</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</div>
+<div class="section" id="consumergroupstream-consumergroupoptions-topics">
+<h3>ConsumerGroupStream (consumerGroupOptions, topics)<a class="headerlink" href="#consumergroupstream-consumergroupoptions-topics" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">consumerGroupOptions</span></code> same options to initialize a
+<code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code> a single or array of topics to subscribe to</p></li>
+</ul>
+</div>
+<div class="section" id="commit-message-force-callback">
+<h3>commit(message, force, callback)<a class="headerlink" href="#commit-message-force-callback" title="永久链接至标题">¶</a></h3>
+<p>This method can be used to commit manually when <code class="docutils literal notranslate"><span class="pre">autoCommit</span></code> is set to
+<code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code> the original message or an object with
+<code class="docutils literal notranslate"><span class="pre">{topic,</span> <span class="pre">partition,</span> <span class="pre">offset}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force</span></code> a commit even if there’s a pending commit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code> (<em>optional</em>)</p></li>
+</ul>
+</div>
+<div class="section" id="close-callback">
+<h3>close(callback)<a class="headerlink" href="#close-callback" title="永久链接至标题">¶</a></h3>
+<p>Closes the <code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code>. Calls <code class="docutils literal notranslate"><span class="pre">callback</span></code> when complete. If
+<code class="docutils literal notranslate"><span class="pre">autoCommit</span></code> is enabled calling close will also commit offsets
+consumed from the buffer.</p>
+</div>
+</div>
+<div class="section" id="offset">
+<h2>Offset<a class="headerlink" href="#offset" title="永久链接至标题">¶</a></h2>
+<div class="section" id="offset-client">
+<h3>Offset(client)<a class="headerlink" href="#offset-client" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">client</span></code>: client which keeps a connection with the Kafka server.</p></li>
+</ul>
+</div>
+<div class="section" id="events-2">
+<span id="id13"></span><h3>events<a class="headerlink" href="#events-2" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code>: when zookeeper is ready</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code> when broker is ready</p></li>
+</ul>
+</div>
+<div class="section" id="fetch-payloads-cb">
+<h3>fetch(payloads, cb)<a class="headerlink" href="#fetch-payloads-cb" title="永久链接至标题">¶</a></h3>
+<p>Fetch the available offset of a specific topic-partition</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payloads</span></code>: <strong>Array</strong>,array of <code class="docutils literal notranslate"><span class="pre">OffsetRequest</span></code>, <code class="docutils literal notranslate"><span class="pre">OffsetRequest</span></code>
+is a JSON object like:</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topicName&#39;</span><span class="p">,</span>
+   <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//default 0</span>
+   <span class="c1">// time:</span>
+   <span class="c1">// Used to ask for all messages before a certain time (ms), default Date.now(),</span>
+   <span class="c1">// Specify -1 to receive the latest offsets and -2 to receive the earliest available offset.</span>
+   <span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span>
+   <span class="nx">maxNum</span><span class="o">:</span> <span class="mi">1</span> <span class="c1">//default 1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <em>Function</em>, the callback</p></li>
+</ul>
+<p>Example</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">offset</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
+    <span class="nx">offset</span><span class="p">.</span><span class="nx">fetch</span><span class="p">([</span>
+        <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">maxNum</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span>
+    <span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// data</span>
+        <span class="c1">// { &#39;t&#39;: { &#39;0&#39;: [999] } }</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="commit-groupid-payloads-cb">
+<h3>commit(groupId, payloads, cb)<a class="headerlink" href="#commit-groupid-payloads-cb" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>⚠️<strong>WARNING</strong>: commits are made to zookeeper and is only compatible
+with <code class="docutils literal notranslate"><span class="pre">HighLevelConsumer</span></code> and will <strong>NOT</strong> with the new
+<code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code></p>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">groupId</span></code>: consumer group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payloads</span></code>: <strong>Array</strong>,array of <code class="docutils literal notranslate"><span class="pre">OffsetCommitRequest</span></code>,
+<code class="docutils literal notranslate"><span class="pre">OffsetCommitRequest</span></code> is a JSON object like:</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topicName&#39;</span><span class="p">,</span>
+   <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//default 0</span>
+   <span class="nx">offset</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="nx">metadata</span><span class="o">:</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="c1">//default &#39;m&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">offset</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
+    <span class="nx">offset</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;groupId&#39;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">offset</span><span class="o">:</span> <span class="mi">10</span> <span class="p">}</span>
+    <span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetchcommits-groupid-payloads-cb">
+<h3>fetchCommits(groupid, payloads, cb)<a class="headerlink" href="#fetchcommits-groupid-payloads-cb" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>⚠️<strong>WARNING</strong>: commits are from zookeeper and is only compatible
+with <code class="docutils literal notranslate"><span class="pre">HighLevelConsumer</span></code> and will <strong>NOT</strong> with the new
+<code class="docutils literal notranslate"><span class="pre">ConsumerGroup</span></code></p>
+</div></blockquote>
+<p>Fetch the last committed offset in a topic of a specific consumer group</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">groupId</span></code>: consumer group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payloads</span></code>: <strong>Array</strong>,array of <code class="docutils literal notranslate"><span class="pre">OffsetFetchRequest</span></code>,
+<code class="docutils literal notranslate"><span class="pre">OffsetFetchRequest</span></code> is a JSON object like:</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;topicName&#39;</span><span class="p">,</span>
+   <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span> <span class="c1">//default 0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">kafka</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;kafka-node&#39;</span><span class="p">),</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Client</span><span class="p">(),</span>
+    <span class="nx">offset</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span>
+    <span class="nx">offset</span><span class="p">.</span><span class="nx">fetchCommits</span><span class="p">(</span><span class="s1">&#39;groupId&#39;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">topic</span><span class="o">:</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="nx">partition</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span>
+    <span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetchlatestoffsets-topics-cb">
+<h3>fetchLatestOffsets(topics, cb)<a class="headerlink" href="#fetchlatestoffsets-topics-cb" title="永久链接至标题">¶</a></h3>
+<p>Example</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">partition</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">topic</span> <span class="o">=</span> <span class="s1">&#39;t&#39;</span><span class="p">;</span>
+<span class="nx">offset</span><span class="p">.</span><span class="nx">fetchLatestOffsets</span><span class="p">([</span><span class="nx">topic</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">offsets</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">handleError</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">offsets</span><span class="p">[</span><span class="nx">topic</span><span class="p">][</span><span class="nx">partition</span><span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetchearliestoffsets-topics-cb">
+<h3>fetchEarliestOffsets(topics, cb)<a class="headerlink" href="#fetchearliestoffsets-topics-cb" title="永久链接至标题">¶</a></h3>
+<p>Example</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">partition</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">topic</span> <span class="o">=</span> <span class="s1">&#39;t&#39;</span><span class="p">;</span>
+<span class="nx">offset</span><span class="p">.</span><span class="nx">fetchEarliestOffsets</span><span class="p">([</span><span class="nx">topic</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">offsets</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">handleError</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">offsets</span><span class="p">[</span><span class="nx">topic</span><span class="p">][</span><span class="nx">partition</span><span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="admin">
+<h2>Admin<a class="headerlink" href="#admin" title="永久链接至标题">¶</a></h2>
+<p>This class provides administrative APIs can be used to monitor and
+administer the Kafka cluster.</p>
+<div class="section" id="admin-kafkaclient">
+<h3>Admin(kafkaClient)<a class="headerlink" href="#admin-kafkaclient" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kafkaClient</span></code>: client which keeps a connection with the Kafka
+server. (<strong>``KafkaClient`` only</strong>, <code class="docutils literal notranslate"><span class="pre">client</span></code> not supported)</p></li>
+</ul>
+</div>
+<div class="section" id="listgroups-cb">
+<h3>listGroups(cb)<a class="headerlink" href="#listgroups-cb" title="永久链接至标题">¶</a></h3>
+<p>List the consumer groups managed by the kafka cluster.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">KafkaClient</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">admin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kafka</span><span class="p">.</span><span class="nx">Admin</span><span class="p">(</span><span class="nx">client</span><span class="p">);</span> <span class="c1">// client must be KafkaClient</span>
+<span class="nx">admin</span><span class="p">.</span><span class="nx">listGroups</span><span class="p">((</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;consumerGroups&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">consumerGroups</span> <span class="p">{</span> <span class="s1">&#39;console-consumer-87148&#39;</span><span class="o">:</span> <span class="s1">&#39;consumer&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;console-consumer-2690&#39;</span><span class="o">:</span> <span class="s1">&#39;consumer&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;console-consumer-7439&#39;</span><span class="o">:</span> <span class="s1">&#39;consumer&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="describegroups-consumergroups-cb">
+<h3>describeGroups(consumerGroups, cb)<a class="headerlink" href="#describegroups-consumergroups-cb" title="永久链接至标题">¶</a></h3>
+<p>Fetch consumer group information from the cluster. See result for
+detailed information.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">consumerGroups</span></code>: <strong>Array</strong>, array of consumer groups (which can be
+gathered from <code class="docutils literal notranslate"><span class="pre">listGroups</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cb</span></code>: <strong>Function</strong>, the callback</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">admin</span><span class="p">.</span><span class="nx">describeGroups</span><span class="p">([</span><span class="s1">&#39;console-consumer-2690&#39;</span><span class="p">],</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="nt">&quot;console-consumer-2690&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;members&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+    <span class="nt">&quot;memberId&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer-1-20195e12-cb3b-4ba4-9076-e7da8ed0d57a&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer-1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;clientHost&quot;</span><span class="p">:</span> <span class="s2">&quot;/192.168.61.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;memberMetadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;twice-tt&quot;</span>
+     <span class="p">],</span>
+     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="nt">&quot;userData&quot;</span><span class="p">:</span> <span class="s2">&quot;JSON parse error&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer-1-20195e12-cb3b-4ba4-9076-e7da8ed0d57a&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;memberAssignment&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nt">&quot;partitions&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;twice-tt&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="mi">0</span><span class="p">,</span>
+       <span class="mi">1</span>
+      <span class="p">]</span>
+     <span class="p">},</span>
+     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="nt">&quot;userData&quot;</span><span class="p">:</span> <span class="s2">&quot;JSON Parse error&quot;</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;groupId&quot;</span><span class="p">:</span> <span class="s2">&quot;console-consumer-2690&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;Stable&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;protocolType&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;brokerId&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="faq.html" class="btn btn-neutral float-right" title="Troubleshooting / FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Kafka-node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

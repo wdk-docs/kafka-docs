@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/mns/api/Subscription.rst:2
+msgid "Subscription"
+msgstr "Subscription"
+
+#: ../../source/mns/api/Subscription.rst:5
+msgid "Subscription(name:string, topic:Topic)"
+msgstr "Subscription(name:string, topic:Topic)"
+
+#: ../../source/mns/api/Subscription.rst:7
+msgid "Operate a subscription."
+msgstr "Operate a subscription."
+
+#: ../../source/mns/api/Subscription.rst:17
+msgid "subscription.getName()"
+msgstr "subscription.getName()"
+
+#: ../../source/mns/api/Subscription.rst:19
+msgid "Get name of subscription."
+msgstr "Get name of subscription."
+
+#: ../../source/mns/api/Subscription.rst:22
+msgid "subscription.getTopic()"
+msgstr "subscription.getTopic()"
+
+#: ../../source/mns/api/Subscription.rst:24
+msgid "Get topic of subscription."
+msgstr "Get topic of subscription."
+
+#: ../../source/mns/api/Subscription.rst:27
+msgid "subscription.getAttrsP() & subscription.setAttrsP(options:any)"
+msgstr "subscription.getAttrsP() & subscription.setAttrsP(options:any)"
+
+#: ../../source/mns/api/Subscription.rst:29
+msgid "Get or set attributes of subscription."
+msgstr "Get or set attributes of subscription."
+
+#: ../../source/mns/api/Subscription.rst:31
+msgid "options: attributes of subscription."
+msgstr "options: attributes of subscription."
+
+#: ../../source/mns/api/Subscription.rst:33
+msgid "options.NotifyStrategy: BACKOFF_RETRY or EXPONENTIAL_DECAY_RETRY."
+msgstr "options.NotifyStrategy: BACKOFF_RETRY or EXPONENTIAL_DECAY_RETRY."
+
+#: ../../source/mns/api/Subscription.rst:40
+msgid "Subscription.NotifyStrategy"
+msgstr "Subscription.NotifyStrategy"
+
+#: ../../source/mns/api/Subscription.rst:42
+#: ../../source/mns/api/Subscription.rst:55
+msgid "Contains 2 const string."
+msgstr "Contains 2 const string."
+
+#: ../../source/mns/api/Subscription.rst:44
+msgid "AliMNS.Subscription.NotifyStrategy.BACKOFF_RETRY : “BACKOFF_RETRY”"
+msgstr "AliMNS.Subscription.NotifyStrategy.BACKOFF_RETRY : “BACKOFF_RETRY”"
+
+#: ../../source/mns/api/Subscription.rst:46
+msgid "AliMNS.Subscription.NotifyStrategy.EXPONENTIAL_DECAY_RETRY : “EXPONENTIAL_DECAY_RETRY”"
+msgstr "AliMNS.Subscription.NotifyStrategy.EXPONENTIAL_DECAY_RETRY : “EXPONENTIAL_DECAY_RETRY”"
+
+#: ../../source/mns/api/Subscription.rst:49
+msgid "`More about NotifyStrategy[zh-Hans] <https://help.aliyun.com/document_detail/mns/api_reference/concepts/NotifyStrategy.html?spm=5176.docmns/api_reference/topic_api_spec/subscription_operation.6.141.tmwb5L>`__"
+msgstr "`More about NotifyStrategy[zh-Hans] <https://help.aliyun.com/document_detail/mns/api_reference/concepts/NotifyStrategy.html?spm=5176.docmns/api_reference/topic_api_spec/subscription_operation.6.141.tmwb5L>`__"
+
+#: ../../source/mns/api/Subscription.rst:53
+msgid "Subscription.NotifyContentFormat"
+msgstr "Subscription.NotifyContentFormat"
+
+#: ../../source/mns/api/Subscription.rst:57
+msgid "AliMNS.Subscription.NotifyContentFormat.XML : “XML”"
+msgstr "AliMNS.Subscription.NotifyContentFormat.XML : “XML”"
+
+#: ../../source/mns/api/Subscription.rst:59
+msgid "AliMNS.Subscription.NotifyContentFormat.SIMPLIFIED : “SIMPLIFIED”"
+msgstr "AliMNS.Subscription.NotifyContentFormat.SIMPLIFIED : “SIMPLIFIED”"
+
+#: ../../source/mns/api/Subscription.rst:61
+msgid "`More about NotifyContentFormat[zh-Hans] <https://help.aliyun.com/document_detail/mns/api_reference/concepts/NotifyContentFormat.html?spm=5176.docmns/api_reference/concepts/NotifyStrategy.6.142.kWiFyy>`__"
+msgstr "`More about NotifyContentFormat[zh-Hans] <https://help.aliyun.com/document_detail/mns/api_reference/concepts/NotifyContentFormat.html?spm=5176.docmns/api_reference/concepts/NotifyStrategy.6.142.kWiFyy>`__"
+

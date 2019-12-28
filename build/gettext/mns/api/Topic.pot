@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/mns/api/Topic.rst:2
+msgid "MNSTopic"
+msgstr "MNSTopic"
+
+#: ../../source/mns/api/Topic.rst:5
+msgid "MNSTopic(account:Account, region?:string|Region)"
+msgstr "MNSTopic(account:Account, region?:string|Region)"
+
+#: ../../source/mns/api/Topic.rst:7
+msgid "The class ``MNSTopic`` extends class ``MNS`` for providing features in topic model. All methods in ``MNS`` class are also available in ``MNSTopic``."
+msgstr "The class ``MNSTopic`` extends class ``MNS`` for providing features in topic model. All methods in ``MNS`` class are also available in ``MNSTopic``."
+
+#: ../../source/mns/api/Topic.rst:21
+msgid "mns.listTopicP(prefix?:string, pageSize?:number, pageMarker?:string)"
+msgstr "mns.listTopicP(prefix?:string, pageSize?:number, pageMarker?:string)"
+
+#: ../../source/mns/api/Topic.rst:23
+msgid "List all topics."
+msgstr "List all topics."
+
+#: ../../source/mns/api/Topic.rst:25
+msgid "prefix: String, optional. Return only topics with the prefix."
+msgstr "prefix: String, optional. Return only topics with the prefix."
+
+#: ../../source/mns/api/Topic.rst:27
+msgid "pageSize: number, optional. How many topics will be returned in a page, 1~1000, default is 1000."
+msgstr "pageSize: number, optional. How many topics will be returned in a page, 1~1000, default is 1000."
+
+#: ../../source/mns/api/Topic.rst:30
+#: ../../source/mns/api/Topic.rst:122
+msgid "pageMarker: String, optional. Request the next page, the value is returned in last call."
+msgstr "pageMarker: String, optional. Request the next page, the value is returned in last call."
+
+#: ../../source/mns/api/Topic.rst:34
+msgid "mns.createTopicP(name:string, options?:any)"
+msgstr "mns.createTopicP(name:string, options?:any)"
+
+#: ../../source/mns/api/Topic.rst:36
+msgid "Create a topic."
+msgstr "Create a topic."
+
+#: ../../source/mns/api/Topic.rst:38
+#: ../../source/mns/api/Topic.rst:53
+#: ../../source/mns/api/Topic.rst:60
+msgid "name: topic name."
+msgstr "name: topic name."
+
+#: ../../source/mns/api/Topic.rst:40
+msgid "options: optional."
+msgstr "options: optional."
+
+#: ../../source/mns/api/Topic.rst:42
+#: ../../source/mns/api/Topic.rst:101
+msgid "options.MaximumMessageSize: int. The maximum size of message, 1024(1k)~65536(64k), default is 65536."
+msgstr "options.MaximumMessageSize: int. The maximum size of message, 1024(1k)~65536(64k), default is 65536."
+
+#: ../../source/mns/api/Topic.rst:45
+#: ../../source/mns/api/Topic.rst:104
+msgid "options.LoggingEnabled: boolean. Enable logging or not, default is false."
+msgstr "options.LoggingEnabled: boolean. Enable logging or not, default is false."
+
+#: ../../source/mns/api/Topic.rst:49
+msgid "mns.deleteTopicP(name:string)"
+msgstr "mns.deleteTopicP(name:string)"
+
+#: ../../source/mns/api/Topic.rst:51
+msgid "Delete a topic."
+msgstr "Delete a topic."
+
+#: ../../source/mns/api/Topic.rst:56
+msgid "Topic(name:string, account:Account, region?:string|Region)"
+msgstr "Topic(name:string, account:Account, region?:string|Region)"
+
+#: ../../source/mns/api/Topic.rst:58
+msgid "Operate a topic."
+msgstr "Operate a topic."
+
+#: ../../source/mns/api/Topic.rst:62
+msgid "account: An account object."
+msgstr "account: An account object."
+
+#: ../../source/mns/api/Topic.rst:64
+msgid "region: String|Region, optional. If it is string, it can be “hangzhou”, “beijing” or any Chinese datacenter city name. If it is Region, it allows you to specify data center other than in China. Default is “hangzhou”. It can also be internal or vpc address “hangzhou-internal”, “beijing-internal” or “qingdao-internal-vpc”."
+msgstr "region: String|Region, optional. If it is string, it can be “hangzhou”, “beijing” or any Chinese datacenter city name. If it is Region, it allows you to specify data center other than in China. Default is “hangzhou”. It can also be internal or vpc address “hangzhou-internal”, “beijing-internal” or “qingdao-internal-vpc”."
+
+#: ../../source/mns/api/Topic.rst:80
+msgid "topic.getName()"
+msgstr "topic.getName()"
+
+#: ../../source/mns/api/Topic.rst:82
+msgid "Get topic name."
+msgstr "Get topic name."
+
+#: ../../source/mns/api/Topic.rst:85
+msgid "topic.getAccount()"
+msgstr "topic.getAccount()"
+
+#: ../../source/mns/api/Topic.rst:87
+msgid "Get topic account."
+msgstr "Get topic account."
+
+#: ../../source/mns/api/Topic.rst:90
+msgid "topic.getRegion()"
+msgstr "topic.getRegion()"
+
+#: ../../source/mns/api/Topic.rst:92
+msgid "Get topic region."
+msgstr "Get topic region."
+
+#: ../../source/mns/api/Topic.rst:95
+msgid "topic.getAttrsP() & topic.setAttrsP(options:any)"
+msgstr "topic.getAttrsP() & topic.setAttrsP(options:any)"
+
+#: ../../source/mns/api/Topic.rst:97
+msgid "Get or set attributes of topic."
+msgstr "Get or set attributes of topic."
+
+#: ../../source/mns/api/Topic.rst:99
+msgid "options: topic attributes."
+msgstr "options: topic attributes."
+
+#: ../../source/mns/api/Topic.rst:113
+msgid "topic.listP(prefix?:string, pageSize?:number, pageMarker?:string)"
+msgstr "topic.listP(prefix?:string, pageSize?:number, pageMarker?:string)"
+
+#: ../../source/mns/api/Topic.rst:115
+msgid "List all subscriptions."
+msgstr "List all subscriptions."
+
+#: ../../source/mns/api/Topic.rst:117
+msgid "prefix: String, optional. Return only subscriptions with the prefix."
+msgstr "prefix: String, optional. Return only subscriptions with the prefix."
+
+#: ../../source/mns/api/Topic.rst:119
+msgid "pageSize: number, optional. How many subscriptions will be returned in a page, 1~1000, default is 1000."
+msgstr "pageSize: number, optional. How many subscriptions will be returned in a page, 1~1000, default is 1000."
+
+#: ../../source/mns/api/Topic.rst:126
+msgid "topic.subscribeP(name:string, endPoint:string, notifyStrategy?:string, notifyContentFormat?:string, filterTag?:string)"
+msgstr "topic.subscribeP(name:string, endPoint:string, notifyStrategy?:string, notifyContentFormat?:string, filterTag?:string)"
+
+#: ../../source/mns/api/Topic.rst:128
+msgid "Subscribe a topic."
+msgstr "Subscribe a topic."
+
+#: ../../source/mns/api/Topic.rst:130
+#: ../../source/mns/api/Topic.rst:158
+msgid "name: Name of subscription."
+msgstr "name: Name of subscription."
+
+#: ../../source/mns/api/Topic.rst:132
+msgid "endPoint: Notify end point. eg. ``http://www.yoursite.com/mns-ep``"
+msgstr "endPoint: Notify end point. eg. ``http://www.yoursite.com/mns-ep``"
+
+#: ../../source/mns/api/Topic.rst:134
+msgid "notifyStrategy: optional. BACKOFF_RETRY or EXPONENTIAL_DECAY_RETRY, default is BACKOFF_RETRY."
+msgstr "notifyStrategy: optional. BACKOFF_RETRY or EXPONENTIAL_DECAY_RETRY, default is BACKOFF_RETRY."
+
+#: ../../source/mns/api/Topic.rst:137
+msgid "notifyContentFormat: optional. XML or SIMPLIFIED, default is XML."
+msgstr "notifyContentFormat: optional. XML or SIMPLIFIED, default is XML."
+
+#: ../../source/mns/api/Topic.rst:139
+msgid "filterTag: Optional. Only matched messages will be pushed the endPoint, max length is 16; default is *undefined*, do not filter out any messages."
+msgstr "filterTag: Optional. Only matched messages will be pushed the endPoint, max length is 16; default is *undefined*, do not filter out any messages."
+
+#: ../../source/mns/api/Topic.rst:154
+msgid "topic.unsubscribeP(name:string)"
+msgstr "topic.unsubscribeP(name:string)"
+
+#: ../../source/mns/api/Topic.rst:156
+msgid "Unsubscribe a topic."
+msgstr "Unsubscribe a topic."
+
+#: ../../source/mns/api/Topic.rst:161
+msgid "topic.publishP(msg:string, b64:boolean, tag?:string, attrs?:any, options?:any)"
+msgstr "topic.publishP(msg:string, b64:boolean, tag?:string, attrs?:any, options?:any)"
+
+#: ../../source/mns/api/Topic.rst:163
+msgid "Publish a message to a topic."
+msgstr "Publish a message to a topic."
+
+#: ../../source/mns/api/Topic.rst:165
+msgid "msg: content of message"
+msgstr "msg: content of message"
+
+#: ../../source/mns/api/Topic.rst:167
+msgid "b64: true, encoding msg to base64 format before publishing. false, do not encoding msg before publishing."
+msgstr "b64: true, encoding msg to base64 format before publishing. false, do not encoding msg before publishing."
+
+#: ../../source/mns/api/Topic.rst:170
+msgid "tag: the TAG of message."
+msgstr "tag: the TAG of message."
+
+#: ../../source/mns/api/Topic.rst:172
+msgid "attrs: attribures of message."
+msgstr "attrs: attribures of message."
+
+#: ../../source/mns/api/Topic.rst:174
+msgid "options: options for the `request <https://www.npmjs.com/package/request#requestoptions-callback>`__ underlying."
+msgstr "options: options for the `request <https://www.npmjs.com/package/request#requestoptions-callback>`__ underlying."
+
+#: ../../source/mns/api/Topic.rst:178
+msgid "If message contains Chinese characters, must set ``b64`` to ``true``. Only very simple message can set ``b64`` to ``false``."
+msgstr "If message contains Chinese characters, must set ``b64`` to ``true``. Only very simple message can set ``b64`` to ``false``."
+
+#: ../../source/mns/api/Topic.rst:181
+msgid "Set options to ``{ forever: true }`` will let http(s) channel *KeepAive*."
+msgstr "Set options to ``{ forever: true }`` will let http(s) channel *KeepAive*."
+

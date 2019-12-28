@@ -1,0 +1,269 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/kafka/quickstart.rst:2
+#: ../../source/kafka/quickstart.rst:344
+msgid "快速开始"
+msgstr "快速开始"
+
+#: ../../source/kafka/quickstart.rst:4
+msgid "本教程假设您刚刚开始，并且没有现有的Kafka或ZooKeeper数据。 Since Kafka console scripts are different for Unix-based and Windows platforms, on Windows platforms use bin:raw-latex:`\\windows` instead of bin/, and change the script extension to .bat."
+msgstr "本教程假设您刚刚开始，并且没有现有的Kafka或ZooKeeper数据。 Since Kafka console scripts are different for Unix-based and Windows platforms, on Windows platforms use bin:raw-latex:`\\windows` instead of bin/, and change the script extension to .bat."
+
+#: ../../source/kafka/quickstart.rst:10
+#: ../../source/kafka/quickstart.rst:354
+msgid "步1: 下载代码"
+msgstr "步1: 下载代码"
+
+#: ../../source/kafka/quickstart.rst:12
+#: ../../source/kafka/quickstart.rst:356
+msgid "下载1.1.0版本并解压缩它。"
+msgstr "下载1.1.0版本并解压缩它。"
+
+#: ../../source/kafka/quickstart.rst:20
+#: ../../source/kafka/quickstart.rst:366
+msgid "步2: 启动服务器"
+msgstr "步2: 启动服务器"
+
+#: ../../source/kafka/quickstart.rst:22
+#: ../../source/kafka/quickstart.rst:368
+msgid "Kafka uses ZooKeeper so you need to first start a ZooKeeper server if you don’t already have one. You can use the convenience script packaged with kafka to get a quick-and-dirty single-node ZooKeeper instance."
+msgstr "Kafka uses ZooKeeper so you need to first start a ZooKeeper server if you don’t already have one. You can use the convenience script packaged with kafka to get a quick-and-dirty single-node ZooKeeper instance."
+
+#: ../../source/kafka/quickstart.rst:32
+msgid "Now start the Kafka server:"
+msgstr "Now start the Kafka server:"
+
+#: ../../source/kafka/quickstart.rst:42
+#: ../../source/kafka/quickstart.rst:390
+msgid "步3: 创建一个主题"
+msgstr "步3: 创建一个主题"
+
+#: ../../source/kafka/quickstart.rst:44
+#: ../../source/kafka/quickstart.rst:392
+msgid "Let’s create a topic named “test” with a single partition and only one replica:"
+msgstr "Let’s create a topic named “test” with a single partition and only one replica:"
+
+#: ../../source/kafka/quickstart.rst:51
+#: ../../source/kafka/quickstart.rst:399
+msgid "We can now see that topic if we run the list topic command:"
+msgstr "We can now see that topic if we run the list topic command:"
+
+#: ../../source/kafka/quickstart.rst:58
+#: ../../source/kafka/quickstart.rst:406
+msgid "Alternatively, instead of manually creating topics you can also configure your brokers to auto-create topics when a non-existent topic is published to."
+msgstr "Alternatively, instead of manually creating topics you can also configure your brokers to auto-create topics when a non-existent topic is published to."
+
+#: ../../source/kafka/quickstart.rst:63
+#: ../../source/kafka/quickstart.rst:413
+msgid "步4: 发送一些消息"
+msgstr "步4: 发送一些消息"
+
+#: ../../source/kafka/quickstart.rst:65
+#: ../../source/kafka/quickstart.rst:415
+msgid "Kafka comes with a command line client that will take input from a file or from standard input and send it out as messages to the Kafka cluster. By default, each line will be sent as a separate message."
+msgstr "Kafka comes with a command line client that will take input from a file or from standard input and send it out as messages to the Kafka cluster. By default, each line will be sent as a separate message."
+
+#: ../../source/kafka/quickstart.rst:69
+#: ../../source/kafka/quickstart.rst:419
+msgid "Run the producer and then type a few messages into the console to send to the server."
+msgstr "Run the producer and then type a few messages into the console to send to the server."
+
+#: ../../source/kafka/quickstart.rst:79
+#: ../../source/kafka/quickstart.rst:431
+msgid "步5: 启动消费者"
+msgstr "步5: 启动消费者"
+
+#: ../../source/kafka/quickstart.rst:81
+#: ../../source/kafka/quickstart.rst:433
+msgid "Kafka also has a command line consumer that will dump out messages to standard output."
+msgstr "Kafka also has a command line consumer that will dump out messages to standard output."
+
+#: ../../source/kafka/quickstart.rst:90
+#: ../../source/kafka/quickstart.rst:442
+msgid "If you have each of the above commands running in a different terminal then you should now be able to type messages into the producer terminal and see them appear in the consumer terminal."
+msgstr "If you have each of the above commands running in a different terminal then you should now be able to type messages into the producer terminal and see them appear in the consumer terminal."
+
+#: ../../source/kafka/quickstart.rst:94
+#: ../../source/kafka/quickstart.rst:446
+msgid "All of the command line tools have additional options; running the command with no arguments will display usage information documenting them in more detail."
+msgstr "All of the command line tools have additional options; running the command with no arguments will display usage information documenting them in more detail."
+
+#: ../../source/kafka/quickstart.rst:99
+#: ../../source/kafka/quickstart.rst:453
+msgid "步6: 设置多代理群集"
+msgstr "步6: 设置多代理群集"
+
+#: ../../source/kafka/quickstart.rst:101
+#: ../../source/kafka/quickstart.rst:455
+msgid "So far we have been running against a single broker, but that’s no fun. For Kafka, a single broker is just a cluster of size one, so nothing much changes other than starting a few more broker instances. But just to get feel for it, let’s expand our cluster to three nodes (still all on our local machine)."
+msgstr "So far we have been running against a single broker, but that’s no fun. For Kafka, a single broker is just a cluster of size one, so nothing much changes other than starting a few more broker instances. But just to get feel for it, let’s expand our cluster to three nodes (still all on our local machine)."
+
+#: ../../source/kafka/quickstart.rst:107
+#: ../../source/kafka/quickstart.rst:461
+msgid "First we make a config file for each of the brokers (on Windows use the copy command instead):"
+msgstr "First we make a config file for each of the brokers (on Windows use the copy command instead):"
+
+#: ../../source/kafka/quickstart.rst:115
+#: ../../source/kafka/quickstart.rst:469
+msgid "Now edit these new files and set the following properties:"
+msgstr "Now edit these new files and set the following properties:"
+
+#: ../../source/kafka/quickstart.rst:129
+#: ../../source/kafka/quickstart.rst:483
+msgid "The broker.id property is the unique and permanent name of each node in the cluster. We have to override the port and log directory only because we are running these all on the same machine and we want to keep the brokers from all trying to register on the same port or overwrite each other’s data."
+msgstr "The broker.id property is the unique and permanent name of each node in the cluster. We have to override the port and log directory only because we are running these all on the same machine and we want to keep the brokers from all trying to register on the same port or overwrite each other’s data."
+
+#: ../../source/kafka/quickstart.rst:135
+#: ../../source/kafka/quickstart.rst:489
+msgid "We already have Zookeeper and our single node started, so we just need to start the two new nodes:"
+msgstr "We already have Zookeeper and our single node started, so we just need to start the two new nodes:"
+
+#: ../../source/kafka/quickstart.rst:145
+#: ../../source/kafka/quickstart.rst:499
+msgid "Now create a new topic with a replication factor of three:"
+msgstr "Now create a new topic with a replication factor of three:"
+
+#: ../../source/kafka/quickstart.rst:151
+#: ../../source/kafka/quickstart.rst:505
+msgid "Okay but now that we have a cluster how can we know which broker is doing what? To see that run the “describe topics” command:"
+msgstr "Okay but now that we have a cluster how can we know which broker is doing what? To see that run the “describe topics” command:"
+
+#: ../../source/kafka/quickstart.rst:160
+#: ../../source/kafka/quickstart.rst:514
+msgid "Here is an explanation of output. The first line gives a summary of all the partitions, each additional line gives information about one partition. Since we have only one partition for this topic there is only one line."
+msgstr "Here is an explanation of output. The first line gives a summary of all the partitions, each additional line gives information about one partition. Since we have only one partition for this topic there is only one line."
+
+#: ../../source/kafka/quickstart.rst:171
+#: ../../source/kafka/quickstart.rst:525
+msgid "Note that in my example node 1 is the leader for the only partition of the topic."
+msgstr "Note that in my example node 1 is the leader for the only partition of the topic."
+
+#: ../../source/kafka/quickstart.rst:174
+#: ../../source/kafka/quickstart.rst:528
+msgid "We can run the same command on the original topic we created to see where it is:"
+msgstr "We can run the same command on the original topic we created to see where it is:"
+
+#: ../../source/kafka/quickstart.rst:183
+#: ../../source/kafka/quickstart.rst:537
+msgid "So there is no surprise there—the original topic has no replicas and is on server 0, the only server in our cluster when we created it."
+msgstr "So there is no surprise there—the original topic has no replicas and is on server 0, the only server in our cluster when we created it."
+
+#: ../../source/kafka/quickstart.rst:186
+#: ../../source/kafka/quickstart.rst:540
+msgid "Let’s publish a few messages to our new topic:"
+msgstr "Let’s publish a few messages to our new topic:"
+
+#: ../../source/kafka/quickstart.rst:196
+#: ../../source/kafka/quickstart.rst:550
+msgid "Now let’s consume these messages:"
+msgstr "Now let’s consume these messages:"
+
+#: ../../source/kafka/quickstart.rst:206
+#: ../../source/kafka/quickstart.rst:560
+msgid "Now let’s test out fault-tolerance. Broker 1 was acting as the leader so let’s kill it:"
+msgstr "Now let’s test out fault-tolerance. Broker 1 was acting as the leader so let’s kill it:"
+
+#: ../../source/kafka/quickstart.rst:215
+#: ../../source/kafka/quickstart.rst:569
+msgid "On Windows use:"
+msgstr "On Windows use:"
+
+#: ../../source/kafka/quickstart.rst:224
+#: ../../source/kafka/quickstart.rst:578
+msgid "Leadership has switched to one of the slaves and node 1 is no longer in the in-sync replica set:"
+msgstr "Leadership has switched to one of the slaves and node 1 is no longer in the in-sync replica set:"
+
+#: ../../source/kafka/quickstart.rst:233
+#: ../../source/kafka/quickstart.rst:587
+msgid "But the messages are still available for consumption even though the leader that took the writes originally is down:"
+msgstr "But the messages are still available for consumption even though the leader that took the writes originally is down:"
+
+#: ../../source/kafka/quickstart.rst:245
+#: ../../source/kafka/quickstart.rst:601
+msgid "步7: 使用Kafka Connect导入/导出数据"
+msgstr "步7: 使用Kafka Connect导入/导出数据"
+
+#: ../../source/kafka/quickstart.rst:247
+#: ../../source/kafka/quickstart.rst:603
+msgid "Writing data from the console and writing it back to the console is a convenient place to start, but you’ll probably want to use data from other sources or export data from Kafka to other systems. For many systems, instead of writing custom integration code you can use Kafka Connect to import or export data."
+msgstr "Writing data from the console and writing it back to the console is a convenient place to start, but you’ll probably want to use data from other sources or export data from Kafka to other systems. For many systems, instead of writing custom integration code you can use Kafka Connect to import or export data."
+
+#: ../../source/kafka/quickstart.rst:253
+#: ../../source/kafka/quickstart.rst:609
+msgid "Kafka Connect is a tool included with Kafka that imports and exports data to Kafka. It is an extensible tool that runs connectors, which implement the custom logic for interacting with an external system. In this quickstart we’ll see how to run Kafka Connect with simple connectors that import data from a file to a Kafka topic and export data from a Kafka topic to a file."
+msgstr "Kafka Connect is a tool included with Kafka that imports and exports data to Kafka. It is an extensible tool that runs connectors, which implement the custom logic for interacting with an external system. In this quickstart we’ll see how to run Kafka Connect with simple connectors that import data from a file to a Kafka topic and export data from a Kafka topic to a file."
+
+#: ../../source/kafka/quickstart.rst:260
+#: ../../source/kafka/quickstart.rst:616
+msgid "First, we’ll start by creating some seed data to test with:"
+msgstr "First, we’ll start by creating some seed data to test with:"
+
+#: ../../source/kafka/quickstart.rst:266
+#: ../../source/kafka/quickstart.rst:622
+msgid "Or on Windows:"
+msgstr "Or on Windows:"
+
+#: ../../source/kafka/quickstart.rst:273
+#: ../../source/kafka/quickstart.rst:629
+msgid "Next, we’ll start two connectors running in standalone mode, which means they run in a single, local, dedicated process. We provide three configuration files as parameters. The first is always the configuration for the Kafka Connect process, containing common configuration such as the Kafka brokers to connect to and the serialization format for data. The remaining configuration files each specify a connector to create. These files include a unique connector name, the connector class to instantiate, and any other configuration required by the connector."
+msgstr "Next, we’ll start two connectors running in standalone mode, which means they run in a single, local, dedicated process. We provide three configuration files as parameters. The first is always the configuration for the Kafka Connect process, containing common configuration such as the Kafka brokers to connect to and the serialization format for data. The remaining configuration files each specify a connector to create. These files include a unique connector name, the connector class to instantiate, and any other configuration required by the connector."
+
+#: ../../source/kafka/quickstart.rst:286
+#: ../../source/kafka/quickstart.rst:642
+msgid "These sample configuration files, included with Kafka, use the default local cluster configuration you started earlier and create two connectors: the first is a source connector that reads lines from an input file and produces each to a Kafka topic and the second is a sink connector that reads messages from a Kafka topic and produces each as a line in an output file."
+msgstr "These sample configuration files, included with Kafka, use the default local cluster configuration you started earlier and create two connectors: the first is a source connector that reads lines from an input file and produces each to a Kafka topic and the second is a sink connector that reads messages from a Kafka topic and produces each as a line in an output file."
+
+#: ../../source/kafka/quickstart.rst:293
+#: ../../source/kafka/quickstart.rst:649
+msgid "During startup you’ll see a number of log messages, including some indicating that the connectors are being instantiated. Once the Kafka Connect process has started, the source connector should start reading lines from test.txt and producing them to the topic connect-test, and the sink connector should start reading messages from the topic connect-test and write them to the file test.sink.txt. We can verify the data has been delivered through the entire pipeline by examining the contents of the output file:"
+msgstr "During startup you’ll see a number of log messages, including some indicating that the connectors are being instantiated. Once the Kafka Connect process has started, the source connector should start reading lines from test.txt and producing them to the topic connect-test, and the sink connector should start reading messages from the topic connect-test and write them to the file test.sink.txt. We can verify the data has been delivered through the entire pipeline by examining the contents of the output file:"
+
+#: ../../source/kafka/quickstart.rst:308
+#: ../../source/kafka/quickstart.rst:664
+msgid "Note that the data is being stored in the Kafka topic connect-test, so we can also run a console consumer to see the data in the topic (or use custom consumer code to process it):"
+msgstr "Note that the data is being stored in the Kafka topic connect-test, so we can also run a console consumer to see the data in the topic (or use custom consumer code to process it):"
+
+#: ../../source/kafka/quickstart.rst:319
+#: ../../source/kafka/quickstart.rst:675
+msgid "The connectors continue to process data, so we can add data to the file and see it move through the pipeline:"
+msgstr "The connectors continue to process data, so we can add data to the file and see it move through the pipeline:"
+
+#: ../../source/kafka/quickstart.rst:326
+#: ../../source/kafka/quickstart.rst:682
+msgid "You should see the line appear in the console consumer output and in the sink file."
+msgstr "You should see the line appear in the console consumer output and in the sink file."
+
+#: ../../source/kafka/quickstart.rst:330
+#: ../../source/kafka/quickstart.rst:688
+msgid "步8: 使用Kafka Streams处理数据"
+msgstr "步8: 使用Kafka Streams处理数据"
+
+#: ../../source/kafka/quickstart.rst:332
+#: ../../source/kafka/quickstart.rst:690
+msgid "Kafka Streams is a client library for building mission-critical real-time applications and microservices, where the input and/or output data is stored in Kafka clusters. Kafka Streams combines the simplicity of writing and deploying standard Java and Scala applications on the client side with the benefits of Kafka’s server-side cluster technology to make these applications highly scalable, elastic, fault-tolerant, distributed, and much more. This quickstart example will demonstrate how to run a streaming application coded in this library."
+msgstr "Kafka Streams is a client library for building mission-critical real-time applications and microservices, where the input and/or output data is stored in Kafka clusters. Kafka Streams combines the simplicity of writing and deploying standard Java and Scala applications on the client side with the benefits of Kafka’s server-side cluster technology to make these applications highly scalable, elastic, fault-tolerant, distributed, and much more. This quickstart example will demonstrate how to run a streaming application coded in this library."
+
+#: ../../source/kafka/quickstart.rst:346
+msgid "本教程假设您刚刚开始，并且没有现有的Kafka或ZooKeeper数据。 由于Kafka控制台脚本对于基于Unix和Windows的平台不同， 在Windows平台上使用bin:raw-latex:`\\windows`:raw-latex:`\\而不是bin`/， 并将脚本扩展名更改为.bat."
+msgstr "本教程假设您刚刚开始，并且没有现有的Kafka或ZooKeeper数据。 由于Kafka控制台脚本对于基于Unix和Windows的平台不同， 在Windows平台上使用bin:raw-latex:`\\windows`:raw-latex:`\\而不是bin`/， 并将脚本扩展名更改为.bat."
+
+#: ../../source/kafka/quickstart.rst:378
+msgid "现在启动Kafka服务器："
+msgstr "现在启动Kafka服务器："
+

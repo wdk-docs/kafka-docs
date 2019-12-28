@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/kafka-node/test.rst:2
+msgid "Running Tests"
+msgstr "Running Tests"
+
+#: ../../source/kafka-node/test.rst:5
+msgid "Install Docker"
+msgstr "Install Docker"
+
+#: ../../source/kafka-node/test.rst:7
+msgid "On the Mac install `Docker for Mac <https://docs.docker.com/engine/installation/mac/>`__."
+msgstr "On the Mac install `Docker for Mac <https://docs.docker.com/engine/installation/mac/>`__."
+
+#: ../../source/kafka-node/test.rst:11
+msgid "Start Docker and Run Tests"
+msgstr "Start Docker and Run Tests"
+
+#: ../../source/kafka-node/test.rst:18
+msgid "Using different versions of Kafka"
+msgstr "Using different versions of Kafka"
+
+#: ../../source/kafka-node/test.rst:20
+msgid "Achieved using the ``KAFKA_VERSION`` environment variable."
+msgstr "Achieved using the ``KAFKA_VERSION`` environment variable."
+
+#: ../../source/kafka-node/test.rst:37
+msgid "\\*See Docker hub `tags <https://hub.docker.com/r/wurstmeister/kafka/tags/>`__ entry for which version is considered ``latest``."
+msgstr "\\*See Docker hub `tags <https://hub.docker.com/r/wurstmeister/kafka/tags/>`__ entry for which version is considered ``latest``."
+
+#: ../../source/kafka-node/test.rst:42
+msgid "Stop Docker"
+msgstr "Stop Docker"
+

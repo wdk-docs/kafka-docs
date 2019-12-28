@@ -1,0 +1,494 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/index.rst:2 ../../source/index.rst:7
+msgid "Kafka"
+msgstr "Kafka"
+
+#: ../../source/index.rst:10
+msgid "状态"
+msgstr "状态"
+
+#: ../../source/index.rst:10
+msgid "详情"
+msgstr "详情"
+
+#: ../../source/index.rst:12
+msgid "开发者"
+msgstr "开发者"
+
+#: ../../source/index.rst:12
+msgid "Apache软件基金会"
+msgstr "Apache软件基金会"
+
+#: ../../source/index.rst:13
+msgid "初始版本"
+msgstr "初始版本"
+
+#: ../../source/index.rst:13
+msgid "2011年1月，​7年前[2]"
+msgstr "2011年1月，​7年前[2]"
+
+#: ../../source/index.rst:14
+msgid "稳定版本"
+msgstr "稳定版本"
+
+#: ../../source/index.rst:14
+msgid "1.0.0 （2017年11月1日，​7个月前 ）"
+msgstr "1.0.0 （2017年11月1日，​7个月前 ）"
+
+#: ../../source/index.rst:15
+msgid "开发状态"
+msgstr "开发状态"
+
+#: ../../source/index.rst:15
+msgid "活跃"
+msgstr "活跃"
+
+#: ../../source/index.rst:16
+msgid "编程语言"
+msgstr "编程语言"
+
+#: ../../source/index.rst:16
+msgid "Scala、Java"
+msgstr "Scala、Java"
+
+#: ../../source/index.rst:17
+msgid "操作系统"
+msgstr "操作系统"
+
+#: ../../source/index.rst:17
+msgid "跨平台"
+msgstr "跨平台"
+
+#: ../../source/index.rst:18
+msgid "类型"
+msgstr "类型"
+
+#: ../../source/index.rst:18
+msgid "流式处理, 消息中间件"
+msgstr "流式处理, 消息中间件"
+
+#: ../../source/index.rst:19
+msgid "许可协议"
+msgstr "许可协议"
+
+#: ../../source/index.rst:19
+msgid "Apache许可证 2.0"
+msgstr "Apache许可证 2.0"
+
+#: ../../source/index.rst:20
+msgid "网站"
+msgstr "网站"
+
+#: ../../source/index.rst:20
+msgid "kafka.apache.org"
+msgstr "kafka.apache.org"
+
+#: ../../source/index.rst:21
+msgid "源代码库"
+msgstr "源代码库"
+
+#: ../../source/index.rst:21
+msgid "github.com/apache/kafka"
+msgstr "github.com/apache/kafka"
+
+#: ../../source/index.rst:24
+msgid ""
+"Kafka是由Apache软件基金会开发的一个开源流处理平台，由Scala和Java编写。该项目的目标是为处理实时数据提供一个统一、高吞吐、低延迟的平台。其持久化层本质上是一个“按照分布式事务日志架构的大规模发布/订阅消息队列”，[3]这使它作为企业级基础设施来处理流式数据非常有价值。此外，Kafka可以通过Kafka"
+" Connect连接到外部系统（用于数据输入/输出），并提供了Kafka Streams——一个Java流式处理库 (计算机)。"
+msgstr "Kafka是由Apache软件基金会开发的一个开源流处理平台，由Scala和Java编写。该项目的目标是为处理实时数据提供一个统一、高吞吐、低延迟的平台。其持久化层本质上是一个“按照分布式事务日志架构的大规模发布/订阅消息队列”，[3]这使它作为企业级基础设施来处理流式数据非常有价值。此外，Kafka可以通过Kafka Connect连接到外部系统（用于数据输入/输出），并提供了Kafka Streams——一个Java流式处理库 (计算机)。"
+
+#: ../../source/index.rst:28
+msgid "该设计受事务日志的影响较大。[4]"
+msgstr "该设计受事务日志的影响较大。[4]"
+
+#: ../../source/index.rst:31
+msgid "Kafka的历史"
+msgstr "Kafka的历史"
+
+#: ../../source/index.rst:33
+msgid ""
+"Kafka最初是由领英开发，并随后于2011年初开源，并于2012年10月23日由Apache "
+"Incubator孵化出站。2014年11月，几个曾在领英为Kafka工作的工程师，创建了名为Confluent的新公司，[5]，并着眼于Kafka。根据2014年Quora的帖子，Jay"
+" "
+"Kreps似乎已经将它以作家弗朗茨·卡夫卡命名。Kreps选择将该系统以一个作家命名是因为，它是“一个用于优化写作的系统”，而且他很喜欢卡夫卡的作品。[6]"
+msgstr "Kafka最初是由领英开发，并随后于2011年初开源，并于2012年10月23日由Apache Incubator孵化出站。2014年11月，几个曾在领英为Kafka工作的工程师，创建了名为Confluent的新公司，[5]，并着眼于Kafka。根据2014年Quora的帖子，Jay Kreps似乎已经将它以作家弗朗茨·卡夫卡命名。Kreps选择将该系统以一个作家命名是因为，它是“一个用于优化写作的系统”，而且他很喜欢卡夫卡的作品。[6]"
+
+#: ../../source/index.rst:38
+msgid "Kafka的架构"
+msgstr "Kafka的架构"
+
+#: ../../source/index.rst:43
+msgid "Kafka概览"
+msgstr "Kafka概览"
+
+#: ../../source/index.rst:45
+msgid "Kafka存储的消息来自任意多被称为“生产者”（Producer）的进程。数据从而可以被分配到不同的“分区”（Partition）、不同的“Topic”下。在一个分区内，这些消息被索引并连同时间戳存储在一起。其它被称为“消费者”（Consumer）的进程可以从分区查询消息。Kafka运行在一个由一台或多台服务器组成的集群上，并且分区可以跨集群结点分布。"
+msgstr "Kafka存储的消息来自任意多被称为“生产者”（Producer）的进程。数据从而可以被分配到不同的“分区”（Partition）、不同的“Topic”下。在一个分区内，这些消息被索引并连同时间戳存储在一起。其它被称为“消费者”（Consumer）的进程可以从分区查询消息。Kafka运行在一个由一台或多台服务器组成的集群上，并且分区可以跨集群结点分布。"
+
+#: ../../source/index.rst:47
+msgid ""
+"Kafka高效地处理实时流式数据，可以实现与Storm、HBase和Spark的集成。作为群集部署到多台服务器上，Kafka处理它所有的发布和订阅消息系统使用了四个API，即生产者API、消费者API、Stream"
+" API和Connector API。它能够传递大规模流式消息，自带容错功能，已经取代了一些传统消息系统，如JMS、AMQP等。"
+msgstr "Kafka高效地处理实时流式数据，可以实现与Storm、HBase和Spark的集成。作为群集部署到多台服务器上，Kafka处理它所有的发布和订阅消息系统使用了四个API，即生产者API、消费者API、Stream API和Connector API。它能够传递大规模流式消息，自带容错功能，已经取代了一些传统消息系统，如JMS、AMQP等。"
+
+#: ../../source/index.rst:51
+msgid "Kafka架构的主要术语包括Topic、Record和Broker。Topic由Record组成，Record持有不同的信息，而Broker则负责复制消息。Kafka有四个主要API："
+msgstr "Kafka架构的主要术语包括Topic、Record和Broker。Topic由Record组成，Record持有不同的信息，而Broker则负责复制消息。Kafka有四个主要API："
+
+#: ../../source/index.rst:53
+msgid "生产者API：支持应用程序发布Record流。"
+msgstr "生产者API：支持应用程序发布Record流。"
+
+#: ../../source/index.rst:54
+msgid "消费者API：支持应用程序订阅Topic和处理Record流。"
+msgstr "消费者API：支持应用程序订阅Topic和处理Record流。"
+
+#: ../../source/index.rst:55
+msgid "Stream API：将输入流转换为输出流，并产生结果。"
+msgstr "Stream API：将输入流转换为输出流，并产生结果。"
+
+#: ../../source/index.rst:56
+msgid "Connector API：执行可重用的生产者和消费者API，可将Topic链接到现有应用程序。"
+msgstr "Connector API：执行可重用的生产者和消费者API，可将Topic链接到现有应用程序。"
+
+#: ../../source/index.rst:60
+msgid "相关术语"
+msgstr "相关术语"
+
+#: ../../source/index.rst:62
+msgid "Topic 用来对消息进行分类，每个进入到Kafka的信息都会被放到一个Topic下"
+msgstr "Topic 用来对消息进行分类，每个进入到Kafka的信息都会被放到一个Topic下"
+
+#: ../../source/index.rst:63
+msgid "Broker 用来实现数据存储的主机服务器"
+msgstr "Broker 用来实现数据存储的主机服务器"
+
+#: ../../source/index.rst:64
+msgid "Partition 每个Topic中的消息会被分为若干个Partition，以提高消息的处理效率"
+msgstr "Partition 每个Topic中的消息会被分为若干个Partition，以提高消息的处理效率"
+
+#: ../../source/index.rst:66
+msgid "Producer 消息的生产者"
+msgstr "Producer 消息的生产者"
+
+#: ../../source/index.rst:67
+msgid "Consumer 消息的消费者"
+msgstr "Consumer 消息的消费者"
+
+#: ../../source/index.rst:68
+msgid "Consumer Group 消息的消费群组"
+msgstr "Consumer Group 消息的消费群组"
+
+#: ../../source/index.rst:71
+msgid "设计目标"
+msgstr "设计目标"
+
+#: ../../source/index.rst:74
+msgid "Kafka的性能"
+msgstr "Kafka的性能"
+
+#: ../../source/index.rst:76
+msgid "由于其广泛集成到企业级基础设施中，监测Kafka在规模运行中的性能成为一个日益重要的问题。监测端到端性能，要求跟踪所有指标，包括Broker、消费者和生产者。除此之外还要监测ZooKeeper，Kafka用它来协调各个消费者。[7][8]目前有一些监测平台可以跟踪卡夫卡的性能，有开源的，如领英的Burrow；也有付费的，如Datadog。除了这些平台之外，收集Kafka的数据也可以使用工具来进行，这些工具一般需要Java，包括JConsole。[9]"
+msgstr "由于其广泛集成到企业级基础设施中，监测Kafka在规模运行中的性能成为一个日益重要的问题。监测端到端性能，要求跟踪所有指标，包括Broker、消费者和生产者。除此之外还要监测ZooKeeper，Kafka用它来协调各个消费者。[7][8]目前有一些监测平台可以跟踪卡夫卡的性能，有开源的，如领英的Burrow；也有付费的，如Datadog。除了这些平台之外，收集Kafka的数据也可以使用工具来进行，这些工具一般需要Java，包括JConsole。[9]"
+
+#: ../../source/index.rst:79
+msgid "Consumer Group"
+msgstr "Consumer Group"
+
+#: ../../source/index.rst:82
+msgid "Kafka文件格式"
+msgstr "Kafka文件格式"
+
+#: ../../source/index.rst:84
+msgid ""
+"00000000000000000000.index 00000000000000000000.log "
+"00000000000000000000.timeindex 00000000000000782248.snapshot leader-"
+"epoch-checkpoint"
+msgstr "00000000000000000000.index 00000000000000000000.log 00000000000000000000.timeindex 00000000000000782248.snapshot leader-epoch-checkpoint"
+
+#: ../../source/index.rst:89
+msgid "使用Kafka的企业"
+msgstr "使用Kafka的企业"
+
+#: ../../source/index.rst:91
+msgid "下面的列表是曾经或正在使用Kafka的知名企业："
+msgstr "下面的列表是曾经或正在使用Kafka的知名企业："
+
+#: ../../source/index.rst:93
+msgid "CloudFlare[10]"
+msgstr "CloudFlare[10]"
+
+#: ../../source/index.rst:94
+msgid "EBay[11]"
+msgstr "EBay[11]"
+
+#: ../../source/index.rst:95
+msgid "Kakao[12]"
+msgstr "Kakao[12]"
+
+#: ../../source/index.rst:96
+msgid "Netflix[13]"
+msgstr "Netflix[13]"
+
+#: ../../source/index.rst:97
+msgid "PayPal[14]"
+msgstr "PayPal[14]"
+
+#: ../../source/index.rst:98
+msgid "Spotify[15]"
+msgstr "Spotify[15]"
+
+#: ../../source/index.rst:99
+msgid "Yelp[16]"
+msgstr "Yelp[16]"
+
+#: ../../source/index.rst:100
+msgid "纽约时报[17]"
+msgstr "纽约时报[17]"
+
+#: ../../source/index.rst:101
+msgid "思科系统[18]"
+msgstr "思科系统[18]"
+
+#: ../../source/index.rst:102
+msgid "沃尔玛[19]"
+msgstr "沃尔玛[19]"
+
+#: ../../source/index.rst:103
+msgid "优步[20]"
+msgstr "优步[20]"
+
+#: ../../source/index.rst:106
+msgid "参见"
+msgstr "参见"
+
+#: ../../source/index.rst:108
+msgid "Apache ActiveMQ"
+msgstr "Apache ActiveMQ"
+
+#: ../../source/index.rst:109
+msgid "Apache Flink"
+msgstr "Apache Flink"
+
+#: ../../source/index.rst:110
+msgid "Qpid"
+msgstr "Qpid"
+
+#: ../../source/index.rst:111
+msgid "Samza"
+msgstr "Samza"
+
+#: ../../source/index.rst:112
+msgid "Apache Spark"
+msgstr "Apache Spark"
+
+#: ../../source/index.rst:113
+msgid "数据发布服务"
+msgstr "数据发布服务"
+
+#: ../../source/index.rst:114
+msgid "企业集成模式"
+msgstr "企业集成模式"
+
+#: ../../source/index.rst:115
+msgid "企业消息系统"
+msgstr "企业消息系统"
+
+#: ../../source/index.rst:116
+msgid "事件流式处理"
+msgstr "事件流式处理"
+
+#: ../../source/index.rst:117
+msgid "事件驱动SOA"
+msgstr "事件驱动SOA"
+
+#: ../../source/index.rst:118
+msgid "面向消息的中间件"
+msgstr "面向消息的中间件"
+
+#: ../../source/index.rst:119
+msgid "面向服务的架构"
+msgstr "面向服务的架构"
+
+#: ../../source/index.rst:120
+msgid "StormMQ"
+msgstr "StormMQ"
+
+#: ../../source/index.rst:123
+msgid "参考资料"
+msgstr "参考资料"
+
+#: ../../source/index.rst:125
+msgid "GitHub仓库镜像"
+msgstr "GitHub仓库镜像"
+
+#: ../../source/index.rst:126
+msgid ""
+"Open-sourcing Kafka, LinkedIn’s distributed message queue "
+"[开源的Kafka，LinkedIn的分布式消息队列]. [2016-10-27]."
+msgstr "Open-sourcing Kafka, LinkedIn’s distributed message queue [开源的Kafka，LinkedIn的分布式消息队列]. [2016-10-27]."
+
+#: ../../source/index.rst:128
+msgid ""
+"Monitoring Kafka performance metrics [监控Kafka性能数据]. Datadog官方博客. "
+"[2016-05-23] （英语）."
+msgstr "Monitoring Kafka performance metrics [监控Kafka性能数据]. Datadog官方博客. [2016-05-23] （英语）."
+
+#: ../../source/index.rst:130
+msgid ""
+"The Log: What every software engineer should know about real-time data’s "
+"unifying abstraction [The Log: What every software engineer should know "
+"about real-time data’s unifying abstraction]. 领英官方博客. [2014-05-05] （英语）."
+msgstr "The Log: What every software engineer should know about real-time data’s unifying abstraction [The Log: What every software engineer should know about real-time data’s unifying abstraction]. 领英官方博客. [2014-05-05] （英语）."
+
+#: ../../source/index.rst:134
+msgid ""
+"Primack, Dan. LinkedIn engineers spin out to launch ‘Kafka’ startup "
+"Confluent [领英工程师推迟发布Kafka启动Confluent]. [2015-02-10] （英语）."
+msgstr "Primack, Dan. LinkedIn engineers spin out to launch ‘Kafka’ startup Confluent [领英工程师推迟发布Kafka启动Confluent]. [2015-02-10] （英语）."
+
+#: ../../source/index.rst:137
+msgid ""
+"What is the relation between Kafka, the writer, and Apache Kafka, the "
+"distributed messaging system? [作家卡夫卡和Apache Kafka那个分布式消息系统之间有什么关系？]. "
+"[2017-06-12] （英语）."
+msgstr "What is the relation between Kafka, the writer, and Apache Kafka, the distributed messaging system? [作家卡夫卡和Apache Kafka那个分布式消息系统之间有什么关系？]. [2017-06-12] （英语）."
+
+#: ../../source/index.rst:140
+msgid ""
+"Monitoring Kafka performance metrics [监测Kafka性能指标]. 2016-04-06 "
+"[2016-10-05] （英语）."
+msgstr "Monitoring Kafka performance metrics [监测Kafka性能指标]. 2016-04-06 [2016-10-05] （英语）."
+
+#: ../../source/index.rst:142
+msgid ""
+"Mouzakitis, Evan. Monitoring Kafka performance metrics [监测Kafka性能指标]. "
+"2016-04-06 [2016-10-05] （英语）."
+msgstr "Mouzakitis, Evan. Monitoring Kafka performance metrics [监测Kafka性能指标]. 2016-04-06 [2016-10-05] （英语）."
+
+#: ../../source/index.rst:144
+msgid ""
+"Collecting Kafka performance metrics - Datadog [收集Kafka性能指标－Datadog]. "
+"2016-04-06 [2016-10-05] （英语）."
+msgstr "Collecting Kafka performance metrics - Datadog [收集Kafka性能指标－Datadog]. 2016-04-06 [2016-10-05] （英语）."
+
+#: ../../source/index.rst:146
+msgid "More data, more data [更多数据，更多数据] （英语）."
+msgstr "More data, more data [更多数据，更多数据] （英语）."
+
+#: ../../source/index.rst:147
+msgid ""
+"Kafka Usage in Ebay Communications Delivery Pipeline "
+"[Kafka在Ebay通信传递管道中的用途] （英语）."
+msgstr "Kafka Usage in Ebay Communications Delivery Pipeline [Kafka在Ebay通信传递管道中的用途] （英语）."
+
+#: ../../source/index.rst:149
+msgid ""
+"Doyung Yoon. S2Graph : A Large-Scale Graph Database with HBase "
+"[S2Graph：基于HBase的大规模图形数据库] （英语）."
+msgstr "Doyung Yoon. S2Graph : A Large-Scale Graph Database with HBase [S2Graph：基于HBase的大规模图形数据库] （英语）."
+
+#: ../../source/index.rst:151
+msgid ""
+"Cheolsoo Park and Ashwin Shankar. Netflix: Integrating Spark at Petabyte "
+"Scale [Netflix：在Pb级规模集成Spark] （英语）."
+msgstr "Cheolsoo Park and Ashwin Shankar. Netflix: Integrating Spark at Petabyte Scale [Netflix：在Pb级规模集成Spark] （英语）."
+
+#: ../../source/index.rst:153
+msgid ""
+"Shibi Sudhakaran of PayPal. PayPal: Creating a Central Data Backbone: "
+"Couchbase Server to Kafka to Hadoop and Back (talk at Couchbase Connect "
+"2015) [PayPal：创建中心数据骨干：Couchbase Server到Kafka到Hadoop和Back（在Couchbase "
+"Connect 2015上的讲话）]. Couchbase. [2016-02-03] （英语）."
+msgstr "Shibi Sudhakaran of PayPal. PayPal: Creating a Central Data Backbone: Couchbase Server to Kafka to Hadoop and Back (talk at Couchbase Connect 2015) [PayPal：创建中心数据骨干：Couchbase Server到Kafka到Hadoop和Back（在Couchbase Connect 2015上的讲话）]. Couchbase. [2016-02-03] （英语）."
+
+#: ../../source/index.rst:158
+msgid ""
+"Josh Baer. How Apache Drives Spotify’s Music Recommendations "
+"[Apache如何驱动Spotify的音乐推荐] （英语）."
+msgstr "Josh Baer. How Apache Drives Spotify’s Music Recommendations [Apache如何驱动Spotify的音乐推荐] （英语）."
+
+#: ../../source/index.rst:160
+msgid ""
+"Streaming Messages from Kafka into Redshift in near Real-Time "
+"[从Kafka到Redshift的流式消息接近于实时]. Yelp. [2017-07-19] （英语）."
+msgstr "Streaming Messages from Kafka into Redshift in near Real-Time [从Kafka到Redshift的流式消息接近于实时]. Yelp. [2017-07-19] （英语）."
+
+#: ../../source/index.rst:163
+msgid ""
+"Boerge Svingen. Publishing with Apache Kafka at The New York Times "
+"[在纽约时报使用Kafka进行出版]. [2017-09-19] （英语）."
+msgstr "Boerge Svingen. Publishing with Apache Kafka at The New York Times [在纽约时报使用Kafka进行出版]. [2017-09-19] （英语）."
+
+#: ../../source/index.rst:165
+msgid ""
+"OpenSOC: An Open Commitment to Security [OpenSOC：一份公开的安全承诺]. 思科博客. "
+"[2016-02-03] （英语）."
+msgstr "OpenSOC: An Open Commitment to Security [OpenSOC：一份公开的安全承诺]. 思科博客. [2016-02-03] （英语）."
+
+#: ../../source/index.rst:167
+msgid "Apache Kafka for Item Setup [Kafka用于项目设置]. medium.com. [2017-06-12] （英语）."
+msgstr "Apache Kafka for Item Setup [Kafka用于项目设置]. medium.com. [2017-06-12] （英语）."
+
+#: ../../source/index.rst:169
+msgid "Stream Processing in Uber [优步的流式处理]. InfoQ. [2015-12-06] （英语）."
+msgstr "Stream Processing in Uber [优步的流式处理]. InfoQ. [2015-12-06] （英语）."
+
+#: ../../source/index.rst:173
+msgid "外部链接"
+msgstr "外部链接"
+
+#: ../../source/index.rst:175
+msgid "Apache Kafka网站（英文）"
+msgstr "Apache Kafka网站（英文）"
+
+#: ../../source/index.rst:176
+msgid "项目设计讨论（英文）"
+msgstr "项目设计讨论（英文）"
+
+#: ../../source/index.rst:177
+msgid "Github镜像"
+msgstr "Github镜像"
+
+#: ../../source/index.rst:178
+msgid "Morten Kjetland对Apache Kafka的介绍（英文）"
+msgstr "Morten Kjetland对Apache Kafka的介绍（英文）"
+
+#: ../../source/index.rst:179
+msgid "Quora上与RabbitMQ的对比（英文）"
+msgstr "Quora上与RabbitMQ的对比（英文）"
+
+#: ../../source/index.rst:180
+msgid "Kafka开发者邮件列表中与RabbitMQ的对比（英文）"
+msgstr "Kafka开发者邮件列表中与RabbitMQ的对比（英文）"
+
+#: ../../source/index.rst:181
+msgid "Stackoverflow上与RabbitMQ和ZeroMQ的对比（英文）"
+msgstr "Stackoverflow上与RabbitMQ和ZeroMQ的对比（英文）"
+
+#: ../../source/index.rst:182
+msgid "Apache Kafka中的集群内部响应（英文）"
+msgstr "Apache Kafka中的集群内部响应（英文）"
+
+#: ../../source/index.rst:183
+msgid "Kafka用户邮件列表讨论（英文）"
+msgstr "Kafka用户邮件列表讨论（英文）"
+

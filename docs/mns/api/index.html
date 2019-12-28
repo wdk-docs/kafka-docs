@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mns api &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Account" href="Account.html" />
+    <link rel="prev" title="ali-mns (ali-mqs)" href="../ali-mns.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../kafka/index.html">kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">mns api</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aliyun-mns.html">消息服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ali-mns.html">ali-mns (ali-mqs)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mns api</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Account.html">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MNS.html">MNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQ.html">MQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQBatch.html">MQBatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Msg.html">Msg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Region.html">Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Subscription.html">Subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Topic.html">MNSTopic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">mns api</a> &raquo;</li>
+        
+      <li>mns api</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/mns/api/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mns-api">
+<h1>mns api<a class="headerlink" href="#mns-api" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Account.html">Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Account.html#account-accountid-string-keyid-string-keysecret-string">Account(accountId:string, keyId:string, keySecret:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account.html#account-getaccountid">account.getAccountId()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account.html#account-getownerid">account.getOwnerId()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account.html#account-getkeyid">account.getKeyId()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account.html#account-getga-account-setga-bga-boolean">account.getGA() &amp; account.setGA(bGA:boolean)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account.html#account-gethttps-account-sethttps-bhttps-boolean">account.getHttps() &amp; account.setHttps(bHttps:boolean)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MNS.html">MNS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MNS.html#mns-account-account-region-string-region">MNS(account:Account, region?:string|Region)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MNS.html#mqs-account-account-region-string-region">MQS(account:Account, region?:string|Region)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MNS.html#mns-listp-prefix-string-pagesize-number-pagemarker-string">mns.listP(prefix?:string, pageSize?:number, pageMarker?:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MNS.html#mns-createp-name-string-options-any">mns.createP(name:string, options?:any)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MNS.html#mns-deletep-name-string">mns.deleteP(name:string)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MQ.html">MQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-name-string-account-account-region-string-region">MQ(name:string, account:Account, region?:string|Region)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-getname">mq.getName()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-getaccount">mq.getAccount()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-getregion">mq.getRegion()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-sendp-msg-string-priority-number-delayseconds-number">mq.sendP(msg:string, priority?:number, delaySeconds?:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-getrecvtolerance-mq-setrecvtolerance-value-number">mq.getRecvTolerance() &amp; mq.setRecvTolerance(value:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-recvp-waitseconds-number">mq.recvP(waitSeconds?:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-peekp">mq.peekP()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-deletep-receipthandle-string">mq.deleteP(receiptHandle:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-reservep-receipthandle-string-reserveseconds-number">mq.reserveP(receiptHandle:string, reserveSeconds:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-notifyrecv-cb-ex-error-msg-any-boolean-waitseconds-number">mq.notifyRecv(cb:(ex:Error, msg:any)=&gt;Boolean, waitSeconds?:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-notifystopp">mq.notifyStopP()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-getattrsp">mq.getAttrsP()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQ.html#mq-setattrsp-options-any">mq.setAttrsP(options:any)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MQBatch.html">MQBatch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MQBatch.html#mqbatch-sendp-msg-string-array-priority-number-delayseconds-number">mqBatch.sendP(msg:string | Array, priority?:number, delaySeconds?:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQBatch.html#mqbatch-recvp-waitseconds-number-numofmessages-number">mqBatch.recvP(waitSeconds?:number, numOfMessages?:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQBatch.html#mqbatch-peekp-numofmessages-number">mqBatch.peekP(numOfMessages?:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQBatch.html#mqbatch-deletep-receipthandle-string-array">mqBatch.deleteP(receiptHandle:string | Array)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQBatch.html#mqbatch-notifyrecv-cb-ex-error-msg-any-boolean-waitseconds-number-numofmessages-number">mqBatch.notifyRecv(cb:(ex:Error, msg:any)=&gt;Boolean, waitSeconds?:number, numOfMessages?:number)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Msg.html">Msg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Msg.html#msg-msg-string-priority-number-delayseconds-number">Msg(msg: string, priority?:number, delaySeconds?:number)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Msg.html#msg-getmsg">msg.getMsg()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Msg.html#msg-getpriority">msg.getPriority()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Msg.html#msg-getdelayseconds">msg.getDelaySeconds()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Region.html">Region</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Region.html#region-city-string-city-network-string-networktype-zone-string-zone">Region(city?:string|City, network?:string|NetworkType, zone?:string|Zone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Region.html#region-tostring">region.toString()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Subscription.html">Subscription</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Subscription.html#subscription-name-string-topic-topic">Subscription(name:string, topic:Topic)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscription.html#subscription-getname">subscription.getName()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscription.html#subscription-gettopic">subscription.getTopic()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscription.html#subscription-getattrsp-subscription-setattrsp-options-any">subscription.getAttrsP() &amp; subscription.setAttrsP(options:any)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscription.html#subscription-notifystrategy">Subscription.NotifyStrategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscription.html#subscription-notifycontentformat">Subscription.NotifyContentFormat</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Topic.html">MNSTopic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#mnstopic-account-account-region-string-region">MNSTopic(account:Account, region?:string|Region)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#mns-listtopicp-prefix-string-pagesize-number-pagemarker-string">mns.listTopicP(prefix?:string, pageSize?:number, pageMarker?:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#mns-createtopicp-name-string-options-any">mns.createTopicP(name:string, options?:any)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#mns-deletetopicp-name-string">mns.deleteTopicP(name:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-name-string-account-account-region-string-region">Topic(name:string, account:Account, region?:string|Region)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-getname">topic.getName()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-getaccount">topic.getAccount()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-getregion">topic.getRegion()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-getattrsp-topic-setattrsp-options-any">topic.getAttrsP() &amp; topic.setAttrsP(options:any)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-listp-prefix-string-pagesize-number-pagemarker-string">topic.listP(prefix?:string, pageSize?:number, pageMarker?:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-subscribep-name-string-endpoint-string-notifystrategy-string-notifycontentformat-string-filtertag-string">topic.subscribeP(name:string, endPoint:string, notifyStrategy?:string, notifyContentFormat?:string, filterTag?:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-unsubscribep-name-string">topic.unsubscribeP(name:string)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Topic.html#topic-publishp-msg-string-b64-boolean-tag-string-attrs-any-options-any">topic.publishP(msg:string, b64:boolean, tag?:string, attrs?:any, options?:any)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Account.html" class="btn btn-neutral float-right" title="Account" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ali-mns.html" class="btn btn-neutral float-left" title="ali-mns (ali-mqs)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

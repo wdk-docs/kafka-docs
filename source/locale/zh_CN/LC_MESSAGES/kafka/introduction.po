@@ -1,0 +1,560 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/kafka/introduction.rst:2
+msgid "Introduction"
+msgstr "介绍"
+
+#: ../../source/kafka/introduction.rst:4
+msgid ""
+"Apache Kafka® is a distributed streaming platform. What exactly does that"
+" mean? A streaming platform has three key capabilities:"
+msgstr "ApacheKafka®是一个分布式流媒体平台。这到底是什么意思呢？流媒体平台有三个关键功能:"
+
+#: ../../source/kafka/introduction.rst:7
+msgid ""
+"Publish and subscribe to streams of records, similar to a message queue "
+"or enterprise messaging system."
+msgstr "发布和订阅记录流，类似于消息队列或企业消息传递系统。"
+
+#: ../../source/kafka/introduction.rst:8
+msgid "Store streams of records in a fault-tolerant durable way."
+msgstr "以容错的持久方式存储记录流。"
+
+#: ../../source/kafka/introduction.rst:9
+msgid "Process streams of records as they occur."
+msgstr "记录发生时处理流。"
+
+#: ../../source/kafka/introduction.rst:11
+msgid "Kafka is generally used for two broad classes of applications:"
+msgstr "Kafka通常用于两大类应用程序:"
+
+#: ../../source/kafka/introduction.rst:13
+msgid ""
+"Building real-time streaming data pipelines that reliably get data "
+"between systems or applications"
+msgstr "构建可在系统或应用程序之间可靠获取数据的实时流数据管道"
+
+#: ../../source/kafka/introduction.rst:14
+msgid ""
+"Building real-time streaming applications that transform or react to the "
+"streams of data"
+msgstr "构建转换或响应数据流的实时流应用程序"
+
+#: ../../source/kafka/introduction.rst:16
+msgid ""
+"To understand how Kafka does these things, let's dive in and explore "
+"Kafka's capabilities from the bottom up."
+msgstr "要了解Kafka如何做这些事情，让我们深入探讨Kafka的能力。"
+
+#: ../../source/kafka/introduction.rst:18
+msgid "First a few concepts:"
+msgstr "首先是几个概念:"
+
+#: ../../source/kafka/introduction.rst:20
+msgid ""
+"Kafka is run as a cluster on one or more servers that can span multiple "
+"datacenters."
+msgstr "Kafka作为一个集群运行在一个或多个可跨多个数据中心的服务器上。"
+
+#: ../../source/kafka/introduction.rst:21
+msgid "The Kafka cluster stores streams of records in categories called topics."
+msgstr "Kafka集群以称为主题的类别存储记录流。"
+
+#: ../../source/kafka/introduction.rst:22
+msgid "Each record consists of a key, a value, and a timestamp."
+msgstr "每条记录由一个键，一个值和一个时间戳组成。"
+
+#: ../../source/kafka/introduction.rst:24
+msgid "Kafka has four core APIs:"
+msgstr "Kafka有四个核心API:"
+
+#: ../../source/kafka/introduction.rst:26
+msgid ""
+"The Producer API allows an application to publish a stream of records to "
+"one or more Kafka topics."
+msgstr "Producer API允许应用程序将记录流发布到一个或多个Kafka主题。"
+
+#: ../../source/kafka/introduction.rst:27
+msgid ""
+"The Consumer API allows an application to subscribe to one or more topics"
+" and process the stream of records produced to them."
+msgstr "Consumer API允许应用程序订阅一个或多个主题并处理生成的记录流。"
+
+#: ../../source/kafka/introduction.rst:28
+msgid ""
+"The Streams API allows an application to act as a stream processor, "
+"consuming an input stream from one or more topics and producing an output"
+" stream to one or more output topics, effectively transforming the input "
+"streams to output streams."
+msgstr "Streams API允许应用程序充当流处理器，消耗来自一个或多个主题的输入流并生成到一个或多个输出主题的输出流，从而有效地将输入流转换为输出流。"
+
+#: ../../source/kafka/introduction.rst:29
+msgid ""
+"The Connector API allows building and running reusable producers or "
+"consumers that connect Kafka topics to existing applications or data "
+"systems. For example, a connector to a relational database might capture "
+"every change to a table."
+msgstr "Connector API允许构建和运行将Kafka主题连接到现有应用程序或数据系统的可重用生产者或使用者。例如，关系数据库的连接器可能捕获对表的每个更改。"
+
+#: ../../source/kafka/introduction.rst:33
+msgid ""
+"In Kafka the communication between the clients and the servers is done "
+"with a simple, high-performance, language agnostic TCP protocol. This "
+"protocol is versioned and maintains backwards compatibility with older "
+"version. We provide a Java client for Kafka, but clients are available in"
+" many languages."
+msgstr "在Kafka中，客户端和服务器之间的通信是通过简单，高性能，语言无关的TCP协议完成的。此协议已版本化并保持与旧版本的向后兼容性。我们为Kafka提供Java客户端，但客户端有多种语言版本。"
+
+#: ../../source/kafka/introduction.rst:36
+msgid "Topics and Logs"
+msgstr "主题和日志"
+
+#: ../../source/kafka/introduction.rst:38
+msgid ""
+"Let's first dive into the core abstraction Kafka provides for a stream of"
+" records—the topic."
+msgstr "让我们首先深入探讨Kafka为记录流提供的核心抽象 - 主题。"
+
+#: ../../source/kafka/introduction.rst:40
+msgid ""
+"A topic is a category or feed name to which records are published. Topics"
+" in Kafka are always multi-subscriber; that is, a topic can have zero, "
+"one, or many consumers that subscribe to the data written to it."
+msgstr "主题是发布记录的类别或订阅源名称。 Kafka的主题总是多用户;也就是说，一个主题可以有零个，一个或多个消费者订阅写入它的数据。"
+
+#: ../../source/kafka/introduction.rst:42
+msgid ""
+"For each topic, the Kafka cluster maintains a partitioned log that looks "
+"like this:"
+msgstr "对于每个主题，Kafka群集都维护一个看起来像这样的分区日志:"
+
+#: ../../source/kafka/introduction.rst:46
+msgid ""
+"Each partition is an ordered, immutable sequence of records that is "
+"continually appended to—a structured commit log. The records in the "
+"partitions are each assigned a sequential id number called the offset "
+"that uniquely identifies each record within the partition."
+msgstr "每个分区都是一个有序的，不可变的记录序列，不断附加到结构化的提交日志中。分区中的记录每个都被分配一个称为偏移的顺序ID号，它唯一地标识分区中的每个记录。"
+
+#: ../../source/kafka/introduction.rst:48
+msgid ""
+"The Kafka cluster durably persists all published records—whether or not "
+"they have been consumed—using a configurable retention period. For "
+"example, if the retention policy is set to two days, then for the two "
+"days after a record is published, it is available for consumption, after "
+"which it will be discarded to free up space. Kafka's performance is "
+"effectively constant with respect to data size so storing data for a long"
+" time is not a problem."
+msgstr ""
+
+#: ../../source/kafka/introduction.rst:52
+msgid ""
+"In fact, the only metadata retained on a per-consumer basis is the offset"
+" or position of that consumer in the log. This offset is controlled by "
+"the consumer: normally a consumer will advance its offset linearly as it "
+"reads records, but, in fact, since the position is controlled by the "
+"consumer it can consume records in any order it likes. For example a "
+"consumer can reset to an older offset to reprocess data from the past or "
+"skip ahead to the most recent record and start consuming from \"now\"."
+msgstr ""
+
+#: ../../source/kafka/introduction.rst:54
+msgid ""
+"This combination of features means that Kafka consumers are very "
+"cheap—they can come and go without much impact on the cluster or on other"
+" consumers. For example, you can use our command line tools to \"tail\" "
+"the contents of any topic without changing what is consumed by any "
+"existing consumers."
+msgstr "这些功能组合意味着Kafka消费者非常便宜 - 他们可以来来往往对集群或其他消费者没有太大影响。例如，您可以使用我们的命令行工具来“拖尾”任何主题的内容，而无需更改任何现有使用者所使用的内容。"
+
+#: ../../source/kafka/introduction.rst:56
+msgid ""
+"The partitions in the log serve several purposes. First, they allow the "
+"log to scale beyond a size that will fit on a single server. Each "
+"individual partition must fit on the servers that host it, but a topic "
+"may have many partitions so it can handle an arbitrary amount of data. "
+"Second they act as the unit of parallelism—more on that in a bit."
+msgstr "日志中的分区有多种用途。首先，它们允许日志扩展到超出适合单个服务器的大小。每个单独的分区必须适合托管它的服务器，但主题可能有许多分区，因此它可以处理任意数量的数据。其次，它们充当了并行性的单位 - 更多的是在一点上。"
+
+#: ../../source/kafka/introduction.rst:59
+msgid "Distribution"
+msgstr "分配"
+
+#: ../../source/kafka/introduction.rst:61
+msgid ""
+"The partitions of the log are distributed over the servers in the Kafka "
+"cluster with each server handling data and requests for a share of the "
+"partitions. Each partition is replicated across a configurable number of "
+"servers for fault tolerance."
+msgstr "日志的分区分布在Kafka集群中的服务器上，每个服务器处理数据并请求分区的共享。每个分区都在可配置数量的服务器上进行复制，以实现容错。"
+
+#: ../../source/kafka/introduction.rst:63
+msgid ""
+"Each partition has one server which acts as the \"leader\" and zero or "
+"more servers which act as \"followers\". The leader handles all read and "
+"write requests for the partition while the followers passively replicate "
+"the leader. If the leader fails, one of the followers will automatically "
+"become the new leader. Each server acts as a leader for some of its "
+"partitions and a follower for others so load is well balanced within the "
+"cluster."
+msgstr "每个分区都有一个服务器充当“领导者”，零个或多个服务器充当“追随者”。领导者处理分区的所有读取和写入请求，而关注者被动地复制领导者。如果领导者失败，其中一个粉丝将自动成为新的领导者。每个服务器都充当其某些分区的领导者和其他服务器的追随者，因此负载在群集中很平衡。"
+
+#: ../../source/kafka/introduction.rst:66
+msgid "Geo-Replication"
+msgstr "地域复制"
+
+#: ../../source/kafka/introduction.rst:68
+msgid ""
+"Kafka MirrorMaker provides geo-replication support for your clusters. "
+"With MirrorMaker, messages are replicated across multiple datacenters or "
+"cloud regions. You can use this in active/passive scenarios for backup "
+"and recovery; or in active/active scenarios to place data closer to your "
+"users, or support data locality requirements."
+msgstr "Kafka MirrorMaker为您的群集提供地理复制支持。使用MirrorMaker，可以跨多个数据中心或云区域复制邮件。您可以在主动/被动方案中使用它进行备份和恢复;或者在主动/主动方案中，使数据更接近用户，或支持数据位置要求。"
+
+#: ../../source/kafka/introduction.rst:71
+msgid "Producers"
+msgstr "生产者"
+
+#: ../../source/kafka/introduction.rst:73
+msgid ""
+"Producers publish data to the topics of their choice. The producer is "
+"responsible for choosing which record to assign to which partition within"
+" the topic. This can be done in a round-robin fashion simply to balance "
+"load or it can be done according to some semantic partition function (say"
+" based on some key in the record). More on the use of partitioning in a "
+"second!"
+msgstr "生产者将数据发布到他们选择的主题。生产者负责选择分配给主题中哪个分区的记录。这可以通过循环方式完成，只是为了平衡负载，或者可以根据一些语义分区功能（例如基于记录中的某些键）来完成。更多关于在一秒钟内使用分区的信息！"
+
+#: ../../source/kafka/introduction.rst:76
+msgid "Consumers"
+msgstr "消费者"
+
+#: ../../source/kafka/introduction.rst:78
+msgid ""
+"Consumers label themselves with a consumer group name, and each record "
+"published to a topic is delivered to one consumer instance within each "
+"subscribing consumer group. Consumer instances can be in separate "
+"processes or on separate machines."
+msgstr "消费者使用消费者组名称标记自己，并且发布到主题的每个记录被传递到每个订阅消费者组中的一个消费者实例。消费者实例可以在单独的进程中，也可以在不同的机器"
+
+#: ../../source/kafka/introduction.rst:80
+msgid ""
+"If all the consumer instances have the same consumer group, then the "
+"records will effectively be load balanced over the consumer instances."
+msgstr "如果所有使用者实例具有相同的使用者组，则记录将有效地在使用者实例上进行负载平衡。"
+
+#: ../../source/kafka/introduction.rst:82
+msgid ""
+"If all the consumer instances have different consumer groups, then each "
+"record will be broadcast to all the consumer processes."
+msgstr "如果所有消费者实例具有不同的消费者组，则每个记录将广播到所有消费者进程。"
+
+#: ../../source/kafka/introduction.rst:86
+msgid ""
+"A two server Kafka cluster hosting four partitions (P0-P3) with two "
+"consumer groups. Consumer group A has two consumer instances and group B "
+"has four."
+msgstr "两个服务器Kafka群集，托管四个分区（P0-P3），包含两个使用者组。消费者组A有两个消费者实例，B组有四个消费者实例。"
+
+#: ../../source/kafka/introduction.rst:88
+msgid ""
+"More commonly, however, we have found that topics have a small number of "
+"consumer groups, one for each \"logical subscriber\". Each group is "
+"composed of many consumer instances for scalability and fault tolerance. "
+"This is nothing more than publish-subscribe semantics where the "
+"subscriber is a cluster of consumers instead of a single process."
+msgstr "然而，更常见的是，我们发现主题具有少量的消费者群体，每个消费者群体对应一个“逻辑订户”。每个组由许多用于可伸缩性和容错的消费者实例组成。这只不过是发布 - 订阅语义，其中订阅者是消费者群集而不是单个进程。"
+
+#: ../../source/kafka/introduction.rst:90
+msgid ""
+"The way consumption is implemented in Kafka is by dividing up the "
+"partitions in the log over the consumer instances so that each instance "
+"is the exclusive consumer of a \"fair share\" of partitions at any point "
+"in time. This process of maintaining membership in the group is handled "
+"by the Kafka protocol dynamically. If new instances join the group they "
+"will take over some partitions from other members of the group; if an "
+"instance dies, its partitions will be distributed to the remaining "
+"instances."
+msgstr "在Kafka中实现消费的方式是通过在消费者实例上划分日志中的分区，以便每个实例在任何时间点都是分配的“公平共享”的独占消费者。维护组中成员资格的过程由Kafka协议动态处理。如果新实例加入该组，他们将从该组的其他成员接管一些分区;如果实例死亡，其分区将分发给其余实例。"
+
+#: ../../source/kafka/introduction.rst:92
+msgid ""
+"Kafka only provides a total order over records within a partition, not "
+"between different partitions in a topic. Per-partition ordering combined "
+"with the ability to partition data by key is sufficient for most "
+"applications. However, if you require a total order over records this can"
+" be achieved with a topic that has only one partition, though this will "
+"mean only one consumer process per consumer group."
+msgstr "Kafka仅提供分区内记录的总订单，而不是主题中不同分区之间的记录。对于大多数应用程序而言，按分区排序与按键分区数据的能力相结合就足够了。但是，如果您需要对记录进行总订单，则可以使用仅包含一个分区的主题来实现，但这将意味着每个使用者组只有一个使用者进程。"
+
+#: ../../source/kafka/introduction.rst:95
+msgid "Multi-tenancy"
+msgstr "多租户"
+
+#: ../../source/kafka/introduction.rst:97
+msgid ""
+"You can deploy Kafka as a multi-tenant solution. Multi-tenancy is enabled"
+" by configuring which topics can produce or consume data. There is also "
+"operations support for quotas. Administrators can define and enforce "
+"quotas on requests to control the broker resources that are used by "
+"clients. For more information, see the security documentation."
+msgstr "您可以将Kafka部署为多租户解决方案。通过配置哪些主题可以生成或使用数据来启用多租户。配额也有运营支持。管理员可以定义和强制执行配额，以控制客户端使用的代理资源。有关更多信息，请参阅安全文档。"
+
+#: ../../source/kafka/introduction.rst:100
+msgid "Guarantees"
+msgstr "担保"
+
+#: ../../source/kafka/introduction.rst:102
+msgid "At a high-level Kafka gives the following guarantees:"
+msgstr "在高级别卡夫卡提供以下保证:"
+
+#: ../../source/kafka/introduction.rst:104
+msgid ""
+"Messages sent by a producer to a particular topic partition will be "
+"appended in the order they are sent. That is, if a record M1 is sent by "
+"the same producer as a record M2, and M1 is sent first, then M1 will have"
+" a lower offset than M2 and appear earlier in the log. A consumer "
+"instance sees records in the order they are stored in the log. For a "
+"topic with replication factor N, we will tolerate up to N-1 server "
+"failures without losing any records committed to the log. More details on"
+" these guarantees are given in the design section of the documentation."
+msgstr "生产者发送到特定主题分区的消息将按其发送顺序附加。也就是说，如果记录M1由与记录M2相同的生产者发送，并且首先发送M1，则M1将具有比M2更低的偏移并且在日志中更早出现。消费者实例按照它们存储在日志中的顺序查看记录。对于具有复制因子N的主题，我们将容忍最多N-1个服务器故障，而不会丢失任何提交到日志的记录。有关这些保证的更多详细信息，请参见文档的设计部分。"
+
+#: ../../source/kafka/introduction.rst:110
+msgid "Kafka as a Messaging System"
+msgstr "卡夫卡作为消息系统"
+
+#: ../../source/kafka/introduction.rst:112
+msgid ""
+"How does Kafka's notion of streams compare to a traditional enterprise "
+"messaging system?"
+msgstr "Kafka的流概念与传统的企业邮件系统相比如何？"
+
+#: ../../source/kafka/introduction.rst:114
+msgid ""
+"Messaging traditionally has two models: queuing and publish-subscribe. In"
+" a queue, a pool of consumers may read from a server and each record goes"
+" to one of them; in publish-subscribe the record is broadcast to all "
+"consumers. Each of these two models has a strength and a weakness. The "
+"strength of queuing is that it allows you to divide up the processing of "
+"data over multiple consumer instances, which lets you scale your "
+"processing. Unfortunately, queues aren't multi-subscriber—once one "
+"process reads the data it's gone. Publish-subscribe allows you broadcast "
+"data to multiple processes, but has no way of scaling processing since "
+"every message goes to every subscriber."
+msgstr "消息传统上有两种模型：排队和发布 - 订阅。在队列中，消费者池可以从服务器读取并且每个记录转到其中一个;在发布 - 订阅中，记录被广播给所有消费者。这两种模型中的每一种都有优点和缺点。排队的优势在于它允许您在多个消费者实例上划分数据处理，从而可以扩展您的处理。不幸的是，一旦一个进程读取它已经消失的数据，队列就不是​​多用户。发布 - 订阅允许您将数据广播到多个进程，但由于每条消息都发送给每个订阅者，因此无法进行扩展处理。"
+
+#: ../../source/kafka/introduction.rst:116
+msgid ""
+"The consumer group concept in Kafka generalizes these two concepts. As "
+"with a queue the consumer group allows you to divide up processing over a"
+" collection of processes (the members of the consumer group). As with "
+"publish-subscribe, Kafka allows you to broadcast messages to multiple "
+"consumer groups."
+msgstr "卡夫卡的消费者群体概念概括了这两个概念。与队列一样，使用者组允许您将处理划分为一组进程（使用者组的成员）。与发布 - 订阅一样，Kafka允许您向多个消费者组广播消息。"
+
+#: ../../source/kafka/introduction.rst:118
+msgid ""
+"The advantage of Kafka's model is that every topic has both these "
+"properties—it can scale processing and is also multi-subscriber—there is "
+"no need to choose one or the other."
+msgstr "Kafka模型的优势在于每个主题都具有这些属性 - 它可以扩展处理并且也是多用户 - 不需要选择其中一个。"
+
+#: ../../source/kafka/introduction.rst:120
+msgid ""
+"Kafka has stronger ordering guarantees than a traditional messaging "
+"system, too."
+msgstr "与传统的消息系统相比，Kafka具有更强的订购保证。"
+
+#: ../../source/kafka/introduction.rst:122
+msgid ""
+"A traditional queue retains records in-order on the server, and if "
+"multiple consumers consume from the queue then the server hands out "
+"records in the order they are stored. However, although the server hands "
+"out records in order, the records are delivered asynchronously to "
+"consumers, so they may arrive out of order on different consumers. This "
+"effectively means the ordering of the records is lost in the presence of "
+"parallel consumption. Messaging systems often work around this by having "
+"a notion of \"exclusive consumer\" that allows only one process to "
+"consume from a queue, but of course this means that there is no "
+"parallelism in processing."
+msgstr "传统队列在服务器上按顺序保留记录，如果多个消费者从队列中消耗，则服务器按照存储顺序分发记录。但是，虽然服务器按顺序分发记录，但是记录是异步传递给消费者的，因此它们可能会在不同的消费者上无序传送。这实际上意味着在存在并行消耗的情况下丢失记录的顺序。消息传递系统通常通过具有“独占消费者”的概念来解决这个问题，该概念只允许一个进程从队列中消耗，但当然这意味着处理中没有并行性。"
+
+#: ../../source/kafka/introduction.rst:124
+msgid ""
+"Kafka does it better. By having a notion of parallelism—the "
+"partition—within the topics, Kafka is able to provide both ordering "
+"guarantees and load balancing over a pool of consumer processes. This is "
+"achieved by assigning the partitions in the topic to the consumers in the"
+" consumer group so that each partition is consumed by exactly one "
+"consumer in the group. By doing this we ensure that the consumer is the "
+"only reader of that partition and consumes the data in order. Since there"
+" are many partitions this still balances the load over many consumer "
+"instances. Note however that there cannot be more consumer instances in a"
+" consumer group than partitions."
+msgstr "卡夫卡做得更好。通过在主题中具有并行性概念 - 分区 - ，Kafka能够在消费者流程池中提供订购保证和负载平衡。这是通过将主题中的分区分配给使用者组中的使用者来实现的，以便每个分区仅由该组中的一个使用者使用。通过这样做，我们确保使用者是该分区的唯一读者并按顺序使用数据。由于有许多分区，这仍然可以平衡许多消费者实例的负载。但请注意，消费者组中的消费者实例不能超过分区。"
+
+#: ../../source/kafka/introduction.rst:127
+msgid "Kafka as a Storage System"
+msgstr "Kafka作为存储系统"
+
+#: ../../source/kafka/introduction.rst:129
+msgid ""
+"Any message queue that allows publishing messages decoupled from "
+"consuming them is effectively acting as a storage system for the in-"
+"flight messages. What is different about Kafka is that it is a very good "
+"storage system."
+msgstr "任何允许发布与消费它们分离的消息的消息队列实际上充当了正在进行的消息的存储系统。 Kafka的不同之处在于它是一个非常好的存储系统。"
+
+#: ../../source/kafka/introduction.rst:131
+msgid ""
+"Data written to Kafka is written to disk and replicated for fault-"
+"tolerance. Kafka allows producers to wait on acknowledgement so that a "
+"write isn't considered complete until it is fully replicated and "
+"guaranteed to persist even if the server written to fails."
+msgstr "写入Kafka的数据将写入磁盘并进行复制以实现容错。 Kafka允许生产者等待确认，以便在完全复制之前写入不被认为是完整的，并且即使写入的服务器失败也保证写入仍然存在。"
+
+#: ../../source/kafka/introduction.rst:133
+msgid ""
+"The disk structures Kafka uses scale well—Kafka will perform the same "
+"whether you have 50 KB or 50 TB of persistent data on the server."
+msgstr "磁盘结构Kafka很好地使用了规模 - 无论服务器上有50 KB还是50 TB的持久数据，Kafka都会执行相同的操作。"
+
+#: ../../source/kafka/introduction.rst:135
+msgid ""
+"As a result of taking storage seriously and allowing the clients to "
+"control their read position, you can think of Kafka as a kind of special "
+"purpose distributed filesystem dedicated to high-performance, low-latency"
+" commit log storage, replication, and propagation."
+msgstr "由于认真对待存储并允许客户端控制其读取位置，您可以将Kafka视为一种专用于高性能，低延迟提交日志存储，复制和传播的专用分布式文件系统。"
+
+#: ../../source/kafka/introduction.rst:137
+msgid ""
+"For details about the Kafka's commit log storage and replication design, "
+"please read this page."
+msgstr "有关Kafka的提交日志存储和复制设计的详细信息，请阅读此页面。"
+
+#: ../../source/kafka/introduction.rst:140
+msgid "Kafka for Stream Processing"
+msgstr "Kafka用于流处理"
+
+#: ../../source/kafka/introduction.rst:142
+msgid ""
+"It isn't enough to just read, write, and store streams of data, the "
+"purpose is to enable real-time processing of streams."
+msgstr "仅仅读取，写入和存储数据流是不够的，目的是实现流的实时处理。"
+
+#: ../../source/kafka/introduction.rst:144
+msgid ""
+"In Kafka a stream processor is anything that takes continual streams of "
+"data from input topics, performs some processing on this input, and "
+"produces continual streams of data to output topics."
+msgstr "在Kafka中，流处理器是指从输入主题获取连续数据流，对此输入执行某些处理以及生成连续数据流以输出主题的任何内容。"
+
+#: ../../source/kafka/introduction.rst:146
+msgid ""
+"For example, a retail application might take in input streams of sales "
+"and shipments, and output a stream of reorders and price adjustments "
+"computed off this data."
+msgstr "例如，零售应用程序可能会接收销售和发货的输入流，并输出重新排序流和根据此数据计算的价格调整。"
+
+#: ../../source/kafka/introduction.rst:148
+msgid ""
+"It is possible to do simple processing directly using the producer and "
+"consumer APIs. However for more complex transformations Kafka provides a "
+"fully integrated Streams API. This allows building applications that do "
+"non-trivial processing that compute aggregations off of streams or join "
+"streams together."
+msgstr "可以使用生产者和消费者API直接进行简单处理。但是，对于更复杂的转换，Kafka提供了完全集成的Streams API。这允许构建执行非平凡处理的应用程序，这些应用程序可以计算流的聚合或将流连接在一起。"
+
+#: ../../source/kafka/introduction.rst:150
+msgid ""
+"This facility helps solve the hard problems this type of application "
+"faces: handling out-of-order data, reprocessing input as code changes, "
+"performing stateful computations, etc."
+msgstr "此工具有助于解决此类应用程序面临的难题：处理无序数据，在代码更改时重新处理输入，执行有状态计算等。"
+
+#: ../../source/kafka/introduction.rst:152
+msgid ""
+"The streams API builds on the core primitives Kafka provides: it uses the"
+" producer and consumer APIs for input, uses Kafka for stateful storage, "
+"and uses the same group mechanism for fault tolerance among the stream "
+"processor instances."
+msgstr "流API构建在Kafka提供的核心原语上：它使用生产者和消费者API进行输入，使用Kafka进行有状态存储，并在流处理器实例之间使用相同的组机制来实现容错。"
+
+#: ../../source/kafka/introduction.rst:155
+msgid "Putting the Pieces Together"
+msgstr "把碎片放在一起"
+
+#: ../../source/kafka/introduction.rst:157
+msgid ""
+"This combination of messaging, storage, and stream processing may seem "
+"unusual but it is essential to Kafka's role as a streaming platform."
+msgstr "消息传递，存储和流处理的这种组合可能看起来很不寻常，但它对于Kafka作为流媒体平台的作用至关重要。"
+
+#: ../../source/kafka/introduction.rst:159
+msgid ""
+"A distributed file system like HDFS allows storing static files for batch"
+" processing. Effectively a system like this allows storing and processing"
+" historical data from the past."
+msgstr "像HDFS这样的分布式文件系统允许存储静态文件以进行批处理。有效地，这样的系统允许存储和处理过去的历史数据。"
+
+#: ../../source/kafka/introduction.rst:161
+msgid ""
+"A traditional enterprise messaging system allows processing future "
+"messages that will arrive after you subscribe. Applications built in this"
+" way process future data as it arrives."
+msgstr "传统的企业邮件系统允许处理订阅后到达的未来邮件。以这种方式构建的应用程序在到达时处理未来数据。"
+
+#: ../../source/kafka/introduction.rst:163
+msgid ""
+"Kafka combines both of these capabilities, and the combination is "
+"critical both for Kafka usage as a platform for streaming applications as"
+" well as for streaming data pipelines."
+msgstr "Kafka结合了这两种功能，这种组合对于Kafka作为流媒体应用程序平台以及流数据管道的使用至关重要。"
+
+#: ../../source/kafka/introduction.rst:165
+msgid ""
+"By combining storage and low-latency subscriptions, streaming "
+"applications can treat both past and future data the same way. That is a "
+"single application can process historical, stored data but rather than "
+"ending when it reaches the last record it can keep processing as future "
+"data arrives. This is a generalized notion of stream processing that "
+"subsumes batch processing as well as message-driven applications."
+msgstr "通过组合存储和低延迟订阅，流应用程序可以以相同的方式处理过去和未来的数据。也就是说，单个应用程序可以处理历史存储的数据，而不是在它到达最后一条记录时结束，它可以在未来数据到达时继续处理。这是包含批处理以及消息驱动应用程序的流处理的一般概念。"
+
+#: ../../source/kafka/introduction.rst:167
+msgid ""
+"Likewise for streaming data pipelines the combination of subscription to "
+"real-time events make it possible to use Kafka for very low-latency "
+"pipelines; but the ability to store data reliably make it possible to use"
+" it for critical data where the delivery of data must be guaranteed or "
+"for integration with offline systems that load data only periodically or "
+"may go down for extended periods of time for maintenance. The stream "
+"processing facilities make it possible to transform data as it arrives."
+msgstr "同样，对于流数据流水线，订阅实时事件的组合使得可以将Kafka用于极低延迟的流水线;但是，能够可靠地存储数据使得可以将其用于必须保证数据传输的关键数据，或者与仅定期加载数据或可能长时间停机以进行维护的离线系统集成。流处理设施可以在数据到达时对其进行转换。"
+
+#: ../../source/kafka/introduction.rst:169
+msgid ""
+"For more information on the guarantees, APIs, and capabilities Kafka "
+"provides see the rest of the documentation."
+msgstr "有关Kafka提供的保证，API和功能的更多信息，请参阅其余文档。"
+

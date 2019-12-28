@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kafka-node &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../kafka/download.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kafka/index.html">kafka</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#table-of-contents">Table of Contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html">Running Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mns/index.html">mns api</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>Kafka-node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/kafka-node/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kafka-node">
+<h1>Kafka-node<a class="headerlink" href="#kafka-node" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://travis-ci.org/SOHU-Co/kafka-node"><img alt="Build Status" src="https://travis-ci.org/SOHU-Co/kafka-node.svg?branch=master" /></a> <a class="reference external" href="https://coveralls.io/github/SOHU-Co/kafka-node?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/SOHU-Co/kafka-node/badge.svg?branch=master" /></a></p>
+<p><a class="reference external" href="https://nodei.co/npm/kafka-node/"><img alt="NPM" src="https://nodei.co/npm/kafka-node.png" /></a></p>
+<p>Kafka-node is a Node.js client with Zookeeper integration for Apache
+Kafka 0.8.1 and later.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#kafkaclient">KafkaClient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#producer">Producer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#highlevelproducer">HighLevelProducer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#producerstream">ProducerStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#consumer">Consumer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#consumerstream">ConsumerStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#highlevelconsumer">HighLevelConsumer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#consumergroup">ConsumerGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#consumergroupstream">ConsumerGroupStream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#offset">Offset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#admin">Admin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#highlevelproducer-with-keyedpartitioner-errors-on-first-send">HighLevelProducer with KeyedPartitioner errors on first send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-debug-an-issue">How do I debug an issue?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-get-a-list-of-all-topics">How do I get a list of all topics?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#for-a-new-consumer-how-do-i-start-consuming-from-the-latest-message-in-a-partition">For a new consumer how do I start consuming from the latest message in a partition?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#failedtorebalanceconsumererror-exception-node-exists-110">FailedToRebalanceConsumerError: Exception: NODE_EXISTS[-110]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#highlevelconsumer-does-not-consume-on-all-partitions">HighLevelConsumer does not consume on all partitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-throttle-messages-control-the-concurrency-of-processing-messages">How to throttle messages / control the concurrency of processing messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-produce-and-consume-binary-data">How do I produce and consume binary data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-are-these-node-gyp-and-snappy-errors">What are these node-gyp and snappy errors?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-configure-the-log-output">How do I configure the log output?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Running Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test.html#install-docker">Install Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#start-docker-and-run-tests">Start Docker and Run Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#using-different-versions-of-kafka">Using different versions of Kafka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test.html#stop-docker">Stop Docker</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="features">
+<h1>Features<a class="headerlink" href="#features" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>Consumer and High Level Consumer</p></li>
+<li><p>Producer and High Level Producer</p></li>
+<li><p>Node Stream Producer (Kafka 0.9+)</p></li>
+<li><p>Node Stream Consumers (ConsumerGroupStream Kafka 0.9+)</p></li>
+<li><p>Manage topic Offsets</p></li>
+<li><p>SSL connections to brokers (Kafka 0.9+)</p></li>
+<li><p>Consumer Groups managed by Kafka coordinator (Kafka 0.9+)</p></li>
+<li><p>Connect directly to brokers (Kafka 0.9+)</p></li>
+<li><p>Administrative APIs</p>
+<ul>
+<li><p>List Groups</p></li>
+<li><p>Describe Groups</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="install-kafka">
+<h1>Install Kafka<a class="headerlink" href="#install-kafka" title="永久链接至标题">¶</a></h1>
+<p>Follow the
+<a class="reference external" href="http://kafka.apache.org/documentation.html#quickstart">instructions</a>
+on the Kafka wiki to build Kafka 0.8 and get a test broker up and
+running.</p>
+</div>
+<div class="section" id="license-mit">
+<h1>LICENSE - “MIT”<a class="headerlink" href="#license-mit" title="永久链接至标题">¶</a></h1>
+<p>Copyright (c) 2015 Sohu.com</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+“Software”), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../kafka/download.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

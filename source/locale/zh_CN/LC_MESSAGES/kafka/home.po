@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/kafka/home.rst:2
+msgid "kafka"
+msgstr "kafka"
+
+#: ../../source/kafka/home.rst:5
+msgid "PUBNLISH & SUBSCRIBE"
+msgstr "PUBNLISH & SUBSCRIBE"
+
+#: ../../source/kafka/home.rst:7
+msgid "Read and write streams of data like a messaging system. `Learn more »`_"
+msgstr "Read and write streams of data like a messaging system. `Learn more »`_"
+
+#: ../../source/kafka/home.rst:10
+msgid "PROCESS"
+msgstr "PROCESS"
+
+#: ../../source/kafka/home.rst:12
+msgid ""
+"Write scalable stream processing applications that react to events in "
+"real-time. `Learn more »`_"
+msgstr "Write scalable stream processing applications that react to events in real-time. `Learn more »`_"
+
+#: ../../source/kafka/home.rst:16
+msgid "STORE"
+msgstr "STORE"
+
+#: ../../source/kafka/home.rst:18
+msgid ""
+"Store streams of data safely in a distributed, replicated, fault-tolerant"
+" cluster. `Learn more »`_"
+msgstr "Store streams of data safely in a distributed, replicated, fault-tolerant cluster. `Learn more »`_"
+
+#: ../../source/kafka/home.rst:24
+msgid ""
+"Kafka® is used for building real-time data pipelines and streaming apps. "
+"It is horizontally scalable, fault-tolerant, wicked fast, and runs in "
+"production in thousands of companies. `Learn more`_"
+msgstr "Kafka® is used for building real-time data pipelines and streaming apps. It is horizontally scalable, fault-tolerant, wicked fast, and runs in production in thousands of companies. `Learn more`_"
+

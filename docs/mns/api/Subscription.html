@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Subscription &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="MNSTopic" href="Topic.html" />
+    <link rel="prev" title="Region" href="Region.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../kafka/index.html">kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">mns api</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aliyun-mns.html">消息服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ali-mns.html">ali-mns (ali-mqs)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">mns api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Account.html">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MNS.html">MNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQ.html">MQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQBatch.html">MQBatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Msg.html">Msg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Region.html">Region</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Subscription</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subscription-name-string-topic-topic">Subscription(name:string, topic:Topic)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscription-getname">subscription.getName()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscription-gettopic">subscription.getTopic()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscription-getattrsp-subscription-setattrsp-options-any">subscription.getAttrsP() &amp; subscription.setAttrsP(options:any)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscription-notifystrategy">Subscription.NotifyStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscription-notifycontentformat">Subscription.NotifyContentFormat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Topic.html">MNSTopic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">mns api</a> &raquo;</li>
+        
+          <li><a href="index.html">mns api</a> &raquo;</li>
+        
+      <li>Subscription</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/mns/api/Subscription.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subscription">
+<h1>Subscription<a class="headerlink" href="#subscription" title="永久链接至标题">¶</a></h1>
+<div class="section" id="subscription-name-string-topic-topic">
+<h2>Subscription(name:string, topic:Topic)<a class="headerlink" href="#subscription-name-string-topic-topic" title="永久链接至标题">¶</a></h2>
+<p>Operate a subscription.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">AliMNS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;ali-mns&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">account</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Account</span><span class="p">(</span><span class="s2">&quot;&lt;your-account-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-key-secret&gt;&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">topic</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Topic</span><span class="p">(</span><span class="s2">&quot;t11&quot;</span><span class="p">,</span> <span class="nx">account</span><span class="p">,</span> <span class="s2">&quot;shenzhen&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Subscription</span><span class="p">(</span><span class="s2">&quot;s12&quot;</span><span class="p">,</span> <span class="nx">topic</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subscription-getname">
+<h2>subscription.getName()<a class="headerlink" href="#subscription-getname" title="永久链接至标题">¶</a></h2>
+<p>Get name of subscription.</p>
+</div>
+<div class="section" id="subscription-gettopic">
+<h2>subscription.getTopic()<a class="headerlink" href="#subscription-gettopic" title="永久链接至标题">¶</a></h2>
+<p>Get topic of subscription.</p>
+</div>
+<div class="section" id="subscription-getattrsp-subscription-setattrsp-options-any">
+<h2>subscription.getAttrsP() &amp; subscription.setAttrsP(options:any)<a class="headerlink" href="#subscription-getattrsp-subscription-setattrsp-options-any" title="永久链接至标题">¶</a></h2>
+<p>Get or set attributes of subscription.</p>
+<p>options: attributes of subscription.</p>
+<p>options.NotifyStrategy: BACKOFF_RETRY or EXPONENTIAL_DECAY_RETRY.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">subscription</span><span class="p">.</span><span class="nx">setAttrsP</span><span class="p">({</span> <span class="nx">NotifyStrategy</span><span class="o">:</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Subscription</span><span class="p">.</span><span class="nx">NotifyStrategy</span><span class="p">.</span><span class="nx">EXPONENTIAL_DECAY_RETRY</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subscription-notifystrategy">
+<h2>Subscription.NotifyStrategy<a class="headerlink" href="#subscription-notifystrategy" title="永久链接至标题">¶</a></h2>
+<p>Contains 2 const string.</p>
+<p>AliMNS.Subscription.NotifyStrategy.BACKOFF_RETRY : “BACKOFF_RETRY”</p>
+<p>AliMNS.Subscription.NotifyStrategy.EXPONENTIAL_DECAY_RETRY :
+“EXPONENTIAL_DECAY_RETRY”</p>
+<p><a class="reference external" href="https://help.aliyun.com/document_detail/mns/api_reference/concepts/NotifyStrategy.html?spm=5176.docmns/api_reference/topic_api_spec/subscription_operation.6.141.tmwb5L">More about
+NotifyStrategy[zh-Hans]</a></p>
+</div>
+<div class="section" id="subscription-notifycontentformat">
+<h2>Subscription.NotifyContentFormat<a class="headerlink" href="#subscription-notifycontentformat" title="永久链接至标题">¶</a></h2>
+<p>Contains 2 const string.</p>
+<p>AliMNS.Subscription.NotifyContentFormat.XML : “XML”</p>
+<p>AliMNS.Subscription.NotifyContentFormat.SIMPLIFIED : “SIMPLIFIED”</p>
+<p><a class="reference external" href="https://help.aliyun.com/document_detail/mns/api_reference/concepts/NotifyContentFormat.html?spm=5176.docmns/api_reference/concepts/NotifyStrategy.6.142.kWiFyy">More about
+NotifyContentFormat[zh-Hans]</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Topic.html" class="btn btn-neutral float-right" title="MNSTopic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Region.html" class="btn btn-neutral float-left" title="Region" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

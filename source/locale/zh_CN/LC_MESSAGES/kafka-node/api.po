@@ -1,0 +1,948 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/kafka-node/api.rst:2
+msgid "API"
+msgstr "API"
+
+#: ../../source/kafka-node/api.rst:5
+msgid "KafkaClient"
+msgstr "KafkaClient"
+
+#: ../../source/kafka-node/api.rst:7
+msgid ""
+"New KafkaClient connects directly to Kafka brokers instead of connecting "
+"to zookeeper for broker discovery."
+msgstr "New KafkaClient connects directly to Kafka brokers instead of connecting to zookeeper for broker discovery."
+
+#: ../../source/kafka-node/api.rst:11
+msgid "New Features"
+msgstr "New Features"
+
+#: ../../source/kafka-node/api.rst:13
+msgid "Kafka **ONLY** no zookeeper"
+msgstr "Kafka **ONLY** no zookeeper"
+
+#: ../../source/kafka-node/api.rst:14
+msgid "Added request timeout"
+msgstr "Added request timeout"
+
+#: ../../source/kafka-node/api.rst:15
+msgid "Added connection timeout and retry"
+msgstr "Added connection timeout and retry"
+
+#: ../../source/kafka-node/api.rst:18
+msgid "Notable differences"
+msgstr "Notable differences"
+
+#: ../../source/kafka-node/api.rst:20
+msgid "Constructor accepts an single options object (see below)"
+msgstr "Constructor accepts an single options object (see below)"
+
+#: ../../source/kafka-node/api.rst:21
+msgid ""
+"Unlike the original ``Client`` ``KafkaClient`` will not emit socket "
+"errors it will do its best to recover and only emit errors when it has "
+"exhausted its recovery attempts"
+msgstr "Unlike the original ``Client`` ``KafkaClient`` will not emit socket errors it will do its best to recover and only emit errors when it has exhausted its recovery attempts"
+
+#: ../../source/kafka-node/api.rst:24
+msgid ""
+"``ready`` event is only emitted after successful connection to a broker "
+"and metadata request to that broker"
+msgstr "``ready`` event is only emitted after successful connection to a broker and metadata request to that broker"
+
+#: ../../source/kafka-node/api.rst:26
+msgid ""
+"``Client`` uses zookeeper to discover the SSL kafka host/port since we "
+"connect directly to the broker this host/port for SSL need to be correct"
+msgstr "``Client`` uses zookeeper to discover the SSL kafka host/port since we connect directly to the broker this host/port for SSL need to be correct"
+
+#: ../../source/kafka-node/api.rst:31 ../../source/kafka-node/api.rst:333
+msgid "Options"
+msgstr "Options"
+
+#: ../../source/kafka-node/api.rst:33
+msgid ""
+"``kafkaHost`` : A string of kafka broker/host combination delimited by "
+"comma for example: ``kafka-1.us-east-1.myapp.com:9093,kafka-2.us-"
+"east-1.myapp.com:9093,kafka-3.us-east-1.myapp.com:9093`` default: "
+"``localhost:9092``."
+msgstr "``kafkaHost`` : A string of kafka broker/host combination delimited by comma for example: ``kafka-1.us-east-1.myapp.com:9093,kafka-2.us-east-1.myapp.com:9093,kafka-3.us-east-1.myapp.com:9093`` default: ``localhost:9092``."
+
+#: ../../source/kafka-node/api.rst:37
+msgid ""
+"``connectTimeout`` : in ms it takes to wait for a successful connection "
+"before moving to the next host default: ``10000``"
+msgstr "``connectTimeout`` : in ms it takes to wait for a successful connection before moving to the next host default: ``10000``"
+
+#: ../../source/kafka-node/api.rst:39
+msgid ""
+"``requestTimeout`` : in ms for a kafka request to timeout default: "
+"``30000``"
+msgstr "``requestTimeout`` : in ms for a kafka request to timeout default: ``30000``"
+
+#: ../../source/kafka-node/api.rst:41
+msgid ""
+"``autoConnect`` : automatically connect when KafkaClient is instantiated "
+"otherwise you need to manually call ``connect`` default: ``true``"
+msgstr "``autoConnect`` : automatically connect when KafkaClient is instantiated otherwise you need to manually call ``connect`` default: ``true``"
+
+#: ../../source/kafka-node/api.rst:44
+msgid ""
+"``connectRetryOptions`` : object hash that applies to the initial "
+"connection. see `retry <https://www.npmjs.com/package/retry>`__ module "
+"for these options."
+msgstr "``connectRetryOptions`` : object hash that applies to the initial connection. see `retry <https://www.npmjs.com/package/retry>`__ module for these options."
+
+#: ../../source/kafka-node/api.rst:47
+msgid ""
+"``idleConnection`` : allows the broker to disconnect an idle connection "
+"from a client (otherwise the clients continues to reconnect after being "
+"disconnected). The value is elapsed time in ms without any data written "
+"to the TCP socket. default: 5 minutes"
+msgstr "``idleConnection`` : allows the broker to disconnect an idle connection from a client (otherwise the clients continues to reconnect after being disconnected). The value is elapsed time in ms without any data written to the TCP socket. default: 5 minutes"
+
+#: ../../source/kafka-node/api.rst:51
+msgid ""
+"``maxAsyncRequests`` : maximum async operations at a time toward the "
+"kafka cluster. default: 10"
+msgstr "``maxAsyncRequests`` : maximum async operations at a time toward the kafka cluster. default: 10"
+
+#: ../../source/kafka-node/api.rst:53 ../../source/kafka-node/api.rst:80
+msgid ""
+"``sslOptions``: **Object**, options to be passed to the tls broker "
+"sockets, ex. { rejectUnauthorized: false } (Kafka +0.9)"
+msgstr "``sslOptions``: **Object**, options to be passed to the tls broker sockets, ex. { rejectUnauthorized: false } (Kafka +0.9)"
+
+#: ../../source/kafka-node/api.rst:57 ../../source/kafka-node/api.rst:601
+#: ../../source/kafka-node/api.rst:1116 ../../source/kafka-node/api.rst:1150
+#: ../../source/kafka-node/api.rst:1182 ../../source/kafka-node/api.rst:1197
+#: ../../source/kafka-node/api.rst:1212
+msgid "Example"
+msgstr "Example"
+
+#: ../../source/kafka-node/api.rst:64
+msgid "Client"
+msgstr "Client"
+
+#: ../../source/kafka-node/api.rst:67
+msgid ""
+"Client(connectionString, clientId, [zkOptions], [noAckBatchOptions], "
+"[sslOptions])"
+msgstr "Client(connectionString, clientId, [zkOptions], [noAckBatchOptions], [sslOptions])"
+
+#: ../../source/kafka-node/api.rst:69
+msgid ""
+"``connectionString``: Zookeeper connection string, default "
+"``localhost:2181/``"
+msgstr "``connectionString``: Zookeeper connection string, default ``localhost:2181/``"
+
+#: ../../source/kafka-node/api.rst:71
+msgid ""
+"``clientId``: This is a user-supplied identifier for the client "
+"application, default ``kafka-node-client``"
+msgstr "``clientId``: This is a user-supplied identifier for the client application, default ``kafka-node-client``"
+
+#: ../../source/kafka-node/api.rst:73
+msgid ""
+"``zkOptions``: **Object**, Zookeeper options, see `node-zookeeper-client "
+"<https://github.com/alexguan/node-zookeeper-client#client-"
+"createclientconnectionstring-options>`__"
+msgstr "``zkOptions``: **Object**, Zookeeper options, see `node-zookeeper-client <https://github.com/alexguan/node-zookeeper-client#client-createclientconnectionstring-options>`__"
+
+#: ../../source/kafka-node/api.rst:75
+msgid ""
+"``noAckBatchOptions``: **Object**, when requireAcks is disabled on "
+"Producer side we can define the batch properties, ‘noAckBatchSize’ in "
+"bytes and ‘noAckBatchAge’ in milliseconds. The default value is ``{ "
+"noAckBatchSize: null, noAckBatchAge: null }`` and it acts as if there was"
+" no batch"
+msgstr "``noAckBatchOptions``: **Object**, when requireAcks is disabled on Producer side we can define the batch properties, ‘noAckBatchSize’ in bytes and ‘noAckBatchAge’ in milliseconds. The default value is ``{ noAckBatchSize: null, noAckBatchAge: null }`` and it acts as if there was no batch"
+
+#: ../../source/kafka-node/api.rst:84
+msgid "close(cb)"
+msgstr "close(cb)"
+
+#: ../../source/kafka-node/api.rst:86
+msgid ""
+"Closes the connection to Zookeeper and the brokers so that the node "
+"process can exit gracefully."
+msgstr "Closes the connection to Zookeeper and the brokers so that the node process can exit gracefully."
+
+#: ../../source/kafka-node/api.rst:89 ../../source/kafka-node/api.rst:143
+#: ../../source/kafka-node/api.rst:187 ../../source/kafka-node/api.rst:267
+#: ../../source/kafka-node/api.rst:517 ../../source/kafka-node/api.rst:532
+#: ../../source/kafka-node/api.rst:749 ../../source/kafka-node/api.rst:766
+#: ../../source/kafka-node/api.rst:1241 ../../source/kafka-node/api.rst:1270
+msgid "``cb``: **Function**, the callback"
+msgstr "``cb``: **Function**, the callback"
+
+#: ../../source/kafka-node/api.rst:92
+msgid "Producer"
+msgstr "Producer"
+
+#: ../../source/kafka-node/api.rst:95
+msgid "Producer(client, `options <#options-1>`__, [customPartitioner])"
+msgstr "Producer(client, `options <#options-1>`__, [customPartitioner])"
+
+#: ../../source/kafka-node/api.rst:97 ../../source/kafka-node/api.rst:645
+#: ../../source/kafka-node/api.rst:1084
+msgid "``client``: client which keeps a connection with the Kafka server."
+msgstr "``client``: client which keeps a connection with the Kafka server."
+
+#: ../../source/kafka-node/api.rst:98 ../../source/kafka-node/api.rst:219
+msgid "``options``: options for producer,"
+msgstr "``options``: options for producer,"
+
+#: ../../source/kafka-node/api.rst:119 ../../source/kafka-node/api.rst:242
+msgid "Events"
+msgstr "Events"
+
+#: ../../source/kafka-node/api.rst:121 ../../source/kafka-node/api.rst:244
+msgid "``ready``: this event is emitted when producer is ready to send messages."
+msgstr "``ready``: this event is emitted when producer is ready to send messages."
+
+#: ../../source/kafka-node/api.rst:123 ../../source/kafka-node/api.rst:246
+msgid ""
+"``error``: this is the error event propagates from internal client, "
+"producer should always listen it."
+msgstr "``error``: this is the error event propagates from internal client, producer should always listen it."
+
+#: ../../source/kafka-node/api.rst:127 ../../source/kafka-node/api.rst:252
+msgid "send(payloads, cb)"
+msgstr "send(payloads, cb)"
+
+#: ../../source/kafka-node/api.rst:129 ../../source/kafka-node/api.rst:254
+msgid ""
+"``payloads``: **Array**,array of ``ProduceRequest``, ``ProduceRequest`` "
+"is a JSON object like:"
+msgstr "``payloads``: **Array**,array of ``ProduceRequest``, ``ProduceRequest`` is a JSON object like:"
+
+#: ../../source/kafka-node/api.rst:145
+msgid ""
+"``attributes`` controls compression of the message set. It supports the "
+"following values:"
+msgstr "``attributes`` controls compression of the message set. It supports the following values:"
+
+#: ../../source/kafka-node/api.rst:148
+msgid "``0``: No compression"
+msgstr "``0``: No compression"
+
+#: ../../source/kafka-node/api.rst:149
+msgid "``1``: Compress using GZip"
+msgstr "``1``: Compress using GZip"
+
+#: ../../source/kafka-node/api.rst:150
+msgid "``2``: Compress using snappy"
+msgstr "``2``: Compress using snappy"
+
+#: ../../source/kafka-node/api.rst:152 ../../source/kafka-node/api.rst:189
+#: ../../source/kafka-node/api.rst:269 ../../source/kafka-node/api.rst:306
+#: ../../source/kafka-node/api.rst:453 ../../source/kafka-node/api.rst:478
+#: ../../source/kafka-node/api.rst:501 ../../source/kafka-node/api.rst:519
+#: ../../source/kafka-node/api.rst:534 ../../source/kafka-node/api.rst:552
+#: ../../source/kafka-node/api.rst:679 ../../source/kafka-node/api.rst:706
+#: ../../source/kafka-node/api.rst:731 ../../source/kafka-node/api.rst:751
+#: ../../source/kafka-node/api.rst:768 ../../source/kafka-node/api.rst:788
+#: ../../source/kafka-node/api.rst:819 ../../source/kafka-node/api.rst:1243
+#: ../../source/kafka-node/api.rst:1272
+msgid "Example:"
+msgstr "Example:"
+
+#: ../../source/kafka-node/api.rst:176 ../../source/kafka-node/api.rst:289
+msgid ""
+"⚠️\\ **WARNING**: Batch multiple messages of the same topic/partition "
+"together as an array on the ``messages`` attribute otherwise you may lose"
+" messages!"
+msgstr "⚠️\\ **WARNING**: Batch multiple messages of the same topic/partition together as an array on the ``messages`` attribute otherwise you may lose messages!"
+
+#: ../../source/kafka-node/api.rst:181
+msgid "createTopics(topics, cb)"
+msgstr "createTopics(topics, cb)"
+
+#: ../../source/kafka-node/api.rst:183
+msgid ""
+"This method is used to create topics on the Kafka server. It requires "
+"Kafka 0.10+."
+msgstr "This method is used to create topics on the Kafka server. It requires Kafka 0.10+."
+
+#: ../../source/kafka-node/api.rst:186
+msgid "``topics``: **Array**, array of topics"
+msgstr "``topics``: **Array**, array of topics"
+
+#: ../../source/kafka-node/api.rst:212
+msgid "HighLevelProducer"
+msgstr "HighLevelProducer"
+
+#: ../../source/kafka-node/api.rst:215
+msgid "HighLevelProducer(client, `options <#options-1>`__, [customPartitioner])"
+msgstr "HighLevelProducer(client, `options <#options-1>`__, [customPartitioner])"
+
+#: ../../source/kafka-node/api.rst:217
+msgid ""
+"``client``: client which keeps a connection with the Kafka server. Round-"
+"robins produce requests to the available topic partitions"
+msgstr "``client``: client which keeps a connection with the Kafka server. Round-robins produce requests to the available topic partitions"
+
+#: ../../source/kafka-node/api.rst:294
+msgid "createTopics(topics, async, cb)"
+msgstr "createTopics(topics, async, cb)"
+
+#: ../../source/kafka-node/api.rst:296
+msgid ""
+"This method is used to create topics on the Kafka server. It only work "
+"when ``auto.create.topics.enable``, on the Kafka server, is set to true. "
+"Our client simply sends a metadata request to the server which will auto "
+"create topics. When ``async`` is set to false, this method does not "
+"return until all topics are created, otherwise it returns immediately."
+msgstr "This method is used to create topics on the Kafka server. It only work when ``auto.create.topics.enable``, on the Kafka server, is set to true. Our client simply sends a metadata request to the server which will auto create topics. When ``async`` is set to false, this method does not return until all topics are created, otherwise it returns immediately."
+
+#: ../../source/kafka-node/api.rst:302
+msgid "``topics``: **Array**,array of topics"
+msgstr "``topics``: **Array**,array of topics"
+
+#: ../../source/kafka-node/api.rst:303
+msgid "``async``: **Boolean**,async or sync"
+msgstr "``async``: **Boolean**,async or sync"
+
+#: ../../source/kafka-node/api.rst:304
+msgid "``cb``: **Function**,the callback"
+msgstr "``cb``: **Function**,the callback"
+
+#: ../../source/kafka-node/api.rst:323
+msgid "ProducerStream"
+msgstr "ProducerStream"
+
+#: ../../source/kafka-node/api.rst:326
+msgid "ProducerStream (options)"
+msgstr "ProducerStream (options)"
+
+#: ../../source/kafka-node/api.rst:328
+msgid "**Requires**: Kafka v0.9+"
+msgstr "**Requires**: Kafka v0.9+"
+
+#: ../../source/kafka-node/api.rst:335
+msgid "``highWaterMark`` size of write buffer (Default: 100)"
+msgstr "``highWaterMark`` size of write buffer (Default: 100)"
+
+#: ../../source/kafka-node/api.rst:336
+msgid "``kafkaClient`` options see `KafkaClient <#kafkaclient>`__"
+msgstr "``kafkaClient`` options see `KafkaClient <#kafkaclient>`__"
+
+#: ../../source/kafka-node/api.rst:337
+msgid ""
+"``producer`` options for Producer see `HighLevelProducer "
+"<#highlevelproducer>`__"
+msgstr "``producer`` options for Producer see `HighLevelProducer <#highlevelproducer>`__"
+
+#: ../../source/kafka-node/api.rst:341
+msgid "Streams Example"
+msgstr "Streams Example"
+
+#: ../../source/kafka-node/api.rst:343
+msgid ""
+"In this example we demonstrate how to stream a source of data (from "
+"``stdin``) to kafka (``ExampleTopic`` topic) for processing. Then in a "
+"separate instance (or worker process) we consume from that kafka topic "
+"and use a ``Transform`` stream to update the data and stream the result "
+"to a different topic using a ``ProducerStream``."
+msgstr "In this example we demonstrate how to stream a source of data (from ``stdin``) to kafka (``ExampleTopic`` topic) for processing. Then in a separate instance (or worker process) we consume from that kafka topic and use a ``Transform`` stream to update the data and stream the result to a different topic using a ``ProducerStream``."
+
+#: ../../source/kafka-node/api.rst:349
+msgid "Stream text from ``stdin`` and write that into a Kafka Topic"
+msgstr "Stream text from ``stdin`` and write that into a Kafka Topic"
+
+#: ../../source/kafka-node/api.rst:376
+msgid ""
+"Use ``ConsumerGroupStream`` to read from this topic and transform the "
+"data and feed the result of into the ``RebalanceTopic`` Topic."
+msgstr "Use ``ConsumerGroupStream`` to read from this topic and transform the data and feed the result of into the ``RebalanceTopic`` Topic."
+
+#: ../../source/kafka-node/api.rst:412
+msgid "Consumer"
+msgstr "Consumer"
+
+#: ../../source/kafka-node/api.rst:415
+msgid "Consumer(client, payloads, options)"
+msgstr "Consumer(client, payloads, options)"
+
+#: ../../source/kafka-node/api.rst:417
+msgid ""
+"``client``: client which keeps a connection with the Kafka server. "
+"**Note**: it’s recommend that create new client for different consumers."
+msgstr "``client``: client which keeps a connection with the Kafka server. **Note**: it’s recommend that create new client for different consumers."
+
+#: ../../source/kafka-node/api.rst:420 ../../source/kafka-node/api.rst:646
+msgid ""
+"``payloads``: **Array**,array of ``FetchRequest``, ``FetchRequest`` is a "
+"JSON object like:"
+msgstr "``payloads``: **Array**,array of ``FetchRequest``, ``FetchRequest`` is a JSON object like:"
+
+#: ../../source/kafka-node/api.rst:431 ../../source/kafka-node/api.rst:655
+msgid "``options``: options for consumer,"
+msgstr "``options``: options for consumer,"
+
+#: ../../source/kafka-node/api.rst:471 ../../source/kafka-node/api.rst:699
+msgid "on(‘message’, onMessage);"
+msgstr "on(‘message’, onMessage);"
+
+#: ../../source/kafka-node/api.rst:473 ../../source/kafka-node/api.rst:701
+msgid ""
+"By default, we will consume messages from the last committed offset of "
+"the current group"
+msgstr "By default, we will consume messages from the last committed offset of the current group"
+
+#: ../../source/kafka-node/api.rst:476 ../../source/kafka-node/api.rst:704
+msgid "``onMessage``: **Function**, callback when new message comes"
+msgstr "``onMessage``: **Function**, callback when new message comes"
+
+#: ../../source/kafka-node/api.rst:487 ../../source/kafka-node/api.rst:717
+msgid "on(‘error’, function (err) {})"
+msgstr "on(‘error’, function (err) {})"
+
+#: ../../source/kafka-node/api.rst:490 ../../source/kafka-node/api.rst:722
+msgid "on(‘offsetOutOfRange’, function (err) {})"
+msgstr "on(‘offsetOutOfRange’, function (err) {})"
+
+#: ../../source/kafka-node/api.rst:493
+msgid "addTopics(topics, cb, fromOffset)"
+msgstr "addTopics(topics, cb, fromOffset)"
+
+#: ../../source/kafka-node/api.rst:495
+msgid ""
+"Add topics to current consumer, if any topic to be added not exists, "
+"return error \\* ``topics``: **Array**, array of topics to add \\* "
+"``cb``: **Function**,the callback \\* ``fromOffset``: **Boolean**, if "
+"true, the consumer will fetch message from the specified offset, "
+"otherwise it will fetch message from the last commited offset of the "
+"topic."
+msgstr ""
+
+#: ../../source/kafka-node/api.rst:514 ../../source/kafka-node/api.rst:746
+msgid "removeTopics(topics, cb)"
+msgstr "removeTopics(topics, cb)"
+
+#: ../../source/kafka-node/api.rst:516 ../../source/kafka-node/api.rst:748
+msgid "``topics``: **Array**, array of topics to remove"
+msgstr "``topics``: **Array**, array of topics to remove"
+
+#: ../../source/kafka-node/api.rst:527 ../../source/kafka-node/api.rst:761
+msgid "commit(cb)"
+msgstr "commit(cb)"
+
+#: ../../source/kafka-node/api.rst:529 ../../source/kafka-node/api.rst:763
+msgid ""
+"Commit offset of the current topics manually, this method should be "
+"called when a consumer leaves"
+msgstr "Commit offset of the current topics manually, this method should be called when a consumer leaves"
+
+#: ../../source/kafka-node/api.rst:542 ../../source/kafka-node/api.rst:778
+msgid "setOffset(topic, partition, offset)"
+msgstr "setOffset(topic, partition, offset)"
+
+#: ../../source/kafka-node/api.rst:544 ../../source/kafka-node/api.rst:780
+msgid "Set offset of the given topic"
+msgstr "Set offset of the given topic"
+
+#: ../../source/kafka-node/api.rst:546 ../../source/kafka-node/api.rst:782
+msgid "``topic``: **String**"
+msgstr "``topic``: **String**"
+
+#: ../../source/kafka-node/api.rst:548 ../../source/kafka-node/api.rst:784
+msgid "``partition``: **Number**"
+msgstr "``partition``: **Number**"
+
+#: ../../source/kafka-node/api.rst:550 ../../source/kafka-node/api.rst:786
+msgid "``offset``: **Number**"
+msgstr "``offset``: **Number**"
+
+#: ../../source/kafka-node/api.rst:559 ../../source/kafka-node/api.rst:797
+msgid "pause()"
+msgstr "pause()"
+
+#: ../../source/kafka-node/api.rst:561 ../../source/kafka-node/api.rst:799
+msgid ""
+"Pause the consumer. **Calling ``pause`` does not automatically stop "
+"messages from being emitted.** This is because pause just stops the kafka"
+" consumer fetch loop. Each iteration of the fetch loop can obtain a batch"
+" of messages (limited by ``fetchMaxBytes``)."
+msgstr "Pause the consumer. **Calling ``pause`` does not automatically stop messages from being emitted.** This is because pause just stops the kafka consumer fetch loop. Each iteration of the fetch loop can obtain a batch of messages (limited by ``fetchMaxBytes``)."
+
+#: ../../source/kafka-node/api.rst:567 ../../source/kafka-node/api.rst:807
+msgid "resume()"
+msgstr "resume()"
+
+#: ../../source/kafka-node/api.rst:569 ../../source/kafka-node/api.rst:809
+msgid "Resume the consumer. Resumes the fetch loop."
+msgstr "Resume the consumer. Resumes the fetch loop."
+
+#: ../../source/kafka-node/api.rst:572
+msgid "pauseTopics(topics)"
+msgstr "pauseTopics(topics)"
+
+#: ../../source/kafka-node/api.rst:574
+msgid "Pause specify topics"
+msgstr "Pause specify topics"
+
+#: ../../source/kafka-node/api.rst:584
+msgid "resumeTopics(topics)"
+msgstr "resumeTopics(topics)"
+
+#: ../../source/kafka-node/api.rst:586
+msgid "Resume specify topics"
+msgstr "Resume specify topics"
+
+#: ../../source/kafka-node/api.rst:596 ../../source/kafka-node/api.rst:814
+msgid "close(force, cb)"
+msgstr "close(force, cb)"
+
+#: ../../source/kafka-node/api.rst:598 ../../source/kafka-node/api.rst:816
+msgid ""
+"``force``: **Boolean**, if set to true, it forces the consumer to commit "
+"the current offset before closing, default ``false``"
+msgstr "``force``: **Boolean**, if set to true, it forces the consumer to commit the current offset before closing, default ``false``"
+
+#: ../../source/kafka-node/api.rst:609
+msgid "ConsumerStream"
+msgstr "ConsumerStream"
+
+#: ../../source/kafka-node/api.rst:611
+msgid ""
+"``Consumer`` implemented using node’s ``Readable`` stream interface. Read"
+" more about streams `here "
+"<https://nodejs.org/dist/v8.1.3/docs/api/stream.html#stream_readable_streams>`__."
+msgstr "``Consumer`` implemented using node’s ``Readable`` stream interface. Read more about streams `here <https://nodejs.org/dist/v8.1.3/docs/api/stream.html#stream_readable_streams>`__."
+
+#: ../../source/kafka-node/api.rst:616
+msgid "Notes"
+msgstr "Notes"
+
+#: ../../source/kafka-node/api.rst:618
+msgid ""
+"streams are consumed in chunks and in ``kafka-node`` each chunk is a "
+"kafka message"
+msgstr "streams are consumed in chunks and in ``kafka-node`` each chunk is a kafka message"
+
+#: ../../source/kafka-node/api.rst:620
+msgid ""
+"a stream contains an internal buffer of messages fetched from kafka. By "
+"default the buffer size is ``100`` messages and can be changed through "
+"the ``highWaterMark`` option"
+msgstr "a stream contains an internal buffer of messages fetched from kafka. By default the buffer size is ``100`` messages and can be changed through the ``highWaterMark`` option"
+
+#: ../../source/kafka-node/api.rst:625
+msgid "Compared to Consumer"
+msgstr "Compared to Consumer"
+
+#: ../../source/kafka-node/api.rst:627
+msgid ""
+"Similar API as ``Consumer`` with some exceptions. Methods like ``pause`` "
+"and ``resume`` in ``ConsumerStream`` respects the toggling of flow mode "
+"in a Stream. In ``Consumer`` calling ``pause()`` just paused the fetch "
+"cycle and will continue to emit ``message`` events. Pausing in a "
+"``ConsumerStream`` should immediately stop emitting ``data`` events."
+msgstr "Similar API as ``Consumer`` with some exceptions. Methods like ``pause`` and ``resume`` in ``ConsumerStream`` respects the toggling of flow mode in a Stream. In ``Consumer`` calling ``pause()`` just paused the fetch cycle and will continue to emit ``message`` events. Pausing in a ``ConsumerStream`` should immediately stop emitting ``data`` events."
+
+#: ../../source/kafka-node/api.rst:634
+msgid "ConsumerStream(client, payloads, options)"
+msgstr "ConsumerStream(client, payloads, options)"
+
+#: ../../source/kafka-node/api.rst:637
+msgid "HighLevelConsumer"
+msgstr "HighLevelConsumer"
+
+#: ../../source/kafka-node/api.rst:639
+msgid ""
+"⚠️ **This consumer has been deprecated and is likely to be removed in the"
+" future. Please use the ConsumerGroup instead.**"
+msgstr "⚠️ **This consumer has been deprecated and is likely to be removed in the future. Please use the ConsumerGroup instead.**"
+
+#: ../../source/kafka-node/api.rst:643
+msgid "HighLevelConsumer(client, payloads, options)"
+msgstr "HighLevelConsumer(client, payloads, options)"
+
+#: ../../source/kafka-node/api.rst:725
+msgid "addTopics(topics, cb)"
+msgstr "addTopics(topics, cb)"
+
+#: ../../source/kafka-node/api.rst:727
+msgid ""
+"Add topics to current consumer, if any topic to be added not exists, "
+"return error \\* ``topics``: **Array**, array of topics to add \\* "
+"``cb``: **Function**,the callback"
+msgstr "Add topics to current consumer, if any topic to be added not exists, return error \\* ``topics``: **Array**, array of topics to add \\* ``cb``: **Function**,the callback"
+
+#: ../../source/kafka-node/api.rst:827
+msgid "ConsumerGroup"
+msgstr "ConsumerGroup"
+
+#: ../../source/kafka-node/api.rst:829
+msgid ""
+"The new consumer group uses Kafka broker coordinators instead of "
+"Zookeeper to manage consumer groups. This is supported in **Kafka version"
+" 0.9** and above only."
+msgstr "The new consumer group uses Kafka broker coordinators instead of Zookeeper to manage consumer groups. This is supported in **Kafka version 0.9** and above only."
+
+#: ../../source/kafka-node/api.rst:834
+msgid "Coming from the highLevelConsumer"
+msgstr "Coming from the highLevelConsumer"
+
+#: ../../source/kafka-node/api.rst:836
+msgid ""
+"API is very similar to ``HighLevelConsumer`` since it extends directly "
+"from HLC so many of the same options will apply with some exceptions "
+"noted below:"
+msgstr "API is very similar to ``HighLevelConsumer`` since it extends directly from HLC so many of the same options will apply with some exceptions noted below:"
+
+#: ../../source/kafka-node/api.rst:840
+msgid ""
+"In an effort to make the API simpler you no longer need to create a "
+"``client`` this is done inside the ``ConsumerGroup``"
+msgstr "In an effort to make the API simpler you no longer need to create a ``client`` this is done inside the ``ConsumerGroup``"
+
+#: ../../source/kafka-node/api.rst:842
+msgid ""
+"consumer ID do not need to be defined. There’s a new ID to represent "
+"consumers called *member ID* and this is assigned to consumer after "
+"joining the group"
+msgstr "consumer ID do not need to be defined. There’s a new ID to represent consumers called *member ID* and this is assigned to consumer after joining the group"
+
+#: ../../source/kafka-node/api.rst:845
+msgid "Offsets, group members, and ownership details are not stored in Zookeeper"
+msgstr "Offsets, group members, and ownership details are not stored in Zookeeper"
+
+#: ../../source/kafka-node/api.rst:847
+msgid "``ConsumerGroup`` does not emit a ``registered`` event"
+msgstr "``ConsumerGroup`` does not emit a ``registered`` event"
+
+#: ../../source/kafka-node/api.rst:850
+msgid "ConsumerGroup(options, topics)"
+msgstr "ConsumerGroup(options, topics)"
+
+#: ../../source/kafka-node/api.rst:886
+msgid "Custom Partition Assignment Protocol"
+msgstr "Custom Partition Assignment Protocol"
+
+#: ../../source/kafka-node/api.rst:888
+msgid ""
+"You can pass a custom assignment strategy to the ``protocol`` array with "
+"the interface:"
+msgstr "You can pass a custom assignment strategy to the ``protocol`` array with the interface:"
+
+#: ../../source/kafka-node/api.rst:892
+msgid "string :: name"
+msgstr "string :: name"
+
+#: ../../source/kafka-node/api.rst:895
+msgid "integer :: version"
+msgstr "integer :: version"
+
+#: ../../source/kafka-node/api.rst:898
+msgid "object :: userData"
+msgstr "object :: userData"
+
+#: ../../source/kafka-node/api.rst:901
+msgid "function :: assign (topicPartition, groupMembers, callback)"
+msgstr "function :: assign (topicPartition, groupMembers, callback)"
+
+#: ../../source/kafka-node/api.rst:903
+msgid "**topicPartition**"
+msgstr "**topicPartition**"
+
+#: ../../source/kafka-node/api.rst:920
+msgid "**groupMembers**"
+msgstr "**groupMembers**"
+
+#: ../../source/kafka-node/api.rst:951
+msgid "**callback(error, result)**"
+msgstr "**callback(error, result)**"
+
+#: ../../source/kafka-node/api.rst:953
+msgid "**result**"
+msgstr "**result**"
+
+#: ../../source/kafka-node/api.rst:997
+msgid "Auto migration from the v0.8 based highLevelConsumer"
+msgstr "Auto migration from the v0.8 based highLevelConsumer"
+
+#: ../../source/kafka-node/api.rst:999
+msgid ""
+"We have two options for automatic migration from existing "
+"``highLevelConsumer`` group. This is useful to preserve the previous "
+"committed offsets for your group."
+msgstr "We have two options for automatic migration from existing ``highLevelConsumer`` group. This is useful to preserve the previous committed offsets for your group."
+
+#: ../../source/kafka-node/api.rst:1003
+msgid "We support two use cases:"
+msgstr "We support two use cases:"
+
+#: ../../source/kafka-node/api.rst:1005
+msgid "You have downtime and your old HLC consumers are no longer available"
+msgstr "You have downtime and your old HLC consumers are no longer available"
+
+#: ../../source/kafka-node/api.rst:1006
+msgid ""
+"Where the old HLC group is still up and working and you are doing a "
+"rolling deploy with zero downtime"
+msgstr "Where the old HLC group is still up and working and you are doing a rolling deploy with zero downtime"
+
+#: ../../source/kafka-node/api.rst:1009
+msgid "For case 1 use below setting:"
+msgstr "For case 1 use below setting:"
+
+#: ../../source/kafka-node/api.rst:1018
+msgid ""
+"For case 2 setting ``migrateRolling`` to ``true`` will allow the "
+"ConsumerGroup to start monitoring ``zk`` nodes for when topic ownership "
+"are relinquished by the old HLC consumer. Once this is done the "
+"ConsumerGroup will connect and the previous HLC offsets from zookeeper "
+"will be migrated automatically to the new Kafka broker based coordinator."
+msgstr "For case 2 setting ``migrateRolling`` to ``true`` will allow the ConsumerGroup to start monitoring ``zk`` nodes for when topic ownership are relinquished by the old HLC consumer. Once this is done the ConsumerGroup will connect and the previous HLC offsets from zookeeper will be migrated automatically to the new Kafka broker based coordinator."
+
+#: ../../source/kafka-node/api.rst:1025
+msgid "Group name should be consistent with old highLevelConsumer"
+msgstr "Group name should be consistent with old highLevelConsumer"
+
+#: ../../source/kafka-node/api.rst:1026
+msgid "Should never overwrite existing offsets"
+msgstr "Should never overwrite existing offsets"
+
+#: ../../source/kafka-node/api.rst:1027
+msgid ""
+"Only offsets for Topics that were once in the highLevelConsumer will be "
+"migrated over offsets for new topics will follow the ``fromOffset`` "
+"setting"
+msgstr "Only offsets for Topics that were once in the highLevelConsumer will be migrated over offsets for new topics will follow the ``fromOffset`` setting"
+
+#: ../../source/kafka-node/api.rst:1032
+msgid "ConsumerGroupStream"
+msgstr "ConsumerGroupStream"
+
+#: ../../source/kafka-node/api.rst:1034
+msgid ""
+"The ``ConsumerGroup`` wrapped with a ``Readable`` stream interface. Read "
+"more about consuming ``Readable`` streams `here "
+"<https://nodejs.org/dist/v8.1.3/docs/api/stream.html#stream_readable_streams>`__."
+msgstr "The ``ConsumerGroup`` wrapped with a ``Readable`` stream interface. Read more about consuming ``Readable`` streams `here <https://nodejs.org/dist/v8.1.3/docs/api/stream.html#stream_readable_streams>`__."
+
+#: ../../source/kafka-node/api.rst:1038
+msgid ""
+"Same notes in the Notes section of `ConsumerStream <#consumerstream>`__ "
+"applies to this stream."
+msgstr "Same notes in the Notes section of `ConsumerStream <#consumerstream>`__ applies to this stream."
+
+#: ../../source/kafka-node/api.rst:1042
+msgid "Auto Commit"
+msgstr "Auto Commit"
+
+#: ../../source/kafka-node/api.rst:1044
+msgid ""
+"``ConsumerGroupStream`` manages auto commits differently than "
+"``ConsumerGroup``. Whereas the ``ConsumerGroup`` would automatically "
+"commit offsets of fetched messages the ``ConsumerGroupStream`` will only "
+"commit offsets of consumed messages from the stream buffer. This will be "
+"better for most users since it more accurately represents what was "
+"actually “Consumed”. The interval at which auto commit fires off is still"
+" controlled by the ``autoCommitIntervalMs`` option and this feature can "
+"be disabled by setting ``autoCommit`` to ``false``."
+msgstr ""
+
+#: ../../source/kafka-node/api.rst:1054
+msgid "ConsumerGroupStream (consumerGroupOptions, topics)"
+msgstr "ConsumerGroupStream (consumerGroupOptions, topics)"
+
+#: ../../source/kafka-node/api.rst:1056
+msgid "``consumerGroupOptions`` same options to initialize a ``ConsumerGroup``"
+msgstr "``consumerGroupOptions`` same options to initialize a ``ConsumerGroup``"
+
+#: ../../source/kafka-node/api.rst:1058
+msgid "``topics`` a single or array of topics to subscribe to"
+msgstr "``topics`` a single or array of topics to subscribe to"
+
+#: ../../source/kafka-node/api.rst:1061
+msgid "commit(message, force, callback)"
+msgstr "commit(message, force, callback)"
+
+#: ../../source/kafka-node/api.rst:1063
+msgid ""
+"This method can be used to commit manually when ``autoCommit`` is set to "
+"``false``."
+msgstr "This method can be used to commit manually when ``autoCommit`` is set to ``false``."
+
+#: ../../source/kafka-node/api.rst:1066
+msgid ""
+"``message`` the original message or an object with ``{topic, partition, "
+"offset}``"
+msgstr "``message`` the original message or an object with ``{topic, partition, offset}``"
+
+#: ../../source/kafka-node/api.rst:1068
+msgid "``force`` a commit even if there’s a pending commit"
+msgstr "``force`` a commit even if there’s a pending commit"
+
+#: ../../source/kafka-node/api.rst:1069
+msgid "``callback`` (*optional*)"
+msgstr "``callback`` (*optional*)"
+
+#: ../../source/kafka-node/api.rst:1072
+msgid "close(callback)"
+msgstr "close(callback)"
+
+#: ../../source/kafka-node/api.rst:1074
+msgid ""
+"Closes the ``ConsumerGroup``. Calls ``callback`` when complete. If "
+"``autoCommit`` is enabled calling close will also commit offsets consumed"
+" from the buffer."
+msgstr "Closes the ``ConsumerGroup``. Calls ``callback`` when complete. If ``autoCommit`` is enabled calling close will also commit offsets consumed from the buffer."
+
+#: ../../source/kafka-node/api.rst:1079
+msgid "Offset"
+msgstr "Offset"
+
+#: ../../source/kafka-node/api.rst:1082
+msgid "Offset(client)"
+msgstr "Offset(client)"
+
+#: ../../source/kafka-node/api.rst:1089
+msgid "events"
+msgstr "events"
+
+#: ../../source/kafka-node/api.rst:1091
+msgid "``ready``: when zookeeper is ready"
+msgstr "``ready``: when zookeeper is ready"
+
+#: ../../source/kafka-node/api.rst:1092
+msgid "``connect`` when broker is ready"
+msgstr "``connect`` when broker is ready"
+
+#: ../../source/kafka-node/api.rst:1095
+msgid "fetch(payloads, cb)"
+msgstr "fetch(payloads, cb)"
+
+#: ../../source/kafka-node/api.rst:1097
+msgid "Fetch the available offset of a specific topic-partition"
+msgstr "Fetch the available offset of a specific topic-partition"
+
+#: ../../source/kafka-node/api.rst:1099
+msgid ""
+"``payloads``: **Array**,array of ``OffsetRequest``, ``OffsetRequest`` is "
+"a JSON object like:"
+msgstr "``payloads``: **Array**,array of ``OffsetRequest``, ``OffsetRequest`` is a JSON object like:"
+
+#: ../../source/kafka-node/api.rst:1114
+msgid "``cb``: *Function*, the callback"
+msgstr "``cb``: *Function*, the callback"
+
+#: ../../source/kafka-node/api.rst:1131
+msgid "commit(groupId, payloads, cb)"
+msgstr "commit(groupId, payloads, cb)"
+
+#: ../../source/kafka-node/api.rst:1133
+msgid ""
+"⚠️\\ **WARNING**: commits are made to zookeeper and is only compatible "
+"with ``HighLevelConsumer`` and will **NOT** with the new "
+"``ConsumerGroup``"
+msgstr "⚠️\\ **WARNING**: commits are made to zookeeper and is only compatible with ``HighLevelConsumer`` and will **NOT** with the new ``ConsumerGroup``"
+
+#: ../../source/kafka-node/api.rst:1137 ../../source/kafka-node/api.rst:1171
+msgid "``groupId``: consumer group"
+msgstr "``groupId``: consumer group"
+
+#: ../../source/kafka-node/api.rst:1138
+msgid ""
+"``payloads``: **Array**,array of ``OffsetCommitRequest``, "
+"``OffsetCommitRequest`` is a JSON object like:"
+msgstr "``payloads``: **Array**,array of ``OffsetCommitRequest``, ``OffsetCommitRequest`` is a JSON object like:"
+
+#: ../../source/kafka-node/api.rst:1163
+msgid "fetchCommits(groupid, payloads, cb)"
+msgstr "fetchCommits(groupid, payloads, cb)"
+
+#: ../../source/kafka-node/api.rst:1165
+msgid ""
+"⚠️\\ **WARNING**: commits are from zookeeper and is only compatible with "
+"``HighLevelConsumer`` and will **NOT** with the new ``ConsumerGroup``"
+msgstr "⚠️\\ **WARNING**: commits are from zookeeper and is only compatible with ``HighLevelConsumer`` and will **NOT** with the new ``ConsumerGroup``"
+
+#: ../../source/kafka-node/api.rst:1169
+msgid "Fetch the last committed offset in a topic of a specific consumer group"
+msgstr "Fetch the last committed offset in a topic of a specific consumer group"
+
+#: ../../source/kafka-node/api.rst:1172
+msgid ""
+"``payloads``: **Array**,array of ``OffsetFetchRequest``, "
+"``OffsetFetchRequest`` is a JSON object like:"
+msgstr "``payloads``: **Array**,array of ``OffsetFetchRequest``, ``OffsetFetchRequest`` is a JSON object like:"
+
+#: ../../source/kafka-node/api.rst:1195
+msgid "fetchLatestOffsets(topics, cb)"
+msgstr "fetchLatestOffsets(topics, cb)"
+
+#: ../../source/kafka-node/api.rst:1210
+msgid "fetchEarliestOffsets(topics, cb)"
+msgstr "fetchEarliestOffsets(topics, cb)"
+
+#: ../../source/kafka-node/api.rst:1225
+msgid "Admin"
+msgstr "Admin"
+
+#: ../../source/kafka-node/api.rst:1227
+msgid ""
+"This class provides administrative APIs can be used to monitor and "
+"administer the Kafka cluster."
+msgstr "This class provides administrative APIs can be used to monitor and administer the Kafka cluster."
+
+#: ../../source/kafka-node/api.rst:1231
+msgid "Admin(kafkaClient)"
+msgstr "Admin(kafkaClient)"
+
+#: ../../source/kafka-node/api.rst:1233
+msgid ""
+"``kafkaClient``: client which keeps a connection with the Kafka server. "
+"(**``KafkaClient`` only**, ``client`` not supported)"
+msgstr "``kafkaClient``: client which keeps a connection with the Kafka server. (**``KafkaClient`` only**, ``client`` not supported)"
+
+#: ../../source/kafka-node/api.rst:1237
+msgid "listGroups(cb)"
+msgstr "listGroups(cb)"
+
+#: ../../source/kafka-node/api.rst:1239
+msgid "List the consumer groups managed by the kafka cluster."
+msgstr "List the consumer groups managed by the kafka cluster."
+
+#: ../../source/kafka-node/api.rst:1253 ../../source/kafka-node/api.rst:1280
+msgid "Result:"
+msgstr "Result:"
+
+#: ../../source/kafka-node/api.rst:1263
+msgid "describeGroups(consumerGroups, cb)"
+msgstr "describeGroups(consumerGroups, cb)"
+
+#: ../../source/kafka-node/api.rst:1265
+msgid ""
+"Fetch consumer group information from the cluster. See result for "
+"detailed information."
+msgstr "Fetch consumer group information from the cluster. See result for detailed information."
+
+#: ../../source/kafka-node/api.rst:1268
+msgid ""
+"``consumerGroups``: **Array**, array of consumer groups (which can be "
+"gathered from ``listGroups``)"
+msgstr "``consumerGroups``: **Array**, array of consumer groups (which can be gathered from ``listGroups``)"
+

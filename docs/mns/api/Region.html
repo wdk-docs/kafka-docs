@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Region &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Subscription" href="Subscription.html" />
+    <link rel="prev" title="Msg" href="Msg.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../kafka/index.html">kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">mns api</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aliyun-mns.html">消息服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ali-mns.html">ali-mns (ali-mqs)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">mns api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Account.html">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MNS.html">MNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQ.html">MQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQBatch.html">MQBatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Msg.html">Msg</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Region</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#region-city-string-city-network-string-networktype-zone-string-zone">Region(city?:string|City, network?:string|NetworkType, zone?:string|Zone)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#region-tostring">region.toString()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Subscription.html">Subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Topic.html">MNSTopic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">mns api</a> &raquo;</li>
+        
+          <li><a href="index.html">mns api</a> &raquo;</li>
+        
+      <li>Region</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/mns/api/Region.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="region">
+<h1>Region<a class="headerlink" href="#region" title="永久链接至标题">¶</a></h1>
+<div class="section" id="region-city-string-city-network-string-networktype-zone-string-zone">
+<h2>Region(city?:string|City, network?:string|NetworkType, zone?:string|Zone)<a class="headerlink" href="#region-city-string-city-network-string-networktype-zone-string-zone" title="永久链接至标题">¶</a></h2>
+<p>The <em>Region</em> class help your specifying the region of datacenter.</p>
+<p>city: String | City, optional. It can be the data center name, like
+“hangzhou”, “beijing” or “west-1”, “southeast-2”; or it can be a
+pre-defined city enum value, like <code class="docutils literal notranslate"><span class="pre">AliMNS.City.Beijing</span></code>,
+<code class="docutils literal notranslate"><span class="pre">AliMNS.City.Tokyo</span></code>, check
+<a class="reference external" href="ts/Region.ts#L169-L188">Region.ts#L169-L188</a> for the full list. The
+default is “hangzhou”.</p>
+<p>network: String | NetworkType, optional. If it is a string, should be
+““(empty string) or”-internal” or “-internal-vpc”. If it is
+<a class="reference external" href="ts/Region.ts#L144-L148">NetworkType</a> enum, should be
+<code class="docutils literal notranslate"><span class="pre">AliMNS.NetworkType.Public</span></code> or <code class="docutils literal notranslate"><span class="pre">AliMNS.NetworkType.Internal</span></code> or
+<code class="docutils literal notranslate"><span class="pre">AliMNS.NetworkType.VPC</span></code>. The default is “”(empty string), means
+<code class="docutils literal notranslate"><span class="pre">AliMNS.NetworkType.Public</span></code> network.</p>
+<p>zone: String | Zone, optional. If it is a string, should be data center
+zone, like “cn”, “us”, “eu”, “me” or “ap”. If it is
+<a class="reference external" href="ts/Region.ts#L150-L156">Zone</a> enum, should be <code class="docutils literal notranslate"><span class="pre">AliMNS.Zone.China</span></code>,
+<code class="docutils literal notranslate"><span class="pre">AliMNS.Zone.AsiaPacific</span></code>, <code class="docutils literal notranslate"><span class="pre">AliMNS.Zone.Europe</span></code>,
+<code class="docutils literal notranslate"><span class="pre">AliMNS.Zone.UniteState</span></code> or <code class="docutils literal notranslate"><span class="pre">AliMNS.Zone.MiddleEast</span></code>. The default is
+“cn”, means <code class="docutils literal notranslate"><span class="pre">AliMNS.Zone.China</span></code>. This value will be ignored if city
+parameter is a pre-defined city enum value, because we can deduce zone
+from city.</p>
+<p>samples</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// because hangzhou is the default value.</span>
+<span class="kd">var</span> <span class="nx">regionHangzhou</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">();</span>
+
+<span class="c1">// beijing public network in china</span>
+<span class="kd">var</span> <span class="nx">regionBeijing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;beijing&quot;</span><span class="p">);</span>
+<span class="nx">regionBeijing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="nx">AliMNS</span><span class="p">.</span><span class="nx">City</span><span class="p">.</span><span class="nx">Beijing</span><span class="p">);</span>
+<span class="nx">regionBeijing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;beijing&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+<span class="nx">regionBeijing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;beijing&quot;</span><span class="p">,</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">Public</span><span class="p">);</span>
+<span class="nx">regionBeijing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;beijing&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;cn&quot;</span><span class="p">);</span>
+
+<span class="c1">// east asia in internal network</span>
+<span class="kd">var</span> <span class="nx">regionJapan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="nx">AliMNS</span><span class="p">.</span><span class="nx">City</span><span class="p">.</span><span class="nx">Japan</span><span class="p">,</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">Internal</span><span class="p">);</span>
+<span class="nx">regionJapan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;northeast-1&quot;</span><span class="p">,</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">Internal</span><span class="p">,</span> <span class="s2">&quot;ap&quot;</span><span class="p">);</span>
+<span class="nx">regionJapan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;northeast-1&quot;</span><span class="p">,</span> <span class="s2">&quot;-internal&quot;</span><span class="p">,</span> <span class="s2">&quot;ap&quot;</span><span class="p">);</span>
+
+<span class="c1">// south asia in vpc network</span>
+<span class="kd">var</span> <span class="nx">regionSingapore</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="nx">AliMNS</span><span class="p">.</span><span class="nx">City</span><span class="p">.</span><span class="nx">Singapore</span><span class="p">,</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">NetworkType</span><span class="p">.</span><span class="nx">VPC</span><span class="p">);</span>
+<span class="nx">regionSingapore</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="nx">AliMNS</span><span class="p">.</span><span class="nx">City</span><span class="p">.</span><span class="nx">Singapore</span><span class="p">,</span> <span class="s2">&quot;-internal-vpc&quot;</span><span class="p">);</span>
+<span class="nx">regionSingapore</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;southeast-1&quot;</span><span class="p">,</span> <span class="s2">&quot;-internal-vpc&quot;</span><span class="p">,</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Zone</span><span class="p">.</span><span class="nx">AsiaPacific</span><span class="p">);</span>
+<span class="nx">regionSingapore</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AliMNS</span><span class="p">.</span><span class="nx">Region</span><span class="p">(</span><span class="s2">&quot;southeast-1&quot;</span><span class="p">,</span> <span class="s2">&quot;-internal-vpc&quot;</span><span class="p">,</span> <span class="s2">&quot;ap&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="region-tostring">
+<h2>region.toString()<a class="headerlink" href="#region-tostring" title="永久链接至标题">¶</a></h2>
+<p>Convert region object to string value.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Subscription.html" class="btn btn-neutral float-right" title="Subscription" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Msg.html" class="btn btn-neutral float-left" title="Msg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/kafka/project-info.rst:1
+msgid "Project information Wiki Check out the project wiki Bugs Follow current development and issues Committers See the project committers Security Learn about Kafka® security Papers & talks View our papers and talks Developer info"
+msgstr "Project information Wiki Check out the project wiki Bugs Follow current development and issues Committers See the project committers Security Learn about Kafka® security Papers & talks View our papers and talks Developer info"
+
+#: ../../source/kafka/project-info.rst:15
+msgid "Twitter @apachekafka"
+msgstr "Twitter @apachekafka"
+

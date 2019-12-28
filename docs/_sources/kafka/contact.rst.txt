@@ -1,0 +1,22 @@
+Contact
+===========
+
+Mailing Lists
+------------------
+
+We have a few mailing lists hosted by Apache:
+
+- User mailing list: A list for general user questions about Kafka®. To subscribe, send an email to users-subscribe@kafka.apache.org. Once subscribed, send your emails to users@kafka.apache.org. Archives are available here.
+- Developer mailing list: A list for discussion on Kafka® development. To subscribe, send an email to dev-subscribe@kafka.apache.org. Once subscribed, send your emails to dev@kafka.apache.org. Archives are available here.
+- JIRA mailing list: A list to track Kafka® JIRA notifications. To subscribe, send an email to jira-subscribe@kafka.apache.org. Archives are available here.
+- Commit mailing list: A list to track Kafka® commits. To subscribe, send an email to commits-subscribe@kafka.apache.org. Archives are available here.
+A searchable archive of the mailing lists is available at search-hadoop.com.
+
+To unsubscribe from any of these you just change the word "subscribe" to "unsubscribe" in the email adresses above.
+
+Prior to the move to Apache we had a Google group we used for discussion. Archives can be found here. After that we were in Apache Incubator which has its own archives for user, dev, and commit lists.
+
+IRC
+------
+
+We have an IRC channel where there is often a few people hanging around if you want an interactive discussion. You can find us on chat.freenode.net	in #apache-kafka room (previously #kafka). The irc log can be found here.

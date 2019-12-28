@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/mns/api/Account.rst:2
+msgid "Account"
+msgstr "Account"
+
+#: ../../source/mns/api/Account.rst:5
+msgid "Account(accountId:string, keyId:string, keySecret:string)"
+msgstr "Account(accountId:string, keyId:string, keySecret:string)"
+
+#: ../../source/mns/api/Account.rst:7
+msgid "The *Account* class store your ali account information. Construct an account object is simple:"
+msgstr "The *Account* class store your ali account information. Construct an account object is simple:"
+
+#: ../../source/mns/api/Account.rst:10
+msgid "accountId: String, ali account id."
+msgstr "accountId: String, ali account id."
+
+#: ../../source/mns/api/Account.rst:12
+msgid "keyId: String, ali key id."
+msgstr "keyId: String, ali key id."
+
+#: ../../source/mns/api/Account.rst:14
+msgid "keySecret: String, ali key secret."
+msgstr "keySecret: String, ali key secret."
+
+#: ../../source/mns/api/Account.rst:21
+msgid "The account object is usually passed as an argument for other class such as *MNS*, *MQ*"
+msgstr "The account object is usually passed as an argument for other class such as *MNS*, *MQ*"
+
+#: ../../source/mns/api/Account.rst:24
+msgid "Follow `this link <https://ak-console.aliyun.com/#/accesskey>`__ to find yours"
+msgstr "Follow `this link <https://ak-console.aliyun.com/#/accesskey>`__ to find yours"
+
+#: ../../source/mns/api/Account.rst:28
+msgid "account.getAccountId()"
+msgstr "account.getAccountId()"
+
+#: ../../source/mns/api/Account.rst:30
+msgid "Return the ali account id."
+msgstr "Return the ali account id."
+
+#: ../../source/mns/api/Account.rst:33
+msgid "account.getOwnerId()"
+msgstr "account.getOwnerId()"
+
+#: ../../source/mns/api/Account.rst:35
+msgid "Same as account.getAccountId(). For compatible v1.x."
+msgstr "Same as account.getAccountId(). For compatible v1.x."
+
+#: ../../source/mns/api/Account.rst:38
+msgid "account.getKeyId()"
+msgstr "account.getKeyId()"
+
+#: ../../source/mns/api/Account.rst:40
+msgid "Return the ali key id."
+msgstr "Return the ali key id."
+
+#: ../../source/mns/api/Account.rst:43
+msgid "account.getGA() & account.setGA(bGA:boolean)"
+msgstr "account.getGA() & account.setGA(bGA:boolean)"
+
+#: ../../source/mns/api/Account.rst:45
+msgid "Gets or Sets the status of google analytics collection. Set ``bGA`` to ``true`` for enabling google analytics, while set to ``false`` for disabling google analytics. See `Privacy Policy <#privacy-policy>`__."
+msgstr "Gets or Sets the status of google analytics collection. Set ``bGA`` to ``true`` for enabling google analytics, while set to ``false`` for disabling google analytics. See `Privacy Policy <#privacy-policy>`__."
+
+#: ../../source/mns/api/Account.rst:50
+msgid "account.getHttps() & account.setHttps(bHttps:boolean)"
+msgstr "account.getHttps() & account.setHttps(bHttps:boolean)"
+
+#: ../../source/mns/api/Account.rst:52
+msgid "Gets or Sets using ``http`` or ``https`` protocol. Set ``bHttps`` to ``true`` for using ``https``, while set to ``false`` for using ``http`` protocol. Default is ``false`` for using ``http`` protocol."
+msgstr "Gets or Sets using ``http`` or ``https`` protocol. Set ``bHttps`` to ``true`` for using ``https``, while set to ``false`` for using ``http`` protocol. Default is ``false`` for using ``http`` protocol."
+

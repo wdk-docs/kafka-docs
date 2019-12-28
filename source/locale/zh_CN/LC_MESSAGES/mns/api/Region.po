@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/mns/api/Region.rst:2
+msgid "Region"
+msgstr "Region"
+
+#: ../../source/mns/api/Region.rst:5
+msgid "Region(city?:string|City, network?:string|NetworkType, zone?:string|Zone)"
+msgstr "Region(city?:string|City, network?:string|NetworkType, zone?:string|Zone)"
+
+#: ../../source/mns/api/Region.rst:7
+msgid "The *Region* class help your specifying the region of datacenter."
+msgstr "The *Region* class help your specifying the region of datacenter."
+
+#: ../../source/mns/api/Region.rst:9
+msgid ""
+"city: String \\| City, optional. It can be the data center name, like "
+"“hangzhou”, “beijing” or “west-1”, “southeast-2”; or it can be a pre-"
+"defined city enum value, like ``AliMNS.City.Beijing``, "
+"``AliMNS.City.Tokyo``, check `Region.ts#L169-L188 "
+"<ts/Region.ts#L169-L188>`__ for the full list. The default is “hangzhou”."
+msgstr "city: String \\| City, optional. It can be the data center name, like “hangzhou”, “beijing” or “west-1”, “southeast-2”; or it can be a pre-defined city enum value, like ``AliMNS.City.Beijing``, ``AliMNS.City.Tokyo``, check `Region.ts#L169-L188 <ts/Region.ts#L169-L188>`__ for the full list. The default is “hangzhou”."
+
+#: ../../source/mns/api/Region.rst:16
+msgid ""
+"network: String \\| NetworkType, optional. If it is a string, should be "
+"\"“(empty string) or”-internal\" or “-internal-vpc”. If it is "
+"`NetworkType <ts/Region.ts#L144-L148>`__ enum, should be "
+"``AliMNS.NetworkType.Public`` or ``AliMNS.NetworkType.Internal`` or "
+"``AliMNS.NetworkType.VPC``. The default is \"\"(empty string), means "
+"``AliMNS.NetworkType.Public`` network."
+msgstr ""
+
+#: ../../source/mns/api/Region.rst:23
+msgid ""
+"zone: String \\| Zone, optional. If it is a string, should be data center"
+" zone, like “cn”, “us”, “eu”, “me” or “ap”. If it is `Zone "
+"<ts/Region.ts#L150-L156>`__ enum, should be ``AliMNS.Zone.China``, "
+"``AliMNS.Zone.AsiaPacific``, ``AliMNS.Zone.Europe``, "
+"``AliMNS.Zone.UniteState`` or ``AliMNS.Zone.MiddleEast``. The default is "
+"“cn”, means ``AliMNS.Zone.China``. This value will be ignored if city "
+"parameter is a pre-defined city enum value, because we can deduce zone "
+"from city."
+msgstr ""
+
+#: ../../source/mns/api/Region.rst:32
+msgid "samples"
+msgstr "samples"
+
+#: ../../source/mns/api/Region.rst:58
+msgid "region.toString()"
+msgstr "region.toString()"
+
+#: ../../source/mns/api/Region.rst:60
+msgid "Convert region object to string value."
+msgstr "Convert region object to string value."
+

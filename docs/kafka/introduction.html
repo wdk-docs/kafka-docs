@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>介绍 &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="快速开始" href="quickstart.html" />
+    <link rel="prev" title="kafka" href="home.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">kafka</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="home.html">kafka</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#topics-and-logs">主题和日志</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distribution">分配</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geo-replication">地域复制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#producers">生产者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consumers">消费者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-tenancy">多租户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guarantees">担保</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-as-a-messaging-system">卡夫卡作为消息系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-as-a-storage-system">Kafka作为存储系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-for-stream-processing">Kafka用于流处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putting-the-pieces-together">把碎片放在一起</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html">用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apache.html">Apache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mns/index.html">mns api</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">kafka</a> &raquo;</li>
+        
+      <li>介绍</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/kafka/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>介绍<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h1>
+<p>ApacheKafka®是一个分布式流媒体平台。这到底是什么意思呢？流媒体平台有三个关键功能:</p>
+<ul class="simple">
+<li><p>发布和订阅记录流，类似于消息队列或企业消息传递系统。</p></li>
+<li><p>以容错的持久方式存储记录流。</p></li>
+<li><p>记录发生时处理流。</p></li>
+</ul>
+<p>Kafka通常用于两大类应用程序:</p>
+<ul class="simple">
+<li><p>构建可在系统或应用程序之间可靠获取数据的实时流数据管道</p></li>
+<li><p>构建转换或响应数据流的实时流应用程序</p></li>
+</ul>
+<p>要了解Kafka如何做这些事情，让我们深入探讨Kafka的能力。</p>
+<p>首先是几个概念:</p>
+<ul class="simple">
+<li><p>Kafka作为一个集群运行在一个或多个可跨多个数据中心的服务器上。</p></li>
+<li><p>Kafka集群以称为主题的类别存储记录流。</p></li>
+<li><p>每条记录由一个键，一个值和一个时间戳组成。</p></li>
+</ul>
+<p>Kafka有四个核心API:</p>
+<ul class="simple">
+<li><p>Producer API允许应用程序将记录流发布到一个或多个Kafka主题。</p></li>
+<li><p>Consumer API允许应用程序订阅一个或多个主题并处理生成的记录流。</p></li>
+<li><p>Streams API允许应用程序充当流处理器，消耗来自一个或多个主题的输入流并生成到一个或多个输出主题的输出流，从而有效地将输入流转换为输出流。</p></li>
+<li><p>Connector API允许构建和运行将Kafka主题连接到现有应用程序或数据系统的可重用生产者或使用者。例如，关系数据库的连接器可能捕获对表的每个更改。</p></li>
+</ul>
+<img alt="https://kafka.apache.org/22/images/kafka-apis.png" src="https://kafka.apache.org/22/images/kafka-apis.png" />
+<p>在Kafka中，客户端和服务器之间的通信是通过简单，高性能，语言无关的TCP协议完成的。此协议已版本化并保持与旧版本的向后兼容性。我们为Kafka提供Java客户端，但客户端有多种语言版本。</p>
+<div class="section" id="topics-and-logs">
+<h2>主题和日志<a class="headerlink" href="#topics-and-logs" title="永久链接至标题">¶</a></h2>
+<p>让我们首先深入探讨Kafka为记录流提供的核心抽象 - 主题。</p>
+<p>主题是发布记录的类别或订阅源名称。 Kafka的主题总是多用户;也就是说，一个主题可以有零个，一个或多个消费者订阅写入它的数据。</p>
+<p>对于每个主题，Kafka群集都维护一个看起来像这样的分区日志:</p>
+<img alt="https://kafka.apache.org/22/images/log_anatomy.png" src="https://kafka.apache.org/22/images/log_anatomy.png" />
+<p>每个分区都是一个有序的，不可变的记录序列，不断附加到结构化的提交日志中。分区中的记录每个都被分配一个称为偏移的顺序ID号，它唯一地标识分区中的每个记录。</p>
+<p>The Kafka cluster durably persists all published records—whether or not they have been consumed—using a configurable retention period. For example, if the retention policy is set to two days, then for the two days after a record is published, it is available for consumption, after which it will be discarded to free up space. Kafka’s performance is effectively constant with respect to data size so storing data for a long time is not a problem.</p>
+<img alt="https://kafka.apache.org/22/images/log_consumer.png" src="https://kafka.apache.org/22/images/log_consumer.png" />
+<p>In fact, the only metadata retained on a per-consumer basis is the offset or position of that consumer in the log. This offset is controlled by the consumer: normally a consumer will advance its offset linearly as it reads records, but, in fact, since the position is controlled by the consumer it can consume records in any order it likes. For example a consumer can reset to an older offset to reprocess data from the past or skip ahead to the most recent record and start consuming from “now”.</p>
+<p>这些功能组合意味着Kafka消费者非常便宜 - 他们可以来来往往对集群或其他消费者没有太大影响。例如，您可以使用我们的命令行工具来“拖尾”任何主题的内容，而无需更改任何现有使用者所使用的内容。</p>
+<p>日志中的分区有多种用途。首先，它们允许日志扩展到超出适合单个服务器的大小。每个单独的分区必须适合托管它的服务器，但主题可能有许多分区，因此它可以处理任意数量的数据。其次，它们充当了并行性的单位 - 更多的是在一点上。</p>
+</div>
+<div class="section" id="distribution">
+<h2>分配<a class="headerlink" href="#distribution" title="永久链接至标题">¶</a></h2>
+<p>日志的分区分布在Kafka集群中的服务器上，每个服务器处理数据并请求分区的共享。每个分区都在可配置数量的服务器上进行复制，以实现容错。</p>
+<p>每个分区都有一个服务器充当“领导者”，零个或多个服务器充当“追随者”。领导者处理分区的所有读取和写入请求，而关注者被动地复制领导者。如果领导者失败，其中一个粉丝将自动成为新的领导者。每个服务器都充当其某些分区的领导者和其他服务器的追随者，因此负载在群集中很平衡。</p>
+</div>
+<div class="section" id="geo-replication">
+<h2>地域复制<a class="headerlink" href="#geo-replication" title="永久链接至标题">¶</a></h2>
+<p>Kafka MirrorMaker为您的群集提供地理复制支持。使用MirrorMaker，可以跨多个数据中心或云区域复制邮件。您可以在主动/被动方案中使用它进行备份和恢复;或者在主动/主动方案中，使数据更接近用户，或支持数据位置要求。</p>
+</div>
+<div class="section" id="producers">
+<h2>生产者<a class="headerlink" href="#producers" title="永久链接至标题">¶</a></h2>
+<p>生产者将数据发布到他们选择的主题。生产者负责选择分配给主题中哪个分区的记录。这可以通过循环方式完成，只是为了平衡负载，或者可以根据一些语义分区功能（例如基于记录中的某些键）来完成。更多关于在一秒钟内使用分区的信息！</p>
+</div>
+<div class="section" id="consumers">
+<h2>消费者<a class="headerlink" href="#consumers" title="永久链接至标题">¶</a></h2>
+<p>消费者使用消费者组名称标记自己，并且发布到主题的每个记录被传递到每个订阅消费者组中的一个消费者实例。消费者实例可以在单独的进程中，也可以在不同的机器</p>
+<p>如果所有使用者实例具有相同的使用者组，则记录将有效地在使用者实例上进行负载平衡。</p>
+<p>如果所有消费者实例具有不同的消费者组，则每个记录将广播到所有消费者进程。</p>
+<img alt="https://kafka.apache.org/22/images/consumer-groups.png" src="https://kafka.apache.org/22/images/consumer-groups.png" />
+<p>两个服务器Kafka群集，托管四个分区（P0-P3），包含两个使用者组。消费者组A有两个消费者实例，B组有四个消费者实例。</p>
+<p>然而，更常见的是，我们发现主题具有少量的消费者群体，每个消费者群体对应一个“逻辑订户”。每个组由许多用于可伸缩性和容错的消费者实例组成。这只不过是发布 - 订阅语义，其中订阅者是消费者群集而不是单个进程。</p>
+<p>在Kafka中实现消费的方式是通过在消费者实例上划分日志中的分区，以便每个实例在任何时间点都是分配的“公平共享”的独占消费者。维护组中成员资格的过程由Kafka协议动态处理。如果新实例加入该组，他们将从该组的其他成员接管一些分区;如果实例死亡，其分区将分发给其余实例。</p>
+<p>Kafka仅提供分区内记录的总订单，而不是主题中不同分区之间的记录。对于大多数应用程序而言，按分区排序与按键分区数据的能力相结合就足够了。但是，如果您需要对记录进行总订单，则可以使用仅包含一个分区的主题来实现，但这将意味着每个使用者组只有一个使用者进程。</p>
+</div>
+<div class="section" id="multi-tenancy">
+<h2>多租户<a class="headerlink" href="#multi-tenancy" title="永久链接至标题">¶</a></h2>
+<p>您可以将Kafka部署为多租户解决方案。通过配置哪些主题可以生成或使用数据来启用多租户。配额也有运营支持。管理员可以定义和强制执行配额，以控制客户端使用的代理资源。有关更多信息，请参阅安全文档。</p>
+</div>
+<div class="section" id="guarantees">
+<h2>担保<a class="headerlink" href="#guarantees" title="永久链接至标题">¶</a></h2>
+<p>在高级别卡夫卡提供以下保证:</p>
+<p>生产者发送到特定主题分区的消息将按其发送顺序附加。也就是说，如果记录M1由与记录M2相同的生产者发送，并且首先发送M1，则M1将具有比M2更低的偏移并且在日志中更早出现。消费者实例按照它们存储在日志中的顺序查看记录。对于具有复制因子N的主题，我们将容忍最多N-1个服务器故障，而不会丢失任何提交到日志的记录。有关这些保证的更多详细信息，请参见文档的设计部分。</p>
+</div>
+<div class="section" id="kafka-as-a-messaging-system">
+<h2>卡夫卡作为消息系统<a class="headerlink" href="#kafka-as-a-messaging-system" title="永久链接至标题">¶</a></h2>
+<p>Kafka的流概念与传统的企业邮件系统相比如何？</p>
+<p>消息传统上有两种模型：排队和发布 - 订阅。在队列中，消费者池可以从服务器读取并且每个记录转到其中一个;在发布 - 订阅中，记录被广播给所有消费者。这两种模型中的每一种都有优点和缺点。排队的优势在于它允许您在多个消费者实例上划分数据处理，从而可以扩展您的处理。不幸的是，一旦一个进程读取它已经消失的数据，队列就不是​​多用户。发布 - 订阅允许您将数据广播到多个进程，但由于每条消息都发送给每个订阅者，因此无法进行扩展处理。</p>
+<p>卡夫卡的消费者群体概念概括了这两个概念。与队列一样，使用者组允许您将处理划分为一组进程（使用者组的成员）。与发布 - 订阅一样，Kafka允许您向多个消费者组广播消息。</p>
+<p>Kafka模型的优势在于每个主题都具有这些属性 - 它可以扩展处理并且也是多用户 - 不需要选择其中一个。</p>
+<p>与传统的消息系统相比，Kafka具有更强的订购保证。</p>
+<p>传统队列在服务器上按顺序保留记录，如果多个消费者从队列中消耗，则服务器按照存储顺序分发记录。但是，虽然服务器按顺序分发记录，但是记录是异步传递给消费者的，因此它们可能会在不同的消费者上无序传送。这实际上意味着在存在并行消耗的情况下丢失记录的顺序。消息传递系统通常通过具有“独占消费者”的概念来解决这个问题，该概念只允许一个进程从队列中消耗，但当然这意味着处理中没有并行性。</p>
+<p>卡夫卡做得更好。通过在主题中具有并行性概念 - 分区 - ，Kafka能够在消费者流程池中提供订购保证和负载平衡。这是通过将主题中的分区分配给使用者组中的使用者来实现的，以便每个分区仅由该组中的一个使用者使用。通过这样做，我们确保使用者是该分区的唯一读者并按顺序使用数据。由于有许多分区，这仍然可以平衡许多消费者实例的负载。但请注意，消费者组中的消费者实例不能超过分区。</p>
+</div>
+<div class="section" id="kafka-as-a-storage-system">
+<h2>Kafka作为存储系统<a class="headerlink" href="#kafka-as-a-storage-system" title="永久链接至标题">¶</a></h2>
+<p>任何允许发布与消费它们分离的消息的消息队列实际上充当了正在进行的消息的存储系统。 Kafka的不同之处在于它是一个非常好的存储系统。</p>
+<p>写入Kafka的数据将写入磁盘并进行复制以实现容错。 Kafka允许生产者等待确认，以便在完全复制之前写入不被认为是完整的，并且即使写入的服务器失败也保证写入仍然存在。</p>
+<p>磁盘结构Kafka很好地使用了规模 - 无论服务器上有50 KB还是50 TB的持久数据，Kafka都会执行相同的操作。</p>
+<p>由于认真对待存储并允许客户端控制其读取位置，您可以将Kafka视为一种专用于高性能，低延迟提交日志存储，复制和传播的专用分布式文件系统。</p>
+<p>有关Kafka的提交日志存储和复制设计的详细信息，请阅读此页面。</p>
+</div>
+<div class="section" id="kafka-for-stream-processing">
+<h2>Kafka用于流处理<a class="headerlink" href="#kafka-for-stream-processing" title="永久链接至标题">¶</a></h2>
+<p>仅仅读取，写入和存储数据流是不够的，目的是实现流的实时处理。</p>
+<p>在Kafka中，流处理器是指从输入主题获取连续数据流，对此输入执行某些处理以及生成连续数据流以输出主题的任何内容。</p>
+<p>例如，零售应用程序可能会接收销售和发货的输入流，并输出重新排序流和根据此数据计算的价格调整。</p>
+<p>可以使用生产者和消费者API直接进行简单处理。但是，对于更复杂的转换，Kafka提供了完全集成的Streams API。这允许构建执行非平凡处理的应用程序，这些应用程序可以计算流的聚合或将流连接在一起。</p>
+<p>此工具有助于解决此类应用程序面临的难题：处理无序数据，在代码更改时重新处理输入，执行有状态计算等。</p>
+<p>流API构建在Kafka提供的核心原语上：它使用生产者和消费者API进行输入，使用Kafka进行有状态存储，并在流处理器实例之间使用相同的组机制来实现容错。</p>
+</div>
+<div class="section" id="putting-the-pieces-together">
+<h2>把碎片放在一起<a class="headerlink" href="#putting-the-pieces-together" title="永久链接至标题">¶</a></h2>
+<p>消息传递，存储和流处理的这种组合可能看起来很不寻常，但它对于Kafka作为流媒体平台的作用至关重要。</p>
+<p>像HDFS这样的分布式文件系统允许存储静态文件以进行批处理。有效地，这样的系统允许存储和处理过去的历史数据。</p>
+<p>传统的企业邮件系统允许处理订阅后到达的未来邮件。以这种方式构建的应用程序在到达时处理未来数据。</p>
+<p>Kafka结合了这两种功能，这种组合对于Kafka作为流媒体应用程序平台以及流数据管道的使用至关重要。</p>
+<p>通过组合存储和低延迟订阅，流应用程序可以以相同的方式处理过去和未来的数据。也就是说，单个应用程序可以处理历史存储的数据，而不是在它到达最后一条记录时结束，它可以在未来数据到达时继续处理。这是包含批处理以及消息驱动应用程序的流处理的一般概念。</p>
+<p>同样，对于流数据流水线，订阅实时事件的组合使得可以将Kafka用于极低延迟的流水线;但是，能够可靠地存储数据使得可以将其用于必须保证数据传输的关键数据，或者与仅定期加载数据或可能长时间停机以进行维护的离线系统集成。流处理设施可以在数据到达时对其进行转换。</p>
+<p>有关Kafka提供的保证，API和功能的更多信息，请参阅其余文档。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="快速开始" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="home.html" class="btn btn-neutral float-left" title="kafka" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

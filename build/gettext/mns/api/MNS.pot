@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/mns/api/MNS.rst:2
+msgid "MNS"
+msgstr "MNS"
+
+#: ../../source/mns/api/MNS.rst:5
+msgid "MNS(account:Account, region?:string|Region)"
+msgstr "MNS(account:Account, region?:string|Region)"
+
+#: ../../source/mns/api/MNS.rst:7
+msgid "The *MNS* operate the mns queue."
+msgstr "The *MNS* operate the mns queue."
+
+#: ../../source/mns/api/MNS.rst:9
+msgid "account: An account object."
+msgstr "account: An account object."
+
+#: ../../source/mns/api/MNS.rst:11
+msgid "region: String|Region, optional. If it is string, it can be “hangzhou”, “beijing” or any Chinese datacenter city name. If it is Region, it allows you to specify data center other than in China. Default is “hangzhou”. It can also be internal or vpc address “hangzhou-internal”, “beijing-internal” or “qingdao-internal-vpc”."
+msgstr "region: String|Region, optional. If it is string, it can be “hangzhou”, “beijing” or any Chinese datacenter city name. If it is Region, it allows you to specify data center other than in China. Default is “hangzhou”. It can also be internal or vpc address “hangzhou-internal”, “beijing-internal” or “qingdao-internal-vpc”."
+
+#: ../../source/mns/api/MNS.rst:27
+msgid "MQS(account:Account, region?:string|Region)"
+msgstr "MQS(account:Account, region?:string|Region)"
+
+#: ../../source/mns/api/MNS.rst:29
+msgid "Same as MNS. For compatible v1.x."
+msgstr "Same as MNS. For compatible v1.x."
+
+#: ../../source/mns/api/MNS.rst:32
+msgid "mns.listP(prefix?:string, pageSize?:number, pageMarker?:string)"
+msgstr "mns.listP(prefix?:string, pageSize?:number, pageMarker?:string)"
+
+#: ../../source/mns/api/MNS.rst:34
+msgid "List all of the queue in a data center."
+msgstr "List all of the queue in a data center."
+
+#: ../../source/mns/api/MNS.rst:36
+msgid "prefix: String, optional. Return only mq with the prefix."
+msgstr "prefix: String, optional. Return only mq with the prefix."
+
+#: ../../source/mns/api/MNS.rst:38
+msgid "pageSize: number, optional. How many mns will be returned in a page, 1~1000, default is 1000."
+msgstr "pageSize: number, optional. How many mns will be returned in a page, 1~1000, default is 1000."
+
+#: ../../source/mns/api/MNS.rst:41
+msgid "pageMarker: String, optional. Request the next page, the value is returned in last call."
+msgstr "pageMarker: String, optional. Request the next page, the value is returned in last call."
+
+#: ../../source/mns/api/MNS.rst:54
+msgid "mns.createP(name:string, options?:any)"
+msgstr "mns.createP(name:string, options?:any)"
+
+#: ../../source/mns/api/MNS.rst:56
+msgid "Create a mq."
+msgstr "Create a mq."
+
+#: ../../source/mns/api/MNS.rst:58
+#: ../../source/mns/api/MNS.rst:96
+msgid "name: String. The queue name."
+msgstr "name: String. The queue name."
+
+#: ../../source/mns/api/MNS.rst:60
+msgid "options: optional. The queue attributes."
+msgstr "options: optional. The queue attributes."
+
+#: ../../source/mns/api/MNS.rst:62
+msgid "options.DelaySeconds: number. How many seconds will the messages be visible after sent. 0~604800(7days), default is 0."
+msgstr "options.DelaySeconds: number. How many seconds will the messages be visible after sent. 0~604800(7days), default is 0."
+
+#: ../../source/mns/api/MNS.rst:65
+msgid "options.MaximumMessageSize: number. How many bytes could the message be. 1024(1k)~65536, default is 65536(64k)."
+msgstr "options.MaximumMessageSize: number. How many bytes could the message be. 1024(1k)~65536, default is 65536(64k)."
+
+#: ../../source/mns/api/MNS.rst:68
+msgid "options.MessageRetentionPeriod: number. How many seconds will the messages live, 60~1296000(15days), default is 345600(4days)."
+msgstr "options.MessageRetentionPeriod: number. How many seconds will the messages live, 60~1296000(15days), default is 345600(4days)."
+
+#: ../../source/mns/api/MNS.rst:71
+msgid "optiions.VisibilityTimeout: number. How many seconds will the message keep invisible after be received, 1~43200(12hours), default is 30."
+msgstr "optiions.VisibilityTimeout: number. How many seconds will the message keep invisible after be received, 1~43200(12hours), default is 30."
+
+#: ../../source/mns/api/MNS.rst:74
+msgid "options.PollingWaitSeconds: numer. How many seconds will the receive request wait for if mq is empty. 0~30, default is 0."
+msgstr "options.PollingWaitSeconds: numer. How many seconds will the receive request wait for if mq is empty. 0~30, default is 0."
+
+#: ../../source/mns/api/MNS.rst:87
+msgid "If a mq with same name exists, calling createP will succeed only when all of the mq attributes are all same. Any mismatched attributes will cause an “QueueAlreadyExist” failure."
+msgstr "If a mq with same name exists, calling createP will succeed only when all of the mq attributes are all same. Any mismatched attributes will cause an “QueueAlreadyExist” failure."
+
+#: ../../source/mns/api/MNS.rst:92
+msgid "mns.deleteP(name:string)"
+msgstr "mns.deleteP(name:string)"
+
+#: ../../source/mns/api/MNS.rst:94
+msgid "Delete an mq."
+msgstr "Delete an mq."
+

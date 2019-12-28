@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>kafka &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="kafka" href="home.html" />
+    <link rel="prev" title="Welcome to kafka docs’s documentation!" href="../contents.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">kafka</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="home.html">kafka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html">用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="powered-by.html">Powered By</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">Project information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events Meetups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mns/index.html">mns api</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>kafka</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/kafka/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kafka">
+<h1>kafka<a class="headerlink" href="#kafka" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">kafka</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="home.html#pubnlish-subscribe">PUBNLISH &amp; SUBSCRIBE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#process">PROCESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#store">STORE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#topics-and-logs">主题和日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#distribution">分配</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#geo-replication">地域复制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#producers">生产者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#consumers">消费者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#multi-tenancy">多租户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#guarantees">担保</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#kafka-as-a-messaging-system">卡夫卡作为消息系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#kafka-as-a-storage-system">Kafka作为存储系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#kafka-for-stream-processing">Kafka用于流处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#putting-the-pieces-together">把碎片放在一起</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id2">步1: 下载代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id3">步2: 启动服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id4">步3: 创建一个主题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id5">步4: 发送一些消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id6">步5: 启动消费者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id7">步6: 设置多代理群集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#kafka-connect">步7: 使用Kafka Connect导入/导出数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#kafka-streams">步8: 使用Kafka Streams处理数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#kafka-connect-1">步7: 使用Kafka Connect导入/导出数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#kafka-streams-1">步8: 使用Kafka Streams处理数据</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">用例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html#id2">消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html#id3">网站活动跟踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html#id4">度量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html#id5">日志聚合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html#id6">流处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html#id7">活动采购</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html#id8">提交日志</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#id3">]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="powered-by.html">Powered By</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project.html#wiki">Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#bugs">Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#committers">Committers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#security">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#papers-talks">Papers &amp; talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#developer-info">Developer info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#twitter">Twitter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events Meetups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#mailing-lists">Mailing Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#irc">IRC</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="home.html" class="btn btn-neutral float-right" title="kafka" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../contents.html" class="btn btn-neutral float-left" title="Welcome to kafka docs’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

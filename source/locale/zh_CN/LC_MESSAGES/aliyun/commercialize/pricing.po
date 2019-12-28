@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/aliyun/commercialize/pricing.rst:2
+msgid "产品定价"
+msgstr "产品定价"
+
+#: ../../source/aliyun/commercialize/pricing.rst:4
+msgid "消息队列 Kafka 提供以下基本规格与价格："
+msgstr "消息队列 Kafka 提供以下基本规格与价格："
+
+#: ../../source/aliyun/commercialize/pricing.rst:7
+msgid "流量峰值吞吐（MB/s）"
+msgstr "流量峰值吞吐（MB/s）"
+
+#: ../../source/aliyun/commercialize/pricing.rst:7
+msgid "消息存储空间 (GB)"
+msgstr "消息存储空间 (GB)"
+
+#: ../../source/aliyun/commercialize/pricing.rst:7
+msgid "价格（元/月）"
+msgstr "价格（元/月）"
+
+#: ../../source/aliyun/commercialize/pricing.rst:9
+msgid "20"
+msgstr "20"
+
+#: ../../source/aliyun/commercialize/pricing.rst:9
+msgid "450"
+msgstr "450"
+
+#: ../../source/aliyun/commercialize/pricing.rst:9
+msgid "1,584"
+msgstr "1,584"
+
+#: ../../source/aliyun/commercialize/pricing.rst:10
+msgid "30"
+msgstr "30"
+
+#: ../../source/aliyun/commercialize/pricing.rst:10
+msgid "750"
+msgstr "750"
+
+#: ../../source/aliyun/commercialize/pricing.rst:10
+msgid "2,284"
+msgstr "2,284"
+
+#: ../../source/aliyun/commercialize/pricing.rst:11
+msgid "60"
+msgstr "60"
+
+#: ../../source/aliyun/commercialize/pricing.rst:11
+msgid "1350"
+msgstr "1350"
+
+#: ../../source/aliyun/commercialize/pricing.rst:11
+msgid "3,284"
+msgstr "3,284"
+
+#: ../../source/aliyun/commercialize/pricing.rst:12
+msgid "90"
+msgstr "90"
+
+#: ../../source/aliyun/commercialize/pricing.rst:12
+msgid "2100"
+msgstr "2100"
+
+#: ../../source/aliyun/commercialize/pricing.rst:12
+msgid "4,166"
+msgstr "4,166"
+
+#: ../../source/aliyun/commercialize/pricing.rst:13
+msgid "120"
+msgstr "120"
+
+#: ../../source/aliyun/commercialize/pricing.rst:13
+msgid "2700"
+msgstr "2700"
+
+#: ../../source/aliyun/commercialize/pricing.rst:13
+msgid "5,066"
+msgstr "5,066"
+
+#: ../../source/aliyun/commercialize/pricing.rst:14
+msgid "160"
+msgstr "160"
+
+#: ../../source/aliyun/commercialize/pricing.rst:14
+msgid "3600"
+msgstr "3600"
+
+#: ../../source/aliyun/commercialize/pricing.rst:14
+msgid "5,966"
+msgstr "5,966"
+
+#: ../../source/aliyun/commercialize/pricing.rst:15
+msgid "200"
+msgstr "200"
+
+#: ../../source/aliyun/commercialize/pricing.rst:15
+msgid "4500"
+msgstr "4500"
+
+#: ../../source/aliyun/commercialize/pricing.rst:15
+msgid "7,266"
+msgstr "7,266"
+
+#: ../../source/aliyun/commercialize/pricing.rst:16
+msgid "250"
+msgstr "250"
+
+#: ../../source/aliyun/commercialize/pricing.rst:16
+msgid "5400"
+msgstr "5400"
+
+#: ../../source/aliyun/commercialize/pricing.rst:16
+msgid "8,466"
+msgstr "8,466"
+
+#: ../../source/aliyun/commercialize/pricing.rst:17
+msgid "300"
+msgstr "300"
+
+#: ../../source/aliyun/commercialize/pricing.rst:17
+msgid "6600"
+msgstr "6600"
+
+#: ../../source/aliyun/commercialize/pricing.rst:17
+msgid "9,666"
+msgstr "9,666"
+
+#: ../../source/aliyun/commercialize/pricing.rst:20
+msgid "您还可以在以上规格的基础上，自定义增加磁盘的容量，收费规则如下："
+msgstr "您还可以在以上规格的基础上，自定义增加磁盘的容量，收费规则如下："
+
+#: ../../source/aliyun/commercialize/pricing.rst:23
+msgid "磁盘"
+msgstr "磁盘"
+
+#: ../../source/aliyun/commercialize/pricing.rst:23
+msgid "收费（元/月/100GB）"
+msgstr "收费（元/月/100GB）"
+
+#: ../../source/aliyun/commercialize/pricing.rst:25
+msgid "云盘"
+msgstr "云盘"
+
+#: ../../source/aliyun/commercialize/pricing.rst:25
+msgid "35"
+msgstr "35"
+
+#: ../../source/aliyun/commercialize/pricing.rst:26
+msgid "SSD"
+msgstr "SSD"
+
+#: ../../source/aliyun/commercialize/pricing.rst:26
+msgid "100"
+msgstr "100"
+
+#: ../../source/aliyun/commercialize/pricing.rst:30
+msgid "注意事项"
+msgstr "注意事项"
+
+#: ../../source/aliyun/commercialize/pricing.rst:32
+msgid ""
+"**流量峰值：** 写或读流量峰值，流量分为双通道，读写一致。购买时请按最大的为准。如写流量的峰值 100MB/s，读流量的峰值 "
+"300MB/s，则以 300MB/s 规格购买。"
+msgstr "**流量峰值：** 写或读流量峰值，流量分为双通道，读写一致。购买时请按最大的为准。如写流量的峰值 100MB/s，读流量的峰值 300MB/s，则以 300MB/s 规格购买。"
+
+#: ../../source/aliyun/commercialize/pricing.rst:36
+msgid "注意：消息队列 Kafka 默认支持 3 副本，但购买时仅以实际业务（即单副本）流量计算。"
+msgstr "注意：消息队列 Kafka 默认支持 3 副本，但购买时仅以实际业务（即单副本）流量计算。"
+
+#: ../../source/aliyun/commercialize/pricing.rst:39
+msgid "**磁盘容量：** 数据默认为 3 副本存储。如选择 300G 磁盘，由于 3 副本缘故，实际存储业务的磁盘大小为 100G，其余为备份容量。"
+msgstr "**磁盘容量：** 数据默认为 3 副本存储。如选择 300G 磁盘，由于 3 副本缘故，实际存储业务的磁盘大小为 100G，其余为备份容量。"
+
+#: ../../source/aliyun/commercialize/pricing.rst:42
+msgid ""
+"**消息保留的最长时间：** 是指在磁盘容量充足的情况下，消息的最长保留时间。在磁盘容量不足（即磁盘水位达到 "
+"85%）时，系统将提前删除旧的消息，以确保服务可用性。消息保留的最长时间默认为 72 小时，可选 24 小时 ～ 168 小时。"
+msgstr "**消息保留的最长时间：** 是指在磁盘容量充足的情况下，消息的最长保留时间。在磁盘容量不足（即磁盘水位达到 85%）时，系统将提前删除旧的消息，以确保服务可用性。消息保留的最长时间默认为 72 小时，可选 24 小时 ～ 168 小时。"
+
+#: ../../source/aliyun/commercialize/pricing.rst:47
+msgid "**计费规格：** 购买规格按照流量峰值与磁盘容量两个维度计算。任何规格下的 Topic 个数与接口调用次数不另外收费。"
+msgstr "**计费规格：** 购买规格按照流量峰值与磁盘容量两个维度计算。任何规格下的 Topic 个数与接口调用次数不另外收费。"
+

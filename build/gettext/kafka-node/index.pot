@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/kafka-node/index.rst:14
+#: ../../source/kafka-node/index.rst:14
+msgid "Contents:"
+msgstr "Contents:"
+
+#: ../../source/kafka-node/index.rst:2
+msgid "Kafka-node"
+msgstr "Kafka-node"
+
+#: ../../source/kafka-node/index.rst:4
+msgid "|Build Status| |Coverage Status|"
+msgstr "|Build Status| |Coverage Status|"
+
+#: ../../source/kafka-node/index.rst:6
+msgid "|NPM|"
+msgstr "|NPM|"
+
+#: ../../source/kafka-node/index.rst:8
+msgid "Kafka-node is a Node.js client with Zookeeper integration for Apache Kafka 0.8.1 and later."
+msgstr "Kafka-node is a Node.js client with Zookeeper integration for Apache Kafka 0.8.1 and later."
+
+#: ../../source/kafka-node/index.rst:12
+msgid "Table of Contents"
+msgstr "Table of Contents"
+
+#: ../../source/kafka-node/index.rst:23
+msgid "Features"
+msgstr "Features"
+
+#: ../../source/kafka-node/index.rst:25
+msgid "Consumer and High Level Consumer"
+msgstr "Consumer and High Level Consumer"
+
+#: ../../source/kafka-node/index.rst:26
+msgid "Producer and High Level Producer"
+msgstr "Producer and High Level Producer"
+
+#: ../../source/kafka-node/index.rst:27
+msgid "Node Stream Producer (Kafka 0.9+)"
+msgstr "Node Stream Producer (Kafka 0.9+)"
+
+#: ../../source/kafka-node/index.rst:28
+msgid "Node Stream Consumers (ConsumerGroupStream Kafka 0.9+)"
+msgstr "Node Stream Consumers (ConsumerGroupStream Kafka 0.9+)"
+
+#: ../../source/kafka-node/index.rst:29
+msgid "Manage topic Offsets"
+msgstr "Manage topic Offsets"
+
+#: ../../source/kafka-node/index.rst:30
+msgid "SSL connections to brokers (Kafka 0.9+)"
+msgstr "SSL connections to brokers (Kafka 0.9+)"
+
+#: ../../source/kafka-node/index.rst:31
+msgid "Consumer Groups managed by Kafka coordinator (Kafka 0.9+)"
+msgstr "Consumer Groups managed by Kafka coordinator (Kafka 0.9+)"
+
+#: ../../source/kafka-node/index.rst:32
+msgid "Connect directly to brokers (Kafka 0.9+)"
+msgstr "Connect directly to brokers (Kafka 0.9+)"
+
+#: ../../source/kafka-node/index.rst:33
+msgid "Administrative APIs"
+msgstr "Administrative APIs"
+
+#: ../../source/kafka-node/index.rst:35
+msgid "List Groups"
+msgstr "List Groups"
+
+#: ../../source/kafka-node/index.rst:36
+msgid "Describe Groups"
+msgstr "Describe Groups"
+
+#: ../../source/kafka-node/index.rst:39
+msgid "Install Kafka"
+msgstr "Install Kafka"
+
+#: ../../source/kafka-node/index.rst:41
+msgid "Follow the `instructions <http://kafka.apache.org/documentation.html#quickstart>`__ on the Kafka wiki to build Kafka 0.8 and get a test broker up and running."
+msgstr "Follow the `instructions <http://kafka.apache.org/documentation.html#quickstart>`__ on the Kafka wiki to build Kafka 0.8 and get a test broker up and running."
+
+#: ../../source/kafka-node/index.rst:47
+msgid "LICENSE - “MIT”"
+msgstr "LICENSE - “MIT”"
+
+#: ../../source/kafka-node/index.rst:49
+msgid "Copyright (c) 2015 Sohu.com"
+msgstr "Copyright (c) 2015 Sohu.com"
+
+#: ../../source/kafka-node/index.rst:51
+msgid "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:"
+msgstr "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:"
+
+#: ../../source/kafka-node/index.rst:59
+msgid "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software."
+msgstr "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software."
+
+#: ../../source/kafka-node/index.rst:62
+msgid "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+msgstr "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+

@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/node-rdkafka/index.rst:15
+msgid "Contents:"
+msgstr "Contents:"
+
+#: ../../source/node-rdkafka/index.rst:2
+msgid "node-rdkafka - Node.js wrapper for Kafka C/C++ library"
+msgstr "node-rdkafka - Node.js wrapper for Kafka C/C++ library"
+
+#: ../../source/node-rdkafka/index.rst:4
+msgid "Copyright (c) 2016 Blizzard Entertainment."
+msgstr "Copyright (c) 2016 Blizzard Entertainment."
+
+#: ../../source/node-rdkafka/index.rst:6
+msgid "https://github.com/blizzard/node-rdkafka"
+msgstr "https://github.com/blizzard/node-rdkafka"
+
+#: ../../source/node-rdkafka/index.rst:8
+msgid "|Build Status| |npm version|"
+msgstr "|Build Status| |npm version|"
+

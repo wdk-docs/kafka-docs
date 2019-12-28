@@ -1,0 +1,782 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>快速开始 &mdash; kafka docs v2019.07.23 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="用例" href="use-cases.html" />
+    <link rel="prev" title="介绍" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> kafka docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">kafka</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="home.html">kafka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">介绍</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">快速开始</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">步1: 下载代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">步2: 启动服务器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">步3: 创建一个主题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">步4: 发送一些消息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">步5: 启动消费者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">步6: 设置多代理群集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-connect">步7: 使用Kafka Connect导入/导出数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-streams">步8: 使用Kafka Streams处理数据</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">快速开始</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-connect-1">步7: 使用Kafka Connect导入/导出数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka-streams-1">步8: 使用Kafka Streams处理数据</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="use-cases.html">用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apache.html">Apache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html">Kafka-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#install-kafka">Install Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kafka-node/index.html#license-mit">LICENSE - “MIT”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../node-rdkafka/index.html">node-rdkafka - Node.js wrapper for Kafka C/C++ library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aliyun/index.html">消息队列 Kafka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mns/index.html">mns api</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kafka docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">kafka</a> &raquo;</li>
+        
+      <li>快速开始</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/kafka/quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>快速开始<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>本教程假设您刚刚开始，并且没有现有的Kafka或ZooKeeper数据。 Since Kafka
+console scripts are different for Unix-based and Windows platforms, on
+Windows platforms use bin:raw-latex:<cite>windows</cite> instead of bin/, and
+change the script extension to .bat.</p>
+<div class="section" id="id2">
+<h2>步1: 下载代码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>下载1.1.0版本并解压缩它。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; tar -xzf kafka_2.11-1.1.0.tgz
+&gt; <span class="nb">cd</span> kafka_2.11-1.1.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>步2: 启动服务器<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>Kafka uses ZooKeeper so you need to first start a ZooKeeper server if
+you don’t already have one. You can use the convenience script packaged
+with kafka to get a quick-and-dirty single-node ZooKeeper instance.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/zookeeper-server-start.sh config/zookeeper.properties
+<span class="o">[</span><span class="m">2013</span>-04-22 <span class="m">15</span>:01:37,495<span class="o">]</span> INFO Reading configuration from: config/zookeeper.properties <span class="o">(</span>org.apache.zookeeper.server.quorum.QuorumPeerConfig<span class="o">)</span>
+...
+</pre></div>
+</div>
+<p>Now start the Kafka server:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-server-start.sh config/server.properties
+<span class="o">[</span><span class="m">2013</span>-04-22 <span class="m">15</span>:01:47,028<span class="o">]</span> INFO Verifying properties <span class="o">(</span>kafka.utils.VerifiableProperties<span class="o">)</span>
+<span class="o">[</span><span class="m">2013</span>-04-22 <span class="m">15</span>:01:47,051<span class="o">]</span> INFO Property socket.send.buffer.bytes is overridden to <span class="m">1048576</span> <span class="o">(</span>kafka.utils.VerifiableProperties<span class="o">)</span>
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>步3: 创建一个主题<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>Let’s create a topic named “test” with a single partition and only one
+replica:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor <span class="m">1</span> --partitions <span class="m">1</span> --topic <span class="nb">test</span>
+</pre></div>
+</div>
+<p>We can now see that topic if we run the list topic command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --list --zookeeper localhost:2181
+<span class="nb">test</span>
+</pre></div>
+</div>
+<p>Alternatively, instead of manually creating topics you can also
+configure your brokers to auto-create topics when a non-existent topic
+is published to.</p>
+</div>
+<div class="section" id="id5">
+<h2>步4: 发送一些消息<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>Kafka comes with a command line client that will take input from a file
+or from standard input and send it out as messages to the Kafka cluster.
+By default, each line will be sent as a separate message.</p>
+<p>Run the producer and then type a few messages into the console to send
+to the server.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="nb">test</span>
+This is a message
+This is another message
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>步5: 启动消费者<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>Kafka also has a command line consumer that will dump out messages to
+standard output.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <span class="nb">test</span> --from-beginning
+This is a message
+This is another message
+</pre></div>
+</div>
+<p>If you have each of the above commands running in a different terminal
+then you should now be able to type messages into the producer terminal
+and see them appear in the consumer terminal.</p>
+<p>All of the command line tools have additional options; running the
+command with no arguments will display usage information documenting
+them in more detail.</p>
+</div>
+<div class="section" id="id7">
+<h2>步6: 设置多代理群集<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>So far we have been running against a single broker, but that’s no fun.
+For Kafka, a single broker is just a cluster of size one, so nothing
+much changes other than starting a few more broker instances. But just
+to get feel for it, let’s expand our cluster to three nodes (still all
+on our local machine).</p>
+<p>First we make a config file for each of the brokers (on Windows use the
+copy command instead):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; cp config/server.properties config/server-1.properties
+&gt; cp config/server.properties config/server-2.properties
+</pre></div>
+</div>
+<p>Now edit these new files and set the following properties:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>config/server-1.properties:
+    broker.id<span class="o">=</span><span class="m">1</span>
+    <span class="nv">listeners</span><span class="o">=</span>PLAINTEXT://:9093
+    log.dir<span class="o">=</span>/tmp/kafka-logs-1
+
+config/server-2.properties:
+    broker.id<span class="o">=</span><span class="m">2</span>
+    <span class="nv">listeners</span><span class="o">=</span>PLAINTEXT://:9094
+    log.dir<span class="o">=</span>/tmp/kafka-logs-2
+</pre></div>
+</div>
+<p>The broker.id property is the unique and permanent name of each node in
+the cluster. We have to override the port and log directory only because
+we are running these all on the same machine and we want to keep the
+brokers from all trying to register on the same port or overwrite each
+other’s data.</p>
+<p>We already have Zookeeper and our single node started, so we just need
+to start the two new nodes:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-server-start.sh config/server-1.properties <span class="p">&amp;</span>
+...
+&gt; bin/kafka-server-start.sh config/server-2.properties <span class="p">&amp;</span>
+...
+</pre></div>
+</div>
+<p>Now create a new topic with a replication factor of three:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor <span class="m">3</span> --partitions <span class="m">1</span> --topic my-replicated-topic
+</pre></div>
+</div>
+<p>Okay but now that we have a cluster how can we know which broker is
+doing what? To see that run the “describe topics” command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
+Topic:my-replicated-topic   PartitionCount:1    ReplicationFactor:3 Configs:
+    Topic: my-replicated-topic  Partition: <span class="m">0</span>    Leader: <span class="m">1</span>   Replicas: <span class="m">1</span>,2,0 Isr: <span class="m">1</span>,2,0
+</pre></div>
+</div>
+<p>Here is an explanation of output. The first line gives a summary of all
+the partitions, each additional line gives information about one
+partition. Since we have only one partition for this topic there is only
+one line.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;leader&quot;</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">node</span> <span class="n">responsible</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">reads</span> <span class="ow">and</span> <span class="n">writes</span> <span class="k">for</span> <span class="n">the</span> <span class="n">given</span> <span class="n">partition</span><span class="o">.</span> <span class="n">Each</span> <span class="n">node</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">leader</span> <span class="k">for</span> <span class="n">a</span> <span class="n">randomly</span> <span class="n">selected</span> <span class="n">portion</span> <span class="n">of</span> <span class="n">the</span> <span class="n">partitions</span><span class="o">.</span>
+<span class="s2">&quot;replicas&quot;</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">nodes</span> <span class="n">that</span> <span class="n">replicate</span> <span class="n">the</span> <span class="n">log</span> <span class="k">for</span> <span class="n">this</span> <span class="n">partition</span> <span class="n">regardless</span> <span class="n">of</span> <span class="n">whether</span> <span class="n">they</span> <span class="n">are</span> <span class="n">the</span> <span class="n">leader</span> <span class="ow">or</span> <span class="n">even</span> <span class="k">if</span> <span class="n">they</span> <span class="n">are</span> <span class="n">currently</span> <span class="n">alive</span><span class="o">.</span>
+<span class="s2">&quot;isr&quot;</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">set</span> <span class="n">of</span> <span class="s2">&quot;in-sync&quot;</span> <span class="n">replicas</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">subset</span> <span class="n">of</span> <span class="n">the</span> <span class="n">replicas</span> <span class="nb">list</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">currently</span> <span class="n">alive</span> <span class="ow">and</span> <span class="n">caught</span><span class="o">-</span><span class="n">up</span> <span class="n">to</span> <span class="n">the</span> <span class="n">leader</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Note that in my example node 1 is the leader for the only partition of
+the topic.</p>
+<p>We can run the same command on the original topic we created to see
+where it is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic <span class="nb">test</span>
+Topic:test  PartitionCount:1    ReplicationFactor:1 Configs:
+    Topic: <span class="nb">test</span> Partition: <span class="m">0</span>    Leader: <span class="m">0</span>   Replicas: <span class="m">0</span> Isr: <span class="m">0</span>
+</pre></div>
+</div>
+<p>So there is no surprise there—the original topic has no replicas and is
+on server 0, the only server in our cluster when we created it.</p>
+<p>Let’s publish a few messages to our new topic:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic my-replicated-topic
+...
+my <span class="nb">test</span> message <span class="m">1</span>
+my <span class="nb">test</span> message <span class="m">2</span>
+^C
+</pre></div>
+</div>
+<p>Now let’s consume these messages:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+...
+my <span class="nb">test</span> message <span class="m">1</span>
+my <span class="nb">test</span> message <span class="m">2</span>
+^C
+</pre></div>
+</div>
+<p>Now let’s test out fault-tolerance. Broker 1 was acting as the leader so
+let’s kill it:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; ps aux <span class="p">|</span> grep server-1.properties
+<span class="m">7564</span> ttys002    <span class="m">0</span>:15.91 /System/Library/Frameworks/JavaVM.framework/Versions/1.8/Home/bin/java...
+&gt; <span class="nb">kill</span> -9 <span class="m">7564</span>
+</pre></div>
+</div>
+<p>On Windows use:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; wmic process where <span class="s2">&quot;caption = &#39;java.exe&#39; and commandline like &#39;%server-1.properties%&#39;&quot;</span> get processid
+ProcessId
+<span class="m">6016</span>
+&gt; taskkill /pid <span class="m">6016</span> /f
+</pre></div>
+</div>
+<p>Leadership has switched to one of the slaves and node 1 is no longer in
+the in-sync replica set:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
+Topic:my-replicated-topic   PartitionCount:1    ReplicationFactor:3 Configs:
+    Topic: my-replicated-topic  Partition: <span class="m">0</span>    Leader: <span class="m">2</span>   Replicas: <span class="m">1</span>,2,0 Isr: <span class="m">2</span>,0
+</pre></div>
+</div>
+<p>But the messages are still available for consumption even though the
+leader that took the writes originally is down:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+...
+my <span class="nb">test</span> message <span class="m">1</span>
+my <span class="nb">test</span> message <span class="m">2</span>
+^C
+</pre></div>
+</div>
+</div>
+<div class="section" id="kafka-connect">
+<h2>步7: 使用Kafka Connect导入/导出数据<a class="headerlink" href="#kafka-connect" title="永久链接至标题">¶</a></h2>
+<p>Writing data from the console and writing it back to the console is a
+convenient place to start, but you’ll probably want to use data from
+other sources or export data from Kafka to other systems. For many
+systems, instead of writing custom integration code you can use Kafka
+Connect to import or export data.</p>
+<p>Kafka Connect is a tool included with Kafka that imports and exports
+data to Kafka. It is an extensible tool that runs connectors, which
+implement the custom logic for interacting with an external system. In
+this quickstart we’ll see how to run Kafka Connect with simple
+connectors that import data from a file to a Kafka topic and export data
+from a Kafka topic to a file.</p>
+<p>First, we’ll start by creating some seed data to test with:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">echo</span> -e <span class="s2">&quot;foo\nbar&quot;</span> &gt; test.txt
+</pre></div>
+</div>
+<p>Or on Windows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">echo</span> foo&gt; test.txt
+&gt; <span class="nb">echo</span> bar&gt;&gt; test.txt
+</pre></div>
+</div>
+<p>Next, we’ll start two connectors running in standalone mode, which means
+they run in a single, local, dedicated process. We provide three
+configuration files as parameters. The first is always the configuration
+for the Kafka Connect process, containing common configuration such as
+the Kafka brokers to connect to and the serialization format for data.
+The remaining configuration files each specify a connector to create.
+These files include a unique connector name, the connector class to
+instantiate, and any other configuration required by the connector.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+</pre></div>
+</div>
+<p>These sample configuration files, included with Kafka, use the default
+local cluster configuration you started earlier and create two
+connectors: the first is a source connector that reads lines from an
+input file and produces each to a Kafka topic and the second is a sink
+connector that reads messages from a Kafka topic and produces each as a
+line in an output file.</p>
+<p>During startup you’ll see a number of log messages, including some
+indicating that the connectors are being instantiated. Once the Kafka
+Connect process has started, the source connector should start reading
+lines from test.txt and producing them to the topic connect-test, and
+the sink connector should start reading messages from the topic
+connect-test and write them to the file test.sink.txt. We can verify the
+data has been delivered through the entire pipeline by examining the
+contents of the output file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; more test.sink.txt
+foo
+bar
+</pre></div>
+</div>
+<p>Note that the data is being stored in the Kafka topic connect-test, so
+we can also run a console consumer to see the data in the topic (or use
+custom consumer code to process it):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic connect-test --from-beginning
+<span class="o">{</span><span class="s2">&quot;schema&quot;</span>:<span class="o">{</span><span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;string&quot;</span>,<span class="s2">&quot;optional&quot;</span>:false<span class="o">}</span>,<span class="s2">&quot;payload&quot;</span>:<span class="s2">&quot;foo&quot;</span><span class="o">}</span>
+<span class="o">{</span><span class="s2">&quot;schema&quot;</span>:<span class="o">{</span><span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;string&quot;</span>,<span class="s2">&quot;optional&quot;</span>:false<span class="o">}</span>,<span class="s2">&quot;payload&quot;</span>:<span class="s2">&quot;bar&quot;</span><span class="o">}</span>
+...
+</pre></div>
+</div>
+<p>The connectors continue to process data, so we can add data to the file
+and see it move through the pipeline:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">echo</span> Another line&gt;&gt; test.txt
+</pre></div>
+</div>
+<p>You should see the line appear in the console consumer output and in the
+sink file.</p>
+</div>
+<div class="section" id="kafka-streams">
+<h2>步8: 使用Kafka Streams处理数据<a class="headerlink" href="#kafka-streams" title="永久链接至标题">¶</a></h2>
+<p>Kafka Streams is a client library for building mission-critical
+real-time applications and microservices, where the input and/or output
+data is stored in Kafka clusters. Kafka Streams combines the simplicity
+of writing and deploying standard Java and Scala applications on the
+client side with the benefits of Kafka’s server-side cluster technology
+to make these applications highly scalable, elastic, fault-tolerant,
+distributed, and much more. This quickstart example will demonstrate how
+to run a streaming application coded in this library.</p>
+<div class="section" id="id8">
+<span id="id9"></span><h3>快速开始<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>本教程假设您刚刚开始，并且没有现有的Kafka或ZooKeeper数据。
+由于Kafka控制台脚本对于基于Unix和Windows的平台不同，
+在Windows平台上使用bin:raw-latex:<cite>windows</cite><a href="#id10"><span class="problematic" id="id11">:raw-latex:`\而不是bin`</span></a>/，
+并将脚本扩展名更改为.bat.</p>
+<div class="section" id="id12">
+<span id="id13"></span><h4>步1: 下载代码<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>下载1.1.0版本并解压缩它。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; tar -xzf kafka_2.11-1.1.0.tgz
+&gt; <span class="nb">cd</span> kafka_2.11-1.1.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<span id="id15"></span><h4>步2: 启动服务器<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>Kafka uses ZooKeeper so you need to first start a ZooKeeper server if
+you don’t already have one. You can use the convenience script packaged
+with kafka to get a quick-and-dirty single-node ZooKeeper instance.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/zookeeper-server-start.sh config/zookeeper.properties
+<span class="o">[</span><span class="m">2013</span>-04-22 <span class="m">15</span>:01:37,495<span class="o">]</span> INFO Reading configuration from: config/zookeeper.properties <span class="o">(</span>org.apache.zookeeper.server.quorum.QuorumPeerConfig<span class="o">)</span>
+...
+</pre></div>
+</div>
+<p>现在启动Kafka服务器：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-server-start.sh config/server.properties
+<span class="o">[</span><span class="m">2013</span>-04-22 <span class="m">15</span>:01:47,028<span class="o">]</span> INFO Verifying properties <span class="o">(</span>kafka.utils.VerifiableProperties<span class="o">)</span>
+<span class="o">[</span><span class="m">2013</span>-04-22 <span class="m">15</span>:01:47,051<span class="o">]</span> INFO Property socket.send.buffer.bytes is overridden to <span class="m">1048576</span> <span class="o">(</span>kafka.utils.VerifiableProperties<span class="o">)</span>
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<span id="id17"></span><h4>步3: 创建一个主题<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>Let’s create a topic named “test” with a single partition and only one
+replica:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor <span class="m">1</span> --partitions <span class="m">1</span> --topic <span class="nb">test</span>
+</pre></div>
+</div>
+<p>We can now see that topic if we run the list topic command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --list --zookeeper localhost:2181
+<span class="nb">test</span>
+</pre></div>
+</div>
+<p>Alternatively, instead of manually creating topics you can also
+configure your brokers to auto-create topics when a non-existent topic
+is published to.</p>
+</div>
+<div class="section" id="id18">
+<span id="id19"></span><h4>步4: 发送一些消息<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>Kafka comes with a command line client that will take input from a file
+or from standard input and send it out as messages to the Kafka cluster.
+By default, each line will be sent as a separate message.</p>
+<p>Run the producer and then type a few messages into the console to send
+to the server.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="nb">test</span>
+This is a message
+This is another message
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<span id="id21"></span><h4>步5: 启动消费者<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h4>
+<p>Kafka also has a command line consumer that will dump out messages to
+standard output.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <span class="nb">test</span> --from-beginning
+This is a message
+This is another message
+</pre></div>
+</div>
+<p>If you have each of the above commands running in a different terminal
+then you should now be able to type messages into the producer terminal
+and see them appear in the consumer terminal.</p>
+<p>All of the command line tools have additional options; running the
+command with no arguments will display usage information documenting
+them in more detail.</p>
+</div>
+<div class="section" id="id22">
+<span id="id23"></span><h4>步6: 设置多代理群集<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<p>So far we have been running against a single broker, but that’s no fun.
+For Kafka, a single broker is just a cluster of size one, so nothing
+much changes other than starting a few more broker instances. But just
+to get feel for it, let’s expand our cluster to three nodes (still all
+on our local machine).</p>
+<p>First we make a config file for each of the brokers (on Windows use the
+copy command instead):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; cp config/server.properties config/server-1.properties
+&gt; cp config/server.properties config/server-2.properties
+</pre></div>
+</div>
+<p>Now edit these new files and set the following properties:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>config/server-1.properties:
+    broker.id<span class="o">=</span><span class="m">1</span>
+    <span class="nv">listeners</span><span class="o">=</span>PLAINTEXT://:9093
+    log.dir<span class="o">=</span>/tmp/kafka-logs-1
+
+config/server-2.properties:
+    broker.id<span class="o">=</span><span class="m">2</span>
+    <span class="nv">listeners</span><span class="o">=</span>PLAINTEXT://:9094
+    log.dir<span class="o">=</span>/tmp/kafka-logs-2
+</pre></div>
+</div>
+<p>The broker.id property is the unique and permanent name of each node in
+the cluster. We have to override the port and log directory only because
+we are running these all on the same machine and we want to keep the
+brokers from all trying to register on the same port or overwrite each
+other’s data.</p>
+<p>We already have Zookeeper and our single node started, so we just need
+to start the two new nodes:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-server-start.sh config/server-1.properties <span class="p">&amp;</span>
+...
+&gt; bin/kafka-server-start.sh config/server-2.properties <span class="p">&amp;</span>
+...
+</pre></div>
+</div>
+<p>Now create a new topic with a replication factor of three:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor <span class="m">3</span> --partitions <span class="m">1</span> --topic my-replicated-topic
+</pre></div>
+</div>
+<p>Okay but now that we have a cluster how can we know which broker is
+doing what? To see that run the “describe topics” command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
+Topic:my-replicated-topic   PartitionCount:1    ReplicationFactor:3 Configs:
+    Topic: my-replicated-topic  Partition: <span class="m">0</span>    Leader: <span class="m">1</span>   Replicas: <span class="m">1</span>,2,0 Isr: <span class="m">1</span>,2,0
+</pre></div>
+</div>
+<p>Here is an explanation of output. The first line gives a summary of all
+the partitions, each additional line gives information about one
+partition. Since we have only one partition for this topic there is only
+one line.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;leader&quot;</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">node</span> <span class="n">responsible</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">reads</span> <span class="ow">and</span> <span class="n">writes</span> <span class="k">for</span> <span class="n">the</span> <span class="n">given</span> <span class="n">partition</span><span class="o">.</span> <span class="n">Each</span> <span class="n">node</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">leader</span> <span class="k">for</span> <span class="n">a</span> <span class="n">randomly</span> <span class="n">selected</span> <span class="n">portion</span> <span class="n">of</span> <span class="n">the</span> <span class="n">partitions</span><span class="o">.</span>
+<span class="s2">&quot;replicas&quot;</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">nodes</span> <span class="n">that</span> <span class="n">replicate</span> <span class="n">the</span> <span class="n">log</span> <span class="k">for</span> <span class="n">this</span> <span class="n">partition</span> <span class="n">regardless</span> <span class="n">of</span> <span class="n">whether</span> <span class="n">they</span> <span class="n">are</span> <span class="n">the</span> <span class="n">leader</span> <span class="ow">or</span> <span class="n">even</span> <span class="k">if</span> <span class="n">they</span> <span class="n">are</span> <span class="n">currently</span> <span class="n">alive</span><span class="o">.</span>
+<span class="s2">&quot;isr&quot;</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">set</span> <span class="n">of</span> <span class="s2">&quot;in-sync&quot;</span> <span class="n">replicas</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">subset</span> <span class="n">of</span> <span class="n">the</span> <span class="n">replicas</span> <span class="nb">list</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">currently</span> <span class="n">alive</span> <span class="ow">and</span> <span class="n">caught</span><span class="o">-</span><span class="n">up</span> <span class="n">to</span> <span class="n">the</span> <span class="n">leader</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Note that in my example node 1 is the leader for the only partition of
+the topic.</p>
+<p>We can run the same command on the original topic we created to see
+where it is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic <span class="nb">test</span>
+Topic:test  PartitionCount:1    ReplicationFactor:1 Configs:
+    Topic: <span class="nb">test</span> Partition: <span class="m">0</span>    Leader: <span class="m">0</span>   Replicas: <span class="m">0</span> Isr: <span class="m">0</span>
+</pre></div>
+</div>
+<p>So there is no surprise there—the original topic has no replicas and is
+on server 0, the only server in our cluster when we created it.</p>
+<p>Let’s publish a few messages to our new topic:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic my-replicated-topic
+...
+my <span class="nb">test</span> message <span class="m">1</span>
+my <span class="nb">test</span> message <span class="m">2</span>
+^C
+</pre></div>
+</div>
+<p>Now let’s consume these messages:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+...
+my <span class="nb">test</span> message <span class="m">1</span>
+my <span class="nb">test</span> message <span class="m">2</span>
+^C
+</pre></div>
+</div>
+<p>Now let’s test out fault-tolerance. Broker 1 was acting as the leader so
+let’s kill it:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; ps aux <span class="p">|</span> grep server-1.properties
+<span class="m">7564</span> ttys002    <span class="m">0</span>:15.91 /System/Library/Frameworks/JavaVM.framework/Versions/1.8/Home/bin/java...
+&gt; <span class="nb">kill</span> -9 <span class="m">7564</span>
+</pre></div>
+</div>
+<p>On Windows use:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; wmic process where <span class="s2">&quot;caption = &#39;java.exe&#39; and commandline like &#39;%server-1.properties%&#39;&quot;</span> get processid
+ProcessId
+<span class="m">6016</span>
+&gt; taskkill /pid <span class="m">6016</span> /f
+</pre></div>
+</div>
+<p>Leadership has switched to one of the slaves and node 1 is no longer in
+the in-sync replica set:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
+Topic:my-replicated-topic   PartitionCount:1    ReplicationFactor:3 Configs:
+    Topic: my-replicated-topic  Partition: <span class="m">0</span>    Leader: <span class="m">2</span>   Replicas: <span class="m">1</span>,2,0 Isr: <span class="m">2</span>,0
+</pre></div>
+</div>
+<p>But the messages are still available for consumption even though the
+leader that took the writes originally is down:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+...
+my <span class="nb">test</span> message <span class="m">1</span>
+my <span class="nb">test</span> message <span class="m">2</span>
+^C
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kafka-connect-1">
+<span id="id24"></span><h2>步7: 使用Kafka Connect导入/导出数据<a class="headerlink" href="#kafka-connect-1" title="永久链接至标题">¶</a></h2>
+<p>Writing data from the console and writing it back to the console is a
+convenient place to start, but you’ll probably want to use data from
+other sources or export data from Kafka to other systems. For many
+systems, instead of writing custom integration code you can use Kafka
+Connect to import or export data.</p>
+<p>Kafka Connect is a tool included with Kafka that imports and exports
+data to Kafka. It is an extensible tool that runs connectors, which
+implement the custom logic for interacting with an external system. In
+this quickstart we’ll see how to run Kafka Connect with simple
+connectors that import data from a file to a Kafka topic and export data
+from a Kafka topic to a file.</p>
+<p>First, we’ll start by creating some seed data to test with:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">echo</span> -e <span class="s2">&quot;foo\nbar&quot;</span> &gt; test.txt
+</pre></div>
+</div>
+<p>Or on Windows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">echo</span> foo&gt; test.txt
+&gt; <span class="nb">echo</span> bar&gt;&gt; test.txt
+</pre></div>
+</div>
+<p>Next, we’ll start two connectors running in standalone mode, which means
+they run in a single, local, dedicated process. We provide three
+configuration files as parameters. The first is always the configuration
+for the Kafka Connect process, containing common configuration such as
+the Kafka brokers to connect to and the serialization format for data.
+The remaining configuration files each specify a connector to create.
+These files include a unique connector name, the connector class to
+instantiate, and any other configuration required by the connector.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+</pre></div>
+</div>
+<p>These sample configuration files, included with Kafka, use the default
+local cluster configuration you started earlier and create two
+connectors: the first is a source connector that reads lines from an
+input file and produces each to a Kafka topic and the second is a sink
+connector that reads messages from a Kafka topic and produces each as a
+line in an output file.</p>
+<p>During startup you’ll see a number of log messages, including some
+indicating that the connectors are being instantiated. Once the Kafka
+Connect process has started, the source connector should start reading
+lines from test.txt and producing them to the topic connect-test, and
+the sink connector should start reading messages from the topic
+connect-test and write them to the file test.sink.txt. We can verify the
+data has been delivered through the entire pipeline by examining the
+contents of the output file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; more test.sink.txt
+foo
+bar
+</pre></div>
+</div>
+<p>Note that the data is being stored in the Kafka topic connect-test, so
+we can also run a console consumer to see the data in the topic (or use
+custom consumer code to process it):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic connect-test --from-beginning
+<span class="o">{</span><span class="s2">&quot;schema&quot;</span>:<span class="o">{</span><span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;string&quot;</span>,<span class="s2">&quot;optional&quot;</span>:false<span class="o">}</span>,<span class="s2">&quot;payload&quot;</span>:<span class="s2">&quot;foo&quot;</span><span class="o">}</span>
+<span class="o">{</span><span class="s2">&quot;schema&quot;</span>:<span class="o">{</span><span class="s2">&quot;type&quot;</span>:<span class="s2">&quot;string&quot;</span>,<span class="s2">&quot;optional&quot;</span>:false<span class="o">}</span>,<span class="s2">&quot;payload&quot;</span>:<span class="s2">&quot;bar&quot;</span><span class="o">}</span>
+...
+</pre></div>
+</div>
+<p>The connectors continue to process data, so we can add data to the file
+and see it move through the pipeline:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">echo</span> Another line&gt;&gt; test.txt
+</pre></div>
+</div>
+<p>You should see the line appear in the console consumer output and in the
+sink file.</p>
+</div>
+<div class="section" id="kafka-streams-1">
+<span id="id25"></span><h2>步8: 使用Kafka Streams处理数据<a class="headerlink" href="#kafka-streams-1" title="永久链接至标题">¶</a></h2>
+<p>Kafka Streams is a client library for building mission-critical
+real-time applications and microservices, where the input and/or output
+data is stored in Kafka clusters. Kafka Streams combines the simplicity
+of writing and deploying standard Java and Scala applications on the
+client side with the benefits of Kafka’s server-side cluster technology
+to make these applications highly scalable, elastic, fault-tolerant,
+distributed, and much more. This quickstart example will demonstrate how
+to run a streaming application coded in this library.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="use-cases.html" class="btn btn-neutral float-right" title="用例" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

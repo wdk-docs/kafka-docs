@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the kafka docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kafka docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-23 14:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/mns/aliyun-mns.rst:2
+msgid "消息服务"
+msgstr "消息服务"
+
+#: ../../source/mns/aliyun-mns.rst:4
+msgid ""
+"阿里云消息服务(Message Service，简称 "
+"MNS)是一种高效、可靠、安全、便捷、可弹性扩展的分布式消息服务。MNS能够帮助应用开发者在他们应用的分布式组件上自由的传递数据、通知消息，构建松耦合系统。"
+msgstr "阿里云消息服务(Message Service，简称 MNS)是一种高效、可靠、安全、便捷、可弹性扩展的分布式消息服务。MNS能够帮助应用开发者在他们应用的分布式组件上自由的传递数据、通知消息，构建松耦合系统。"
+
+#: ../../source/mns/aliyun-mns.rst:8
+msgid "快速入门"
+msgstr "快速入门"
+
+#: ../../source/mns/aliyun-mns.rst:10
+msgid "您可以通过阿里云管理控制台进行MNS的基本操作。"
+msgstr "您可以通过阿里云管理控制台进行MNS的基本操作。"
+
+#: ../../source/mns/aliyun-mns.rst:12 ../../source/mns/aliyun-mns.rst:28
+msgid "概述"
+msgstr "概述"
+
+#: ../../source/mns/aliyun-mns.rst:13
+msgid "开通服务"
+msgstr "开通服务"
+
+#: ../../source/mns/aliyun-mns.rst:14
+msgid "获取访问AK"
+msgstr "获取访问AK"
+
+#: ../../source/mns/aliyun-mns.rst:15
+msgid "获取MNS访问域名"
+msgstr "获取MNS访问域名"
+
+#: ../../source/mns/aliyun-mns.rst:16
+msgid "队列操作"
+msgstr "队列操作"
+
+#: ../../source/mns/aliyun-mns.rst:17
+msgid "队列消息操作"
+msgstr "队列消息操作"
+
+#: ../../source/mns/aliyun-mns.rst:18
+msgid "主题操作"
+msgstr "主题操作"
+
+#: ../../source/mns/aliyun-mns.rst:19
+msgid "订阅操作"
+msgstr "订阅操作"
+
+#: ../../source/mns/aliyun-mns.rst:21 ../../source/mns/aliyun-mns.rst:37
+msgid "更多>"
+msgstr "更多>"
+
+#: ../../source/mns/aliyun-mns.rst:24
+msgid "用户指南"
+msgstr "用户指南"
+
+#: ../../source/mns/aliyun-mns.rst:26
+msgid "详细介绍阿里云MNS的核心概念、所有功能与操作步骤，以及访问控制、监控、日志管理等运维方法。"
+msgstr "详细介绍阿里云MNS的核心概念、所有功能与操作步骤，以及访问控制、监控、日志管理等运维方法。"
+
+#: ../../source/mns/aliyun-mns.rst:29
+msgid "队列模型"
+msgstr "队列模型"
+
+#: ../../source/mns/aliyun-mns.rst:30
+msgid "主题模型"
+msgstr "主题模型"
+
+#: ../../source/mns/aliyun-mns.rst:31
+msgid "事件通知"
+msgstr "事件通知"
+
+#: ../../source/mns/aliyun-mns.rst:32
+msgid "日志管理"
+msgstr "日志管理"
+
+#: ../../source/mns/aliyun-mns.rst:33
+msgid "邮件推送"
+msgstr "邮件推送"
+
+#: ../../source/mns/aliyun-mns.rst:34
+msgid "Queue推送"
+msgstr "Queue推送"
+
+#: ../../source/mns/aliyun-mns.rst:35
+msgid "短信推送"
+msgstr "短信推送"
+
+#: ../../source/mns/aliyun-mns.rst:40
+msgid "最佳实践"
+msgstr "最佳实践"
+
+#: ../../source/mns/aliyun-mns.rst:42
+msgid "详细介绍了阿里云MNS的各种使用场景与实践案例。"
+msgstr "详细介绍了阿里云MNS的各种使用场景与实践案例。"
+
+#: ../../source/mns/aliyun-mns.rst:44
+msgid "广播拉取消息模型"
+msgstr "广播拉取消息模型"
+
+#: ../../source/mns/aliyun-mns.rst:45
+msgid "消息处理时长自适应"
+msgstr "消息处理时长自适应"
+
+#: ../../source/mns/aliyun-mns.rst:46
+msgid "长轮询"
+msgstr "长轮询"
+
+#: ../../source/mns/aliyun-mns.rst:47
+msgid "消息加密传输"
+msgstr "消息加密传输"
+
+#: ../../source/mns/aliyun-mns.rst:48
+msgid "严格保序队列"
+msgstr "严格保序队列"
+
+#: ../../source/mns/aliyun-mns.rst:49
+msgid "超大消息传输"
+msgstr "超大消息传输"
+
+#: ../../source/mns/aliyun-mns.rst:50
+msgid "事务消息"
+msgstr "事务消息"
+
+#: ../../source/mns/aliyun-mns.rst:53
+msgid "API 参考"
+msgstr "API 参考"
+
+#: ../../source/mns/aliyun-mns.rst:55
+msgid "通过发起HTTP/HTTPS请求调用阿里云API的方式来使用云产品。"
+msgstr "通过发起HTTP/HTTPS请求调用阿里云API的方式来使用云产品。"
+
+#: ../../source/mns/aliyun-mns.rst:57
+msgid "基本概念"
+msgstr "基本概念"
+
+#: ../../source/mns/aliyun-mns.rst:58
+msgid "调用方式"
+msgstr "调用方式"
+
+#: ../../source/mns/aliyun-mns.rst:59
+msgid "队列接口规范"
+msgstr "队列接口规范"
+
+#: ../../source/mns/aliyun-mns.rst:60
+msgid "主题接口规范"
+msgstr "主题接口规范"
+
+#: ../../source/mns/aliyun-mns.rst:61
+msgid "错误响应"
+msgstr "错误响应"
+
+#: ../../source/mns/aliyun-mns.rst:62
+msgid "历史协议"
+msgstr "历史协议"
+
